@@ -1,11 +1,14 @@
     /* 這個專案為了測試三角定位，定點的定位=>Real time定位=>
        把演算法丟入具有3軸的裏面做比較
-                                                           */
+ 11/8算出相對距離  目前做兩個人的相對定位
+ 暫定Tim 不動，為起始點
+                                                     */
 package demo;
                                         
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
@@ -21,10 +24,13 @@ import com.rabbitmq.client.QueueingConsumer;
 import com.sun.org.apache.bcel.internal.generic.ATHROW;
 import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
-public class Subscriber_bluetooth 
+public class Subscriber_bluetooth_position 
 {
 
-    private static final String TEST_TOPIC = "demo.EXCHANGE1";
+    private static final String TEST_TOPIC = "demo.EXCHANGE1";    //這邊是收集RSSI的資訊Topic
+    private static final String TOPIC_postion_1 = "demo.EXCHANGE_postion1";
+    private static final String TOPIC_postion_2 = "demo.EXCHANGE_postion2";
+
     static ArrayList<Integer> PKrssi = new ArrayList<Integer>(); //之後要寫活的
     static ArrayList<Integer> PKrssi2 = new ArrayList<Integer>();
     static ArrayList<Integer> PKrange = new ArrayList<Integer>();
@@ -45,6 +51,17 @@ public class Subscriber_bluetooth
     static double startTime;
     static double endTime;
     static double totTime;
+    static int pre_rssi,mid_rssi,now_rssi,average_pre_rssi,average_mid_rssi,average_now_rssi;
+    static double pre_distance,mid_distance,now_distance;
+    static int count_rssi=0,average_count_rssi=0;
+	static int count_distance=0;
+    static int threshold_rssi=3;
+
+    
+
+    static Channel channel;
+    static Channel channel_publish;
+    static Channel channel_publish2;
 
     interface ThreeFiled {
     	public  String macaddress[]={"80:C1:BA:74:56:6B","80:C1:BA:73:48:CC","80:C1:BA:75:EF:66"};   
@@ -53,15 +70,15 @@ public class Subscriber_bluetooth
         public  double r_distance[]={0.0,0.0};
     	
     }
-    
     public static void main(String[] argv)
             throws java.io.IOException,
             java.lang.InterruptedException, KeyManagementException, NoSuchAlgorithmException, URISyntaxException
     {
+    	
         ConnectionFactory factory = new ConnectionFactory();
         factory.setUri("amqp://admin:admin@127.0.0.1");    //如果是要傳amqp://userName:password; localhost=127.0.0.1
         Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
+         channel = connection.createChannel();
         
         channel.exchangeDeclare(TEST_TOPIC, "fanout");
         String queueName = channel.queueDeclare().getQueue();
@@ -71,18 +88,66 @@ public class Subscriber_bluetooth
 
         QueueingConsumer consumer = new QueueingConsumer(channel);
         channel.basicConsume(queueName, true, consumer);
+        
+        /***************** 第一個人的位置****************/
+        ConnectionFactory factory_publish = new ConnectionFactory();
+      try {
+      	factory_publish.setUri("amqp://admin:admin@192.168.1.100");
+		} catch (KeyManagementException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+      Connection connection_publish = factory_publish.newConnection();
+      channel_publish = connection_publish.createChannel();
+      channel_publish.exchangeDeclare(TOPIC_postion_1, "fanout");
+      
+      /***************** 第二個人的位置****************/
+      ConnectionFactory factory_publish2 = new ConnectionFactory();
+    try {
+    	factory_publish2.setUri("amqp://admin:admin@192.168.1.100");
+		} catch (KeyManagementException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    Connection connection_publish2 = factory_publish.newConnection();
+    channel_publish2 = connection_publish2.createChannel();
+    channel_publish2.exchangeDeclare(TOPIC_postion_2, "fanout");
+        
 
+        
+        
+        
+        int j=0,intrssi; 
+        String tempmocap,temppostion;
         while (true) {
             QueueingConsumer.Delivery delivery = consumer.nextDelivery();
             String line = new String(delivery.getBody());
-            //System.out.println(line);
+           // System.out.println(line);
+            
+
+    	     
+            Rssi_to_Unity(line.substring(0, 4),Integer.valueOf(line.substring(line.indexOf("&")+1)));
+            
+            
             
             
             //System.out.println(MACaddress+" "+Intrssi);
             
 //******************  以下為做實驗看數據，如何要怎麼挑整     ***********************************
-           if(starttime>=200){
-        	   if(starttime==200){
+           if(starttime>=150){
+        	   if(starttime==150){
         	   System.out.println("LET start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         	    startTime = System.currentTimeMillis();
         	   }
@@ -93,7 +158,7 @@ public class Subscriber_bluetooth
             
             //System.out.println(line);
 			 
-			FileWriter fw =new  FileWriter("/Users/tsai/Desktop/ 穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050LeftUpLegDMP_P.txt",true);
+			FileWriter fw =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050LeftUpLegDMP_P.txt",true);
 			BufferedWriter bufferedWriter = new BufferedWriter(fw);
 
 			bufferedWriter.write(line.substring(line.indexOf(':')+1, line.indexOf('.'))+" "+"\n");
@@ -102,7 +167,7 @@ public class Subscriber_bluetooth
 			String tempstString= line.substring(line.indexOf('.')+1);
 			//int tempindex=line.indexOf('.');
 			
-			FileWriter fw2 =new  FileWriter("/Users/tsai/Desktop/ 穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050LeftUpLegDMP_R.txt",true);
+			FileWriter fw2 =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050LeftUpLegDMP_R.txt",true);
 			BufferedWriter bufferedWriter2 = new BufferedWriter(fw2);
 
 			//System.out.println("tempstString.indexOf('.')-1"+" "+tempstString+(tempstString.indexOf('.')+1));
@@ -111,7 +176,7 @@ public class Subscriber_bluetooth
 			
 			String tempstString2= tempstString.substring(tempstString.indexOf('.'));
 			
-			FileWriter fw3 =new  FileWriter("/Users/tsai/Desktop/ 穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050LeftUpLegDMP_Y.txt",true);
+			FileWriter fw3 =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050LeftUpLegDMP_Y.txt",true);
 			BufferedWriter bufferedWriter3 = new BufferedWriter(fw3);
 
 			bufferedWriter3.write(tempstString2.substring(tempstString2.indexOf('.')+1)+" "+"\n");
@@ -126,7 +191,7 @@ public class Subscriber_bluetooth
                 
             //System.out.println(line);
 			 
-			FileWriter fw =new  FileWriter("/Users/tsai/Desktop/ 穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050RightUpLegDMP_P.txt",true);
+			FileWriter fw =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050RightUpLegDMP_P.txt",true);
 			BufferedWriter bufferedWriter = new BufferedWriter(fw);
 
 			bufferedWriter.write(line.substring(line.indexOf(':')+1, line.indexOf('.'))+" "+"\n");
@@ -135,7 +200,7 @@ public class Subscriber_bluetooth
 			String tempstString= line.substring(line.indexOf('.')+1);
 			//int tempindex=line.indexOf('.');
 			
-			FileWriter fw2 =new  FileWriter("/Users/tsai/Desktop/ 穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050RightUpLegDMP_R.txt",true);
+			FileWriter fw2 =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050RightUpLegDMP_R.txt",true);
 			BufferedWriter bufferedWriter2 = new BufferedWriter(fw2);
 
 			//System.out.println("tempstString.indexOf('.')-1"+" "+tempstString+(tempstString.indexOf('.')+1));
@@ -144,7 +209,7 @@ public class Subscriber_bluetooth
 			
 			String tempstString2= tempstString.substring(tempstString.indexOf('.'));
 			
-			FileWriter fw3 =new  FileWriter("/Users/tsai/Desktop/ 穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050RightUpLegDMP_Y.txt",true);
+			FileWriter fw3 =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/MPU6050RightUpLegDMP_Y.txt",true);
 			BufferedWriter bufferedWriter3 = new BufferedWriter(fw3);
 
 			bufferedWriter3.write(tempstString2.substring(tempstString2.indexOf('.')+1)+" "+"\n");
@@ -159,19 +224,19 @@ public class Subscriber_bluetooth
                 
             //System.out.println(line);
 			 
-			FileWriter fw =new  FileWriter("/Users/tsai/Desktop/ 穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/TimLeftWaistRSSI.txt",true);
+			FileWriter fw =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/TimLeftWaistRSSI.txt",true);
 			BufferedWriter bufferedWriter = new BufferedWriter(fw);
 
 			bufferedWriter.write(line.substring(line.indexOf('&')+1,line.indexOf('&')+3)+" "+"\n");
 			bufferedWriter.close();
 			
-           }
+           } 
             if(line.indexOf("80:C1:BA:74:56:6B")>=0){   //TimRightWaistRSSI
             	
                 
             //System.out.println(line);
 			 
-			FileWriter fw =new  FileWriter("/Users/tsai/Desktop/ 穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/TimRightWaistRSSI.txt",true);
+			FileWriter fw =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/TimRightWaistRSSI.txt",true);
 			BufferedWriter bufferedWriter = new BufferedWriter(fw);
 
 			bufferedWriter.write(line.substring(line.indexOf('&')+1,line.indexOf('&')+3)+" "+"\n");
@@ -182,9 +247,9 @@ public class Subscriber_bluetooth
            if(line.indexOf("80:C1:BA:76:1E:30")>=0){   //JackLeftWaistRSSI
             	
                 
-            System.out.println(line);
+            //System.out.println(line);
 			 
-			FileWriter fw =new  FileWriter("/Users/tsai/Desktop/ 穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/JackLeftWaistRSSI.txt",true);
+			FileWriter fw =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/JackLeftWaistRSSI.txt",true);
 			BufferedWriter bufferedWriter = new BufferedWriter(fw);
 
 			bufferedWriter.write(line.substring(line.indexOf('&')+1,line.indexOf('&')+3)+" "+"\n");
@@ -198,7 +263,7 @@ public class Subscriber_bluetooth
             for(int i=0;i<Globalvariable.Tim_leftwaist_RSSI.length;i++){
             	//System.out.println(line.substring(10,18));
             	if(line.substring(10,18).equals(Globalvariable.Tim_leftwaist_RSSI[i])){
-            		FileWriter fw =new  FileWriter("/Users/tsai/Desktop/ 穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/LeftWaist"+Globalvariable.Tim_leftwaist_RSSI[i]+".txt",true);
+            		FileWriter fw =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/LeftWaist"+Globalvariable.Tim_leftwaist_RSSI[i]+".txt",true);
             		BufferedWriter bufferedWriter = new BufferedWriter(fw);
             		bufferedWriter.write(line.substring(19,21)+"\n");
             		bufferedWriter.close();
@@ -213,7 +278,7 @@ public class Subscriber_bluetooth
               	
                for(int i=0;i<Globalvariable.Tim_rightwaist_RSSI.length;i++){
                	if(line.substring(11,19).equals(Globalvariable.Tim_rightwaist_RSSI[i])){
-               		FileWriter fw =new  FileWriter("/Users/tsai/Desktop/ 穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/RightWaist"+Globalvariable.Tim_rightwaist_RSSI[i]+".txt",true);
+               		FileWriter fw =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/RightWaist"+Globalvariable.Tim_rightwaist_RSSI[i]+".txt",true);
                		BufferedWriter bufferedWriter = new BufferedWriter(fw);
                		bufferedWriter.write(line.substring(20,22)+"\n");
                		bufferedWriter.close();
@@ -221,6 +286,20 @@ public class Subscriber_bluetooth
                }
         	   
            }
+           
+          else if(line.indexOf("JackLeftR")>=0){
+             	//System.out.println(line.substring(11,19));
+             	
+              for(int i=0;i<Globalvariable.Jack_leftwaist_RSSI.length;i++){
+              	if(line.substring(9,17).equals(Globalvariable.Jack_leftwaist_RSSI[i])){
+              		FileWriter fw =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/Jack_leftwaist"+Globalvariable.Jack_leftwaist_RSSI[i]+".txt",true);
+              		BufferedWriter bufferedWriter = new BufferedWriter(fw);
+              		bufferedWriter.write(line.substring(18,20)+"\n");
+              		bufferedWriter.close();
+              	}
+              }
+       	   
+          }
            endTime = System.currentTimeMillis();
            //取得程式結束的時間
            totTime = endTime - startTime;
@@ -240,6 +319,110 @@ public class Subscriber_bluetooth
         }
         
         
+    }
+    
+    
+    public static void Rssi_to_Unity(String name,int intrssi){
+    	String temppostion;
+    	System.out.println("原先:"+intrssi);
+    	
+    	//average filter 把誤差縮小
+    	if(count_rssi%3==0){
+    		pre_rssi=intrssi;
+    	}else if(count_rssi%3==1){
+    		mid_rssi=intrssi;
+    	}else if(count_rssi%3==2){
+        	now_rssi=intrssi;
+        	intrssi=(pre_rssi+now_rssi+mid_rssi)/3;
+        	System.out.println("之後:"+pre_rssi+" "+now_rssi+" "+mid_rssi+" "+intrssi);
+        	
+        	// 判斷有沒有動 1. threshold 2.陀螺儀有沒有動
+
+        	if(average_count_rssi%3==0){
+        		 average_pre_rssi=intrssi;
+        	}else if(average_count_rssi%3==1){
+        		 average_mid_rssi=intrssi;
+        	}else if(average_count_rssi%3==2){
+        		average_now_rssi=intrssi;
+        		if(Math.abs(average_pre_rssi-average_now_rssi)<3){
+        			//沒有動
+        			intrssi=(average_now_rssi+average_pre_rssi+average_mid_rssi)/3;
+        			System.out.println("沒動"+intrssi);
+        			
+        		}
+        		else{
+        			//有動
+        			intrssi=(average_now_rssi+average_pre_rssi+average_mid_rssi)/3;
+        			System.out.println("有動"+intrssi);
+        		}
+
+
+            
+        	
+        
+        // if(line.indexOf("&")>1){
+         //System.out.println(intrssi);
+ 		if(intrssi<=30){
+ 			//System.out.println("5CM"+Math.pow(12,1.5*(intrssi/25.569897)-1)); 
+ 			distance=Math.pow(12,1.5*(intrssi/25.569897)-1);
+ 			//bufferedWriter.write(Math.pow(12,1.5*(intrssi/25.569897)-1)+"\n");
+ 		}
+ 		else if(intrssi>=31 && intrssi<=40){
+ 			//System.out.println("20CM"+Math.pow(12,1.5*(intrssi/25.1784927)-1));
+ 			distance=Math.pow(12,1.5*(intrssi/25.1784927)-1);
+ 			//bufferedWriter.write(Math.pow(12,1.5*(intrssi/25.1784927)-1)+"\n");
+ 			
+ 		}
+ 		else if(intrssi >=41 && intrssi<=80){   //intrssi<=54
+ 			//System.out.println("60CM"+Math.pow(12,1.5*(intrssi/25.5186138)-1));
+ 			distance=Math.pow(12,1.5*(intrssi/25.5186138)-1);
+ 			//bufferedWriter.write(Math.pow(12,1.5*(intrssi/25.5186138)-1)+"\n");
+ 			
+ 		}
+ 		else {
+ 			System.out.println("OUT of range"+intrssi);
+ 		}
+
+    	
+
+         //}
+ 		distance=distance/100.0;
+ 		//*****為了distance優化可以平順移動
+ 		if(count_distance%3==0){
+ 			pre_distance=distance;
+ 		}else if(count_distance%3==1){
+ 			mid_distance=distance;
+ 		}else if(count_distance%3==2){
+ 			now_distance=distance;
+ 			distance=(pre_distance+mid_distance+now_distance)/3.0;
+ 		 
+ 		
+ 		temppostion ="{" + "Position"+": { x:"+0+", y:"+0+", z:"+distance+ "} }";
+ 	     try {
+ 	    	// if(name.equals("Jack")){
+ 	     		System.out.println(temppostion);
+ 	    	 //channel_publish.basicPublish(TOPIC_postion_1, "", null, temppostion.getBytes());
+ 	    	// }
+ 	    	// else{
+ 	     		 //System.out.println(temppostion);
+ 	 	    	 channel_publish2.basicPublish(TOPIC_postion_2, "", null, temppostion.getBytes());
+	 
+ 	    	// }
+ 		} catch (IOException e) {
+ 			// TODO Auto-generated catch block
+ 			e.printStackTrace();
+ 		}
+ 		} //count_distance 平均化
+ 		count_distance=count_distance+1;
+ 	     
+        	}//average_count_rssi%2==1要判斷到底要動 or 不動
+        	
+        	average_count_rssi=average_count_rssi+1;
+    	}
+
+    	
+        count_rssi=count_rssi+1;   //最外圍的if
+
     }
     
     

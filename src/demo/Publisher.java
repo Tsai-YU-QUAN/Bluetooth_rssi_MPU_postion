@@ -82,7 +82,7 @@ public class Publisher implements SerialPortEventListener {
 
     private void portConnect() throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setUri("amqp://admin:admin@10.232.104.80");
+        factory.setUri("amqp://admin:admin@192.168.0.1");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         
