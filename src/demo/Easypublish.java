@@ -55,7 +55,7 @@ public class Easypublish {
 		  
 	        ConnectionFactory factory = new ConnectionFactory();
 	        try {
-				factory.setUri("amqp://admin:admin@192.168.1.100");
+				factory.setUri("amqp://admin:admin@192.168.1.101");
 	        	//factory.setUri("amqp://admin:admin@192.168.0.102");
 			} catch (KeyManagementException e) {
 				// TODO Auto-generated catch block
