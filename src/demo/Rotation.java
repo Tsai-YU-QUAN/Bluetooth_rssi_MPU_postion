@@ -43,7 +43,7 @@ public class Rotation {
 	private static int JackDownRight_Xangles=0,JackDownRight_Yangles=0,JackDownRight_Zangles=0;
 	
 	private static int Timfinal_Xangles,Timfinal_Yangles,Timfinal_Zangles,
-	                   Jackfinal_Xangles,Jackfinal_Yangles,Jackfinal_Zangles;
+	                   Jackfinal_Xangles,Jackfinal_Yangles=0,Jackfinal_Zangles;
     static int radius=20;   //直徑  未來會以RSSI做偵測
     private static FileWriter fw1,fw2,fw3,fw4;
 	private static int x, y, z;
@@ -81,6 +81,12 @@ public class Rotation {
         Channel channel = connection.createChannel();
         channel.exchangeDeclare(TOPIC_pose, "fanout");
        //}
+        //********給一個目的標定  *********  //
+  	    String cmd ="{" + "Position"+": { x:"+0+", y:"+y+", z:"+2+ "} }";   //z->>x(Real x)   x->>y(Real y)
+  	    String cmdHips = "{" + "Hips"+": { x:"+360+", y:"+0+", z:"+-370+ "} }";
+  	    channel.basicPublish(TOPIC_location2, "", null, cmd.getBytes());
+	    channel.basicPublish(TOPIC_pose2, "", null, cmdHips.getBytes());
+
 		 
 		startTime= System.currentTimeMillis();   //from last node compute
 		
@@ -110,14 +116,19 @@ public class Rotation {
 				TimDownLeftZ_forYangles=(int)Math.toDegrees(Math.asin((Math.abs(TimDownLeft_z-PreTimDownLeft_z)*1/radius))); //先求變化量
 				TimDownLeftZ_forYangles=y+TimDownLeftZ_forYangles;
 			}
-			System.out.println("TimDownLeft:"+TimDownLeftZ_forYangles+" "+TimDownLeftZ_forYangles);
+			//System.out.println("TimDownLeft:"+TimDownLeftX_forYangles+" "+TimDownLeftZ_forYangles);
 			//endTime=System.currentTimeMillis();
 			PreTimDownLeft_x=TimDownLeft_x;
 			PreTimDownLeft_z=TimDownLeft_z;
 			
 			if(PreTimDownLeft_z <1000 && if_DMP_connect[2] && if_DMP_connect[3]){    //Timfinal_angles ==> Tim Yaw
 				Timfinal_Xangles =(TimDownLeft_Xangles+TimDownRight_Xangles)/2;
+			    if(Math.abs(TimDownLeftX_forYangles -TimDownRightX_forYangles)<100){     //解決多個裝置資料不是同時性
 				Timfinal_Yangles=(TimDownLeftX_forYangles+TimDownLeftZ_forYangles+TimDownRightX_forYangles+TimDownRightZ_forYangles)/4;
+			    }
+			    else{
+					Timfinal_Yangles=(TimDownLeftX_forYangles+TimDownLeftZ_forYangles)/2;
+			    }
 				Timfinal_Zangles =(TimDownLeft_Zangles+TimDownRight_Zangles)/2;
 				
 				if(posedata_json.has("TimDownLeft")){
@@ -125,8 +136,8 @@ public class Rotation {
 					fw3 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
 							+ "/TimDownLeft.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw3);
-				bufferedWriter.write(TimDownLeft_Xangles+"&"+TimDownRight_Xangles+":"
-				+TimDownLeft_Zangles+"&"+TimDownRight_Zangles+"\n");
+				bufferedWriter.write(TimDownLeftX_forYangles+"&"+TimDownLeftZ_forYangles+":"
+				+TimDownRightX_forYangles+"&"+TimDownRightZ_forYangles+"\n");
 				bufferedWriter.flush();
 				bufferedWriter.close();
 				} catch (IOException e) {
@@ -134,8 +145,9 @@ public class Rotation {
 					e.printStackTrace();
 				}
 				
-					finaljson = "{" + "Hips"+": { x:"+Timfinal_Xangles+", y:"+Timfinal_Yangles+", z:"+Timfinal_Zangles+ "} }";
-			        channel.basicPublish(TOPIC_pose, "", null, finaljson.getBytes()); 
+					finaljson = "{" + "Hips"+": { x:"+Timfinal_Xangles+", y:"+(Timfinal_Yangles-Jackfinal_Yangles)+", z:"+Timfinal_Zangles+ "} }";
+			        System.out.println(finaljson);
+					channel.basicPublish(TOPIC_pose, "", null, finaljson.getBytes()); 
 					
 				}
 
@@ -162,7 +174,7 @@ public class Rotation {
 				TimDownRightZ_forYangles=(int)Math.toDegrees(Math.asin((Math.abs(TimDownRight_z-PreTimDownRight_z)*1/radius)));
 				TimDownRightZ_forYangles=y+TimDownRightZ_forYangles;
 			}
-			System.out.println("TimDownRight:"+TimDownRightX_forYangles+" "+TimDownRightZ_forYangles);
+			//System.out.println("TimDownRight:"+TimDownRightX_forYangles+" "+TimDownRightZ_forYangles);
 
             //θfinal=(θZ1+θx1+θZ2+θx2)/4
 			
@@ -171,8 +183,13 @@ public class Rotation {
 			PreTimDownRight_z=TimDownRight_z;
 			if(PreTimDownRight_z <1000 && if_DMP_connect[2] && if_DMP_connect[3]){    //Timfinal_angles ==> Tim Yaw
 				Timfinal_Xangles =(TimDownLeft_Xangles+TimDownRight_Xangles)/2;
+			    if(Math.abs(TimDownLeftX_forYangles -TimDownRightX_forYangles)<100){     //解決多個裝置資料不是同時性
 				Timfinal_Yangles=(TimDownLeftX_forYangles+TimDownLeftZ_forYangles+TimDownRightX_forYangles+TimDownRightZ_forYangles)/4;
-				Timfinal_Zangles =(TimDownLeft_Zangles+TimDownRight_Zangles)/2;
+			    }
+			    else{
+					Timfinal_Yangles=(TimDownLeftX_forYangles+TimDownLeftZ_forYangles)/2;
+			    }				
+			    Timfinal_Zangles =(TimDownLeft_Zangles+TimDownRight_Zangles)/2;
 				
 				if(posedata_json.has("TimDownRight")){
 					
@@ -182,8 +199,9 @@ public class Rotation {
 				bufferedWriter.write(TimDownLeft_Xangles+"&"+TimDownRight_Xangles+":"
 				+TimDownLeft_Zangles+"&"+TimDownRight_Zangles+"\n");
 				
-					finaljson = "{" + "Hips"+": { x:"+Timfinal_Xangles+", y:"+Timfinal_Yangles+", z:"+Timfinal_Zangles+ "} }";
-			        channel.basicPublish(TOPIC_pose, "", null, finaljson.getBytes()); 
+					finaljson = "{" + "Hips"+": { x:"+Timfinal_Xangles+", y:"+(Timfinal_Yangles-Jackfinal_Yangles)+", z:"+Timfinal_Zangles+ "} }";
+			        //System.out.println(finaljson);
+					channel.basicPublish(TOPIC_pose, "", null, finaljson.getBytes()); 
 				/*	try {
 						fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/"
 								+ "finaljson_tim.txt",true);
@@ -244,7 +262,13 @@ public class Rotation {
 			if(posedata_json.has("JackDownLeft")){
 				
 				Jackfinal_Xangles =(JackDownLeft_Xangles+JackDownRight_Xangles)/2;
+				if(Math.abs(JackDownLeftX_forYangles-JackDownRightX_forYangles)< 100){ //解決多個裝置資料不是同時性
 				Jackfinal_Yangles=(JackDownLeftX_forYangles+JackDownLeftZ_forYangles+JackDownRightX_forYangles+JackDownRightZ_forYangles)/4;
+				}
+				else{
+					Jackfinal_Yangles=(JackDownLeftX_forYangles+JackDownLeftZ_forYangles)/2;
+					
+				}
 				Jackfinal_Zangles =(JackDownLeft_Zangles+JackDownRight_Zangles)/2;
 				
 
@@ -262,8 +286,9 @@ public class Rotation {
 					}
 					*/
 					
-						finaljson = "{" + "Hips"+": { x:"+Jackfinal_Xangles+", y:"+-Jackfinal_Yangles+", z:"+Jackfinal_Zangles+ "} }";
-				        channel.basicPublish(TOPIC_pose, "", null, finaljson.getBytes()); 
+						finaljson = "{" + "Hips"+": { x:"+Timfinal_Xangles+", y:"+(Timfinal_Yangles-Jackfinal_Yangles)+", z:"+Timfinal_Zangles+ "} }";
+				        System.out.println(finaljson);
+						channel.basicPublish(TOPIC_pose, "", null, finaljson.getBytes()); 
 						
 					}
 			}
@@ -315,13 +340,19 @@ public class Rotation {
 			PreJackDownRight_z=JackDownRight_z;
 			if(PreJackDownRight_z <1000 && if_DMP_connect[6] && if_DMP_connect[7]){    //Timfinal_angles ==> Tim Yaw
 				Jackfinal_Xangles =(JackDownLeft_Xangles+JackDownRight_Xangles)/2;
+				if(Math.abs(JackDownLeftX_forYangles-JackDownRightX_forYangles)< 100){  //解決多個裝置資料不是同時性
 				Jackfinal_Yangles=(JackDownLeftX_forYangles+JackDownLeftZ_forYangles+JackDownRightX_forYangles+JackDownRightZ_forYangles)/4;
-				Jackfinal_Zangles =(JackDownLeft_Zangles+JackDownRight_Zangles)/2;				//Timfinal_angles=Timfinal_angles-60;
+				}
+				else{
+					Jackfinal_Yangles=(JackDownRightZ_forYangles+JackDownRightZ_forYangles)/2;
+					
+				}				Jackfinal_Zangles =(JackDownLeft_Zangles+JackDownRight_Zangles)/2;				//Timfinal_angles=Timfinal_angles-60;
 				
 					if(posedata_json.has("JackDownRight")){
 						//data.setY(Jackfinal_angles);     //for 自轉
-						finaljson = "{" + "Hips"+": { x:"+Jackfinal_Xangles+", y:"+-Jackfinal_Yangles+", z:"+Jackfinal_Zangles+ "} }";
-				        channel.basicPublish(TOPIC_pose, "", null, finaljson.getBytes()); 
+						finaljson = "{" + "Hips"+": { x:"+Timfinal_Xangles+", y:"+(Timfinal_Yangles-Jackfinal_Yangles)+", z:"+Timfinal_Zangles+ "} }";
+				        System.out.println(finaljson);
+						channel.basicPublish(TOPIC_pose, "", null, finaljson.getBytes()); 
 					}
 					
 				

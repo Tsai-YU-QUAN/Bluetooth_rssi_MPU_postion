@@ -9,6 +9,10 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
 
+import demo.Experiment.Experiment_Exhibition_Revolution;
+import demo.Experiment.Experiment_Revolution;
+import demo.Experiment.Experiment_Rotation;
+
 
 
 
@@ -22,6 +26,7 @@ public class Subscriber_data {
             throws java.io.IOException,
             java.lang.InterruptedException, KeyManagementException, NoSuchAlgorithmException, URISyntaxException
     {
+    	
     	new Thread(){
     		public void run(){
     	try {
@@ -45,9 +50,14 @@ public class Subscriber_data {
         while (true) {
             QueueingConsumer.Delivery delivery = consumer.nextDelivery();
             String line = new String(delivery.getBody());
-            Rotation rotation = new Rotation();
-            rotation.Pose_processing(line);
-            System.out.println("Linepose: "+line);
+            //System.out.println("Linepose: "+line);
+            
+            //實驗與跑數據用
+            //Experiment_Rotation experiment_Rotation =new Experiment_Rotation();
+            //experiment_Rotation.Pose_processing(line);
+            //展演DEMO用
+            //Rotation rotation = new Rotation();
+            //rotation.Pose_processing(line);
         }
     		
     		} catch (Exception e) {
@@ -75,12 +85,20 @@ public class Subscriber_data {
 		
 		QueueingConsumer consumer = new QueueingConsumer(channel);
 		channel.basicConsume(queueName, true, consumer);
-		
+	 
 		while (true) {
         QueueingConsumer.Delivery delivery = consumer.nextDelivery();
         String line = new String(delivery.getBody());
-        System.out.println("Linelocation: "+line);
-        }
+       
+        //實驗與跑數據用
+        //Revolution_alogorithm revolution = new Revolution_alogorithm();
+        //revolution.Revolution_processing();
+         Experiment_Revolution revolution =new Experiment_Revolution();
+         revolution.Revolution_processing(line);
+		
+		
+		
+		}
 		
 		} catch (Exception e) {
 			// TODO: handle exception

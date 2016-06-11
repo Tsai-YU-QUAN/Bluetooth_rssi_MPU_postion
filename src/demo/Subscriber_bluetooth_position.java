@@ -260,7 +260,7 @@ public class Subscriber_bluetooth_position
            if(line.indexOf("LeftWaistR")>=0){
         	   //System.out.println(line);  
             
-            for(int i=0;i<Globalvariable.Tim_leftwaist_RSSI.length;i++){
+      /*      for(int i=0;i<Globalvariable.Tim_leftwaist_RSSI.length;i++){
             	//System.out.println(line.substring(10,18));
             	if(line.substring(10,18).equals(Globalvariable.Tim_leftwaist_RSSI[i])){
             		FileWriter fw =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/LeftWaist"+Globalvariable.Tim_leftwaist_RSSI[i]+".txt",true);
@@ -269,6 +269,7 @@ public class Subscriber_bluetooth_position
             		bufferedWriter.close();
             	}
             }
+            */
                
         	   
         	   
@@ -276,7 +277,7 @@ public class Subscriber_bluetooth_position
            else if(line.indexOf("RightWaistR")>=0){
               	//System.out.println(line.substring(11,19));
               	
-               for(int i=0;i<Globalvariable.Tim_rightwaist_RSSI.length;i++){
+    /*           for(int i=0;i<Globalvariable.Tim_rightwaist_RSSI.length;i++){
                	if(line.substring(11,19).equals(Globalvariable.Tim_rightwaist_RSSI[i])){
                		FileWriter fw =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/RightWaist"+Globalvariable.Tim_rightwaist_RSSI[i]+".txt",true);
                		BufferedWriter bufferedWriter = new BufferedWriter(fw);
@@ -284,13 +285,14 @@ public class Subscriber_bluetooth_position
                		bufferedWriter.close();
                	}
                }
+               */
         	   
            }
            
           else if(line.indexOf("JackLeftR")>=0){
              	//System.out.println(line.substring(11,19));
              	
-              for(int i=0;i<Globalvariable.Jack_leftwaist_RSSI.length;i++){
+  /*            for(int i=0;i<Globalvariable.Jack_leftwaist_RSSI.length;i++){
               	if(line.substring(9,17).equals(Globalvariable.Jack_leftwaist_RSSI[i])){
               		FileWriter fw =new  FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Bluetooth_rssi_MPU_postion/Jack_leftwaist"+Globalvariable.Jack_leftwaist_RSSI[i]+".txt",true);
               		BufferedWriter bufferedWriter = new BufferedWriter(fw);
@@ -298,6 +300,7 @@ public class Subscriber_bluetooth_position
               		bufferedWriter.close();
               	}
               }
+              */
        	   
           }
            endTime = System.currentTimeMillis();
