@@ -89,7 +89,7 @@ public class Subscriber_data {
 		while (true) {
         QueueingConsumer.Delivery delivery = consumer.nextDelivery();
         String line = new String(delivery.getBody());
-       
+         System.out.println("Line:"+line);
         //實驗與跑數據用
         //Revolution_alogorithm revolution = new Revolution_alogorithm();
         //revolution.Revolution_processing();
