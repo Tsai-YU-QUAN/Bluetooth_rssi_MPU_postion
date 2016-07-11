@@ -12,6 +12,7 @@ import com.rabbitmq.client.QueueingConsumer;
 import demo.Experiment.Experiment_Exhibition_Revolution;
 import demo.Experiment.Experiment_Revolution;
 import demo.Experiment.Experiment_Rotation;
+import demo.Experiment.Experiment_finalRevolution;
 
 
 
@@ -93,7 +94,7 @@ public class Subscriber_data {
         //實驗與跑數據用
         //Revolution_alogorithm revolution = new Revolution_alogorithm();
         //revolution.Revolution_processing();
-         Experiment_Revolution revolution =new Experiment_Revolution();
+         Experiment_finalRevolution revolution =new Experiment_finalRevolution();
          revolution.Revolution_processing(line);
 		
 		

@@ -26,7 +26,7 @@ import demo.Experiment.Experiment_Globalvariable;
 
 
 
-public class Experiment_Revolution {
+public class Experiment_finalRevolution {
 	   static Channel channel;
        static Connection connection;
 	   static Channel channel_publish;
@@ -35,15 +35,16 @@ public class Experiment_Revolution {
 	   double User1adjsut_scale=0.0,User2adjsut_scale=0.0;
 	   static long starttime,currenttime;
 	   static int OK_times=0, fail_times;
-	   int slide_windows=3, min_window=3;
+	   int slide_windows=5, min_window=3;
 	   double Real_User1DownLeft_User1DownRight=20;    //20CM
 	   double Real_final_User2DownRight_User2DownLeft=100;     //100CM
 	   static int count=0;    //for realtime compute
 	   private static final String TOPIC_location = "wise.position";    
 	   private static final String TOPIC_location2 = "wise.position2";  // 測試用
-	   private static boolean if_restartime=false;
+	   private static boolean if_init=false;
 	   
-	   //Tim=user1   , Jack=user2   //8個節點  56條線 目前54條
+	   //Tim=user1   , Jack=user2   //8個節點  56條線
+	   static ArrayList<ArrayList<Double>> Totoalline = new ArrayList<ArrayList<Double>>();
 	   static ArrayList<Double> User1DownLeft_User1DownRight = new ArrayList<Double>(); static ArrayList<Double> User1DownRight_User1DownLeft = new ArrayList<Double>();       //校正用
 	   static ArrayList<Double> User1DownLeft_User2DownLeft = new ArrayList<Double>();  static ArrayList<Double> User2DownLeft_User1DownLeft = new ArrayList<Double>();
 	   static ArrayList<Double> User1DownLeft_User2DownRight = new ArrayList<Double>(); static ArrayList<Double> User2DownRight_User1DownLeft = new ArrayList<Double>();
@@ -71,9 +72,8 @@ public class Experiment_Revolution {
 	   static ArrayList<Double> User2DownLeft_User2DownBehind = new ArrayList<Double>(); static ArrayList<Double> User2DownBehind_User2DownLeft = new ArrayList<Double>();       //校正用
 	   static ArrayList<Double> User2DownRight_User2DownFront = new ArrayList<Double>(); static ArrayList<Double> User2Downront_User2DownRight = new ArrayList<Double>();       //校正用
 	   static ArrayList<Double> User2DownRight_User2DownBehind = new ArrayList<Double>(); static ArrayList<Double> User2DownBehund_User2DownRight = new ArrayList<Double>();       //校正用
-
 	   static ArrayList<Double> User2DownRight_User2DownLeft = new ArrayList<Double>(); static ArrayList<Double> User2DownLeft_User2DownRight = new ArrayList<Double>();       //校正用
-	   static ArrayList<Double> User2DownFront_User2DownBehind = new ArrayList<Double>();static ArrayList<Double> User2DownBehind_User2DownFront = new ArrayList<Double>();  
+	   static ArrayList<Double> User2DownFront_User2DownBehind = new ArrayList<Double>();static ArrayList<Double> User2DownBehind_User2DownFront = new ArrayList<Double>();
 
 	   
 	   //可以觀察用
@@ -97,35 +97,7 @@ public class Experiment_Revolution {
 	   static int User2DownRight_User1DownRight_size=-1;//User2DownRight_User1DownRight_presize=-2;
 	   
 	   
-	   double final_User1DownLeft_User1DownRight=0;    //8個節點  28條線
-	   double final_User1DownLeft_User1DownFront=0;
-	   double final_User1DownLeft_User1DownBehind=0;
-	   double final_User1DownLeft_User2DownLeft=0;
-	   double final_User1DownLeft_User2DownRight=0;
-	   double final_User1DownLeft_User2DownFront=0;
-	   double final_User1DownLeft_User2DownBehind=0;
-	   double final_User1DownRight_User1DownFront=0;
-	   double final_User1DownRight_User1DownBehind=0;
-	   double final_User1DownRight_User2DownLeft=0;
-	   double final_User1DownRight_User2DownRight=0;   
-	   double final_User1DownRight_User2DownFront=0;
-	   double final_User1DownRight_User2DownBehind=0;
-	   double final_User1DownFront_User1DownBehind=0;
-	   double final_User1DownFront_User2DownLeft=0;
-	   double final_User1DownFront_User2DownRight=0;   
-	   double final_User1DownFront_User2DownFront=0;
-	   double final_User1DownFront_User2DownBehind=0;	   
-	   double final_User1DownBehind_User2DownLeft=0;
-	   double final_User1DownBehind_User2DownRight=0;   
-	   double final_User1DownBehind_User2DownFront=0;
-	   double final_User1DownBehind_User2DownBehind=0;
-	   
-	   double final_User2DownLeft_User2DownFront=0;
-	   double final_User2DownLeft_User2DownBehind=0;	   
-	   double final_User2DownRight_User2DownLeft=0;
-	   double final_User2DownRight_User2DownFront=0;
-	   double final_User2DownRight_User2DownBehind=0;   
-	   double final_User2DownFront_User1DownBehind=0;
+
 
 	   
 
@@ -136,7 +108,8 @@ public class Experiment_Revolution {
 
 	   
 	   static ArrayList<Double> CoeffVarRank = new ArrayList<Double>();//大到小
-	   static ArrayList<Double> DistanceRank = new ArrayList<Double>();//大到小
+	   double [] DistanceRank= new double[28];
+	 //static ArrayList<Double> DistanceRank = new ArrayList<Double>();//大到小
 
 	   
 	   
@@ -147,7 +120,41 @@ public class Experiment_Revolution {
 
 
     public void Revolution_processing(String posedata)
-    {
+    
+    {  	
+    	if(if_init==false){   //先初始化，以後要判斷是哪一個state需要查表
+    	Totoalline.add(User1DownLeft_User1DownRight);Totoalline.add(User1DownRight_User1DownLeft);   //0
+    	Totoalline.add(User1DownLeft_User2DownLeft);Totoalline.add(User2DownLeft_User1DownLeft);     //1
+    	Totoalline.add(User1DownLeft_User2DownRight);Totoalline.add(User2DownRight_User1DownLeft);   //2
+    	Totoalline.add(User1DownLeft_User2DownFront);Totoalline.add(User2DownFront_User1DownLeft);   //3
+    	Totoalline.add(User1DownLeft_User2DownBehind);Totoalline.add(User2DownBehind_User1DownLeft); //4
+    	Totoalline.add(User1DownRight_User2DownLeft);Totoalline.add(User2DownLeft_User1DownRight);   //5
+    	Totoalline.add(User1DownRight_User2DownRight);Totoalline.add(User2DownRight_User1DownRight); //6
+    	Totoalline.add(User1DownRight_User2DownFront);Totoalline.add(User2DownFront_User1DownRight); //7
+    	Totoalline.add(User1DownRight_User2DownBehind);Totoalline.add(User2DownBehind_User1DownRight);//8
+    	Totoalline.add(User1DownFront_User1DownLeft);Totoalline.add(User1DownLeft_User1DownFront);    //9
+    	Totoalline.add(User1DownFront_User1DownRight);Totoalline.add(User1DownRight_User1DownFront);  //10
+    	Totoalline.add(User1DownFront_User1DownBehind);Totoalline.add(User1DownBehind_User1DownFront);//11
+    	Totoalline.add(User1DownFront_User2DownLeft);Totoalline.add(User2DownLeft_User1DownFront);    //12
+    	Totoalline.add(User1DownFront_User2DownRight);Totoalline.add(User2DownRight_User1DownFront);  //13
+    	Totoalline.add(User1DownFront_User2DownFront);Totoalline.add(User2DownFront_User1DownFront);  //14
+    	Totoalline.add(User1DownFront_User2DownBehind);Totoalline.add(User2DownBehind_User1DownFront);//15
+    	Totoalline.add(User1DownBehind_User1DownLeft);Totoalline.add(User1DownLeft_User1DownBehind);  //16
+    	Totoalline.add(User1DownBehind_User1DownRight);Totoalline.add(User1DownRight_User1DownBehind);//17
+    	Totoalline.add(User1DownBehind_User2DownLeft);Totoalline.add(User2DownLeft_User1DownBehind);  //18
+    	Totoalline.add(User1DownBehind_User2DownRight);Totoalline.add(User2DownRight_User1DownBehind);//19
+    	Totoalline.add(User1DownBehind_User2DownFront);Totoalline.add(User2DownFront_User1DownBehind);//20
+    	Totoalline.add(User1DownBehind_User2DownBehind);Totoalline.add(User2DownBehind_User1DownBehind);//21
+    	Totoalline.add(User2DownLeft_User2DownFront);Totoalline.add(User2DownFront_User2DownLeft);      //22
+    	Totoalline.add(User2DownLeft_User2DownBehind);Totoalline.add(User2DownBehind_User2DownLeft);    //23
+    	Totoalline.add(User2DownRight_User2DownFront);Totoalline.add(User2Downront_User2DownRight);     //24
+    	Totoalline.add(User2DownRight_User2DownBehind);Totoalline.add(User2DownBehund_User2DownRight);  //25
+    	Totoalline.add(User2DownRight_User2DownLeft);Totoalline.add(User2DownLeft_User2DownRight);      //26
+    	Totoalline.add(User2DownFront_User2DownBehind);Totoalline.add(User2DownBehind_User2DownFront);  //27
+    	
+    	
+    	if_init=true;
+    	}
     	try{
         ConnectionFactory factory = new ConnectionFactory();
         try {
@@ -250,32 +257,6 @@ public class Experiment_Revolution {
     				}  	
     				if(Experiment_Globalvariable.Tim_Down_Behind[4].equals(Clear_MAC)){
     					User1DownBehind_User2DownBehind.add(intRssi_to_distance(intrssi));
-    				}
-    				if(Experiment_Globalvariable.Tim_Down_Behind[6].equals(Clear_MAC)){
-    					
-    					
-    			    	if(if_restartime==false){
-    			            starttime=System.currentTimeMillis();
-    			            if_restartime=true;
-    			        	}
-    			    	currenttime=System.currentTimeMillis();
-    			    	count=count+1;
-    			    	
-     	  			   try {
-     	  					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-     	  							+ "/"+ "Realtimetest"+".txt",true);
-     	  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-     	  				bufferedWriter.write(intrssi+" "+(currenttime-starttime)+"\n");
-     	  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-     	  				bufferedWriter.flush();
-     	  				bufferedWriter.close();
-     	  				} catch (IOException e) {
-     	  					// TODO Auto-generated catch block
-     	  					e.printStackTrace();
-     	  				}
-     	  			   
-    			        System.out.println("currenttime:"+intrssi+" "+(currenttime-starttime));
-    					
     				}
     				
         			}catch(Exception e){
@@ -475,13 +456,8 @@ public class Experiment_Revolution {
         }
     	
       // *********************************以下判斷公轉 ****************************//
-        //User1DownLeft_User2DownLeft_size=User1DownLeft_User2DownLeft.size()+User2DownLeft_User1DownLeft.size();
-        //User1DownLeft_User2DownRight_size=User1DownLeft_User2DownRight.size()+User2DownRight_User1DownLeft.size();        
- 	    //User1DownRight_User2DownLeft_size=User1DownRight_User2DownLeft.size()+User2DownLeft_User1DownRight.size();
- 	    //User1DownRight_User2DownRight_size=User1DownRight_User2DownRight.size()+User2DownRight_User1DownRight.size();
  	    
-        //System.out.println("size關係 "+User1DownLeft_User2DownLeft_size+" "+User1DownLeft_User2DownRight_size);
- 	    /*System.out.println("判斷size windows:"+User1DownLeft_User1DownRight.size()+" "+User1DownRight_User1DownLeft.size()+" "+
+ 	   /* System.out.println("判斷size windows:"+User1DownLeft_User1DownRight.size()+" "+User1DownRight_User1DownLeft.size()+" "+
  	                                          User2DownRight_User2DownLeft.size()+" "+User2DownLeft_User2DownRight.size()+" "+
  	                                          User1DownLeft_User2DownLeft.size()+" "+User2DownLeft_User1DownLeft.size()+" "+
  	                                          User1DownLeft_User2DownRight.size()+" "+User2DownRight_User1DownLeft.size()+" "+
@@ -490,16 +466,26 @@ public class Experiment_Revolution {
  	                                          User2DownBehind_User2DownFront.size()+" "+User2DownBehind_User1DownLeft.size()+" "+
  	                                          User2DownBehind_User1DownRight.size()+" "+User2DownBehind_User1DownFront.size()+" "+
  	                                         User2DownBehind_User1DownBehind.size());
-        */
-        
-
+ 	                                         */
+        System.out.println("判斷size windows:"+User1DownLeft_User2DownLeft.size()+
+        		" "+User1DownLeft_User2DownRight.size()+" "+User1DownRight_User2DownLeft.size()+
+        		" "+User1DownRight_User2DownRight.size()+" "+User1DownFront_User2DownLeft.size()+
+        		" "+User1DownFront_User2DownRight.size()+" "+User1DownBehind_User2DownLeft.size()+
+        		" "+User1DownBehind_User2DownRight.size()+" "+User1DownLeft_User2DownRight.size()+
+        		
+        		" "+User2DownLeft_User1DownLeft.size()+" "+User2DownLeft_User1DownRight.size()+
+        		" "+User2DownLeft_User1DownFront.size()+" "+User2DownLeft_User1DownBehind.size()+
+        		" "+User2DownRight_User1DownLeft.size()+" "+User2DownRight_User1DownRight.size()+
+        		" "+User2DownRight_User1DownFront.size()+" "+User2DownRight_User1DownBehind.size()+
+        		" "+User2DownRight_User1DownLeft.size());
+		
        // if(User1DownLeft_User2DownLeft_size!=User1DownLeft_User2DownLeft_presize  ||
        //    User1DownLeft_User2DownRight_size!=User1DownLeft_User2DownRight_presize ||
        //    User1DownRight_User2DownLeft_size!=User1DownRight_User2DownLeft_presize ||
        //    User1DownRight_User2DownRight_size!=User1DownRight_User2DownRight_presize){    //判斷是否有refresh
  	    currenttime =System.currentTimeMillis();
  	   //if(currenttime - starttime >=   1000){     //每隔1s進行偵測是否要算
-    	if(User1DownLeft_User1DownRight.size()>=min_window && User1DownRight_User1DownLeft.size() >=min_window &&
+    	/*if(User1DownLeft_User1DownRight.size()>=min_window && User1DownRight_User1DownLeft.size() >=min_window &&
     	   User2DownRight_User2DownLeft.size()>=min_window && User2DownLeft_User2DownRight.size()>=min_window &&
     	   User1DownLeft_User2DownLeft.size()>=min_window &&  User2DownLeft_User1DownLeft.size()>=slide_windows &&
     	   User1DownLeft_User2DownRight.size()>=min_window && User2DownRight_User1DownLeft.size()>=min_window &&
@@ -507,7 +493,8 @@ public class Experiment_Revolution {
     	   User1DownRight_User2DownRight.size()>=min_window && User2DownRight_User1DownRight.size()>=min_window &&
     	   User1DownLeft_User2DownFront.size()>=min_window && User1DownLeft_User2DownBehind.size()>=min_window &&
     	   User1DownRight_User2DownFront.size()>=min_window && User1DownRight_User2DownBehind.size()>=min_window){   //判斷是否所有的線都超過min_window
-    		if(User1DownLeft_User1DownRight.size()+User1DownRight_User1DownLeft.size()>=slide_windows &&
+        */
+    	/*	if(User1DownLeft_User1DownRight.size()+User1DownRight_User1DownLeft.size()>=slide_windows &&
     		   User2DownRight_User2DownLeft.size()+User2DownLeft_User2DownRight.size()>=slide_windows &&
     		   User1DownLeft_User2DownLeft.size()+User2DownLeft_User1DownLeft.size()>=slide_windows &&
     		   User1DownLeft_User2DownRight.size()+User2DownRight_User1DownLeft.size()>=slide_windows&&
@@ -515,9 +502,30 @@ public class Experiment_Revolution {
     		   User1DownRight_User2DownRight.size()+User2DownRight_User1DownRight.size()>=slide_windows&&
     		   User1DownLeft_User2DownFront.size()+User1DownLeft_User2DownBehind.size()>=slide_windows &&
     		   User1DownRight_User2DownFront.size()+User1DownRight_User2DownBehind.size()>=slide_windows){          //判斷是否雙向的線都超過slide_window
+        */
+ 	     /* if(User1DownLeft_User2DownLeft.size()>=slide_windows && User1DownLeft_User2DownRight.size()>=slide_windows && 
+ 				User1DownRight_User2DownLeft.size()>=slide_windows && User1DownRight_User2DownRight.size()>=slide_windows &&
+ 				User1DownFront_User2DownLeft.size()>=slide_windows && User1DownFront_User2DownRight.size()>=slide_windows&&
+ 				User1DownBehind_User2DownLeft.size()>=slide_windows &&User1DownBehind_User2DownRight.size()>=slide_windows &&
+ 				User2DownLeft_User1DownLeft.size()>=slide_windows&& User2DownLeft_User1DownRight.size()>=slide_windows && 
+ 				User2DownLeft_User1DownFront.size()>=slide_windows && User2DownLeft_User1DownBehind.size()>=slide_windows && 
+ 				User2DownRight_User1DownLeft.size()>=slide_windows && User2DownRight_User1DownRight.size()>=slide_windows && 
+ 			    User2DownRight_User1DownFront.size()>=slide_windows &&User2DownRight_User1DownBehind.size()>=slide_windows &&
+ 			    User2DownRight_User1DownLeft .size()>=slide_windows &&User1DownLeft_User2DownRight.size()>=slide_windows) {          
+ 			    //判斷四個腳擺法(test)
+ 			     */
+
+ 		if(Totoalline.get(4).size()+Totoalline.get(5).size()>slide_windows &&
+ 		   Totoalline.get(10).size()+Totoalline.get(11).size()>slide_windows &&
+ 		   Totoalline.get(24).size()+Totoalline.get(25).size()>slide_windows &&
+ 		   Totoalline.get(36).size()+Totoalline.get(37).size()>slide_windows ) //判斷四個腳擺法(test)
+ 		{
+ 			
+ 			
+ 			Precompute();    //做資料前運算，目前版本就直接平均
     		
      //****************************用機率估算目前已知距離***********************************//
-    		
+    	/*	
     		Collections.sort(User1DownLeft_User1DownRight);
 			Statistics statistics1 =new Statistics(User1DownLeft_User1DownRight.
 					subList(User1DownLeft_User1DownRight.size()-slide_windows+1, User1DownLeft_User1DownRight.size()-1));   //去頭去尾，如果size=10，就是取(1,9)
@@ -652,12 +660,12 @@ public class Experiment_Revolution {
 			System.out.println("statistics16 "+statistics16.getMean()+" "+statistics16.getStdDev()+" "+statistics16.getCoeffVar()
 					+" "+final_User1DownRight_User2DownRight+" "+starttime);        //可靠度
 			DistanceRank.add(final_User1DownRight_User2DownBehind);
-			
+			*/
 			
 			
 			
 			//******************************沒有做運算，就以估算目前已知距離*********************************//
-    	/*	Collections.sort(User1DownLeft_User1DownRight);
+/*    		Collections.sort(User1DownLeft_User1DownRight);
 			Statistics statistics1 =new Statistics(User1DownLeft_User1DownRight.
 					subList(User1DownLeft_User1DownRight.size()-slide_windows, User1DownLeft_User1DownRight.size()));   //去頭去尾，如果size=10，就是取(1,9)
 			
@@ -759,35 +767,19 @@ public class Experiment_Revolution {
 			final_User1DownRight_User2DownRight=(statistics11.getMean()+statistics12.getMean())/2;
 			System.out.println("statistics12 "+statistics12.getMean());        //可靠度
 			DistanceRank.add(final_User1DownRight_User2DownRight);
-			*/
+	*/		
 			
 			
 			
 			
 			//***********************************************************************************//
 
-			for(double temp :DistanceRank)
-				System.out.println("DistanceRank: "+temp);
-			
-			//Version1老師說的版本
-			Collections.sort(DistanceRank);
-			System.out.println("DistanceSort後:");
-			System.out.println(DistanceRank.get(0)+" "+final_User1DownRight_User2DownRight+
-					DistanceRank.get(5)+" "+final_User1DownLeft_User2DownLeft);
-			for(double temp :DistanceRank)
-				System.out.println("DistanceRank: "+temp);
 
-			    if((final_User1DownRight_User2DownFront+final_User1DownLeft_User2DownFront<
-			       final_User1DownRight_User2DownLeft+final_User1DownLeft_User2DownLeft &&
-			       final_User1DownRight_User2DownFront+final_User1DownLeft_User2DownFront<
-			       final_User1DownRight_User2DownRight+final_User1DownLeft_User2DownRight) ||
-			       (final_User1DownRight_User2DownBehind+final_User1DownLeft_User2DownBehind<
-					final_User1DownRight_User2DownLeft+final_User1DownLeft_User2DownLeft &&
-					final_User1DownRight_User2DownBehind+final_User1DownLeft_User2DownBehind<
-					final_User1DownRight_User2DownRight+final_User1DownLeft_User2DownRight)){   //先判斷前後
-			    	
-			    	if(final_User1DownRight_User2DownBehind+final_User1DownLeft_User2DownBehind >
-    				final_User1DownRight_User2DownFront+final_User1DownLeft_User2DownFront){     
+			
+
+
+			    	System.out.println("DistanceRank: "+DistanceRank[2]+" "+DistanceRank[5]+" "+DistanceRank[12]+" "+DistanceRank[18]);
+			    	if(DistanceRank[2] > (DistanceRank[5]+DistanceRank[12]+DistanceRank[18])/3){     
     				Currentstate="state1";
     				System.out.println("state1");
     				
@@ -821,383 +813,23 @@ public class Experiment_Revolution {
     	   					e.printStackTrace();
     	   				}
 			    	}
-			    	else if(final_User1DownRight_User2DownBehind+final_User1DownLeft_User2DownBehind <
-    				final_User1DownRight_User2DownFront+final_User1DownLeft_User2DownFront){     
-    				Currentstate="state5";
-    				System.out.println("state5");
-    				
-    				///******輸出到Unity******///
-    				 //finaljson = "{" + "Position"+": { x:"+1+", y:"+0+", z:"+0+ "} }";
-    		         //channel.basicPublish(TOPIC_location, "", null, finaljson.getBytes());
-    	  			   try {
-    	  					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-    	  							+ "/"+ text_name+".txt",true);
-    	  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-    	  				bufferedWriter.write(("5")+"\n");
-    	  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-    	  				bufferedWriter.flush();
-    	  				bufferedWriter.close();
-    	  				} catch (IOException e) {
-    	  					// TODO Auto-generated catch block
-    	  					e.printStackTrace();
-    	  				}
-    	  	   			currenttime=System.currentTimeMillis();
-    	   			   try {
-    	   				 
-    	 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-    	  							+ "/"+ time_name+".txt",true);
-    	   				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-    	   				bufferedWriter.write((currenttime-starttime)+"\n");
-    	   				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-    	   				bufferedWriter.flush();
-    	   				bufferedWriter.close();
-    	   				} catch (IOException e) {
-    	   					// TODO Auto-generated catch block
-    	   					e.printStackTrace();
-    	   				}
+			    	else{
+			    		System.out.println("another state");
+			    		
 			    	}
 			    	
 			    	
-			    	
-			    }
-			    else if(final_User1DownRight_User2DownRight+final_User1DownLeft_User2DownRight >
-    				final_User1DownRight_User2DownLeft+final_User1DownLeft_User2DownLeft){     //再判斷左右
-    				Currentstate="state3";
-    				System.out.println("state3");
-    				
-    				///******輸出到Unity******///
-    				 finaljson = "{" + "Position"+": { x:"+1+", y:"+0+", z:"+0+ "} }";
-    		         channel.basicPublish(TOPIC_location, "", null, finaljson.getBytes());
-    	  			   try {
-    	  					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-    	  							+ "/"+ text_name+".txt",true);
-    	  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-    	  				bufferedWriter.write(("3")+"\n");
-    	  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-    	  				bufferedWriter.flush();
-    	  				bufferedWriter.close();
-    	  				} catch (IOException e) {
-    	  					// TODO Auto-generated catch block
-    	  					e.printStackTrace();
-    	  				}
-    	  	   			currenttime=System.currentTimeMillis();
-    	   			   try {
-    	   				 
-    	 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-    	  							+ "/"+ time_name+".txt",true);
-    	   				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-    	   				bufferedWriter.write((currenttime-starttime)+"\n");
-    	   				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-    	   				bufferedWriter.flush();
-    	   				bufferedWriter.close();
-    	   				} catch (IOException e) {
-    	   					// TODO Auto-generated catch block
-    	   					e.printStackTrace();
-    	   				}
-    				
-    			}else if((final_User1DownRight_User2DownRight+final_User1DownLeft_User2DownRight <
-        				final_User1DownRight_User2DownLeft+final_User1DownLeft_User2DownLeft)){
-    				Currentstate="state3";
-    				System.out.println("state7");
-    				
-    				///******輸出到Unity******///
-   				    finaljson = "{" + "Position"+": { x:"+-1+", y:"+0+", z:"+0+ "} }";
-   		            channel.basicPublish(TOPIC_location, "", null, finaljson.getBytes());
-    				
- 	  			   try {
- 	  					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 	  							+ "/"+ text_name+".txt",true);
- 	  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
- 	  				bufferedWriter.write(("7")+"\n");
- 	  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
- 	  				bufferedWriter.flush();
- 	  				bufferedWriter.close();
- 	  				} catch (IOException e) {
- 	  					// TODO Auto-generated catch block
- 	  					e.printStackTrace();
- 	  				}
- 	  	   			currenttime=System.currentTimeMillis();
- 	   			   try {
- 	   				 
- 	 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 	  							+ "/"+ time_name+".txt",true);
- 	   				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
- 	   				bufferedWriter.write((currenttime-starttime)+"\n");
- 	   				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
- 	   				bufferedWriter.flush();
- 	   				bufferedWriter.close();
- 	   				} catch (IOException e) {
- 	   					// TODO Auto-generated catch block
- 	   					e.printStackTrace();
- 	   				}
-    				
-    			}
-    			else{
-    				//猜測上一個State
- 	  			   try {
- 	  					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 	  							+ "/"+ text_name+".txt",true);
- 	  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
- 	  				bufferedWriter.write((Currentstate+"!")+"\n");
- 	  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
- 	  				bufferedWriter.flush();
- 	  				bufferedWriter.close();
- 	  				} catch (IOException e) {
- 	  					// TODO Auto-generated catch block
- 	  					e.printStackTrace();
- 	  				}
- 	  	   			currenttime=System.currentTimeMillis();
- 	   			   try {
- 	   				 
- 	 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 	  							+ "/"+ time_name+".txt",true);
- 	   				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
- 	   				bufferedWriter.write((currenttime-starttime)+"\n");
- 	   				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
- 	   				bufferedWriter.flush();
- 	   				bufferedWriter.close();
- 	   				} catch (IOException e) {
- 	   					// TODO Auto-generated catch block
- 	   					e.printStackTrace();
- 	   				}
-    			}
+			    
     			
 			    
     			
     			
-            //System.exit(1);
-
-			
-    		//************ 為了參數校正 ********//  CheckLinedata: 69 62 51 58
-			/*
-    		final_User1DownLeft_User2DownLeft=final_User1DownLeft_User2DownLeft-slide_windows;
-    		final_User1DownLeft_User2DownRight=final_User1DownLeft_User2DownRight-slide_windows;
-    		System.out.println("CheckLinedata: "+"x_ "+
-    		final_User1DownLeft_User2DownLeft+" y:"+final_User1DownLeft_User2DownRight+
-    	    " y_:"+final_User1DownRight_User2DownRight+" x:"+final_User1DownRight_User2DownLeft);
             System.exit(1);
-            // 2016.6.7 依照頭影片施工，先求x,y, x",y"
-            //x <x"<1m and y"<y<1m
-    		if(final_User1DownRight_User2DownRight < 58+0.04*58 && final_User1DownRight_User2DownRight > 58-0.04*58
-    		&& final_User1DownRight_User2DownLeft <51+0.04*51  && final_User1DownRight_User2DownLeft > 51-0.04*51 
-    		&& Currentstate=="state1" || Currentstate=="state2" || Currentstate=="state3"
-    		|| Currentstate=="state7" || Currentstate=="state8"){
-    			Currentstate="state1";
-  			   try {
-  					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-  							+ "/"+ text_name+".txt",true);
-  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-  				bufferedWriter.write(("0度")+"\n");
-  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-  				bufferedWriter.flush();
-  				bufferedWriter.close();
-  				} catch (IOException e) {
-  					// TODO Auto-generated catch block
-  					e.printStackTrace();
-  				}
-  	   			currenttime=System.currentTimeMillis();
-   			   try {
-   				 
- 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-  							+ "/"+ time_name+".txt",true);
-   				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-   				bufferedWriter.write((currenttime-starttime)+"\n");
-   				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-   				bufferedWriter.flush();
-   				bufferedWriter.close();
-   				} catch (IOException e) {
-   					// TODO Auto-generated catch block
-   					e.printStackTrace();
-   				}
-   			   
-    			//OK_times++;
-     		}
-            else if(final_User1DownLeft_User2DownLeft <58 &&
-            		final_User1DownRight_User2DownRight >58+58*0.04 && final_User1DownRight_User2DownRight <67-67*0.04){
-    			Currentstate="state2";
- 			   try {
- 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 							+ "/"+ text_name+".txt",true);
- 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
- 				bufferedWriter.write(("45度")+"\n");
- 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
- 				bufferedWriter.flush();
- 				bufferedWriter.close();
- 				} catch (IOException e) {
- 					// TODO Auto-generated catch block
- 					e.printStackTrace();
- 				}
- 	   			currenttime=System.currentTimeMillis();
-  			   try {
-  				 
-					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 							+ "/"+ time_name+".txt",true);
-  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-  				bufferedWriter.write((currenttime-starttime)+"\n");
-  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-  				bufferedWriter.flush();
-  				bufferedWriter.close();
-  				} catch (IOException e) {
-  					// TODO Auto-generated catch block
-  					e.printStackTrace();
-  				}
-  			   
-   			//System.out.println("右轉45度");
-   			//OK_times++;
-    		}
-            else if(final_User1DownLeft_User2DownLeft <58
-            		&& final_User1DownRight_User2DownRight >67-0.04*67 &&final_User1DownRight_User2DownRight <67+0.04*67 ){
-    			Currentstate="state3";
- 			   try {
- 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 							+ "/"+ text_name+".txt",true);
- 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
- 				bufferedWriter.write(("90度")+"\n");
- 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
- 				bufferedWriter.flush();
- 				bufferedWriter.close();
- 				} catch (IOException e) {
- 					// TODO Auto-generated catch block
- 					e.printStackTrace();
- 				}
- 	   			currenttime=System.currentTimeMillis();
-  			   try {
-  				 
-					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 							+ "/"+ time_name+".txt",true);
-  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-  				bufferedWriter.write((currenttime-starttime)+"\n");
-  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-  				bufferedWriter.flush();
-  				bufferedWriter.close();
-  				} catch (IOException e) {
-  					// TODO Auto-generated catch block
-  					e.printStackTrace();
-  				}
-  			   
-   			//System.out.println("右轉45度");
-   			//OK_times++;
-    		}
-            else if(final_User1DownRight_User2DownRight <58 
-            		&& final_User1DownLeft_User2DownLeft >58+58*0.04 && final_User1DownLeft_User2DownLeft<58-58*0.04){
-    			Currentstate="state7";
 
- 			   try {
- 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 							+ "/"+ text_name+".txt",true);
- 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
- 				bufferedWriter.write(("270度")+"\n");
- 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
- 				bufferedWriter.flush();
- 				bufferedWriter.close();
- 				} catch (IOException e) {
- 					// TODO Auto-generated catch block
- 					e.printStackTrace();
- 				}
- 	   			currenttime=System.currentTimeMillis();
-  			   try {
-  				 
-					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 							+ "/"+ time_name+".txt",true);
-  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-  				bufferedWriter.write((currenttime-starttime)+"\n");
-  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-  				bufferedWriter.flush();
-  				bufferedWriter.close();
-  				} catch (IOException e) {
-  					// TODO Auto-generated catch block
-  					e.printStackTrace();
-  				}
-  			   
-   			//System.out.println("右轉45度");
-   			//OK_times++;
-    		}
-            else if(final_User1DownRight_User2DownRight <58 
-            		&& final_User1DownLeft_User2DownLeft >67-67*0.04 &&final_User1DownLeft_User2DownLeft<67+0.04*67){
-    			Currentstate="state8";
-
- 			   try {
- 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 							+ "/"+ text_name+".txt",true);
- 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
- 				bufferedWriter.write(("315度")+"\n");
- 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
- 				bufferedWriter.flush();
- 				bufferedWriter.close();
- 				} catch (IOException e) {
- 					// TODO Auto-generated catch block
- 					e.printStackTrace();
- 				}
- 	   			currenttime=System.currentTimeMillis();
-  			   try {
-  				 
-					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
- 							+ "/"+ time_name+".txt",true);
-  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-  				bufferedWriter.write((currenttime-starttime)+"\n");
-  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-  				bufferedWriter.flush();
-  				bufferedWriter.close();
-  				} catch (IOException e) {
-  					// TODO Auto-generated catch block
-  					e.printStackTrace();
-  				}
-  			   
-   			//System.out.println("右轉45度");
-   			//OK_times++;
-    		}
-            else{
-  			   try {
-  					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-  							+ "/"+ text_name+".txt",true);
-  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-  				bufferedWriter.write(("Out of compute")+"\n");
-  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-  				bufferedWriter.flush();
-  				bufferedWriter.close();
-  				} catch (IOException e) {
-  					// TODO Auto-generated catch block
-  					e.printStackTrace();
-  				}
-  	   			currenttime=System.currentTimeMillis();
-   			   try {
-   				 
- 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-  							+ "/"+ time_name+".txt",true);
-   				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-   				bufferedWriter.write((currenttime-starttime)+"\n");
-   				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-   				bufferedWriter.flush();
-   				bufferedWriter.close();
-   				} catch (IOException e) {
-   					// TODO Auto-generated catch block
-   					e.printStackTrace();
-   				}
-            	
-            	
-            }
-            */
-    		/*System.out.println("User1DownLeft_User2DownLeft");
-    		for (int i = 0; i < User1DownLeft_User2DownLeft.size(); i++) {
-				System.out.print(User1DownLeft_User2DownLeft.get(i)+" ");
-			}
-    		System.out.print("\n");
-    		System.out.println("User1DownLeft_User2DownRight");
-    		for (int i = 0; i < User1DownLeft_User2DownRight.size(); i++) {
-				System.out.print(User1DownLeft_User2DownRight.get(i)+" ");			
-			}
-    		System.out.print("\n");
-    		*/
-
-
-    		//User1DownLeft_User2DownLeft_presize=User1DownLeft_User2DownLeft.size()+User2DownLeft_User1DownLeft.size();
-    		//User1DownLeft_User2DownRight_presize=User1DownLeft_User2DownRight.size()+User2DownRight_User1DownLeft.size();        
-    		//User1DownRight_User2DownLeft_presize=User1DownRight_User2DownLeft.size()+User2DownLeft_User1DownRight.size();
-    		//User1DownRight_User2DownRight_presize=User1DownRight_User2DownRight.size()+User2DownRight_User1DownRight.size();
     		
     		
     	} //判斷雙向 Rssi要過門檻
-    	} //Rssi個數要過門檻
+    	//} //Rssi個數要過門檻
        /*if_restartime=false;
  	   DistanceRank.clear();
  	   User1DownLeft_User1DownRight.clear();User1DownRight_User1DownLeft.clear();
@@ -1271,6 +903,51 @@ public class Experiment_Revolution {
     }
 
     
+	public void Precompute(){         //做資料前運算
+		
+		try{
+			for(int i=0;i<Totoalline.size();i++){
+				
+				if(Totoalline.get(i).size()!=0)
+					System.out.println(Totoalline.get(i));
+			}
+			
+		for(int i=0;i<Totoalline.size();i=i+2){    //兩條雙線變成一條有唯一的值
+			
+			/*if(Totoalline.get(i).size()!=0 &&Totoalline.get(i+1).size()!=0){
+			Collections.sort(Totoalline.get(i));
+			Statistics statistics1 =new Statistics(Totoalline.get(i).subList(1, Totoalline.get(i).size()-1));   //去頭去尾，如果size=10，就是取(1,9)
+			
+			Collections.sort(Totoalline.get(i+1));
+			Statistics statistics2 =new Statistics(Totoalline.get(i+1).subList(1, Totoalline.get(i+1).size()-1));   //去頭去尾，如果size=10，就是取(1,9)	
+			
+			
+			DistanceRank[i/2]=(statistics1.getMean()+statistics2.getMean())/2;
+			}*/
+			
+			if(Totoalline.get(i).size()!=0 &&Totoalline.get(i+1).size()!=0){
+			
+			for(int j=0;j<Totoalline.get(i+1).size();j++){
+				Totoalline.get(i).add(Totoalline.get(i+1).get(j));
+			}			
+			Collections.sort(Totoalline.get(i));
+			Statistics statistics1 =new Statistics(Totoalline.get(i).subList(1, Totoalline.get(i).size()-1));   //去頭去尾，如果size=10，就是取(1,9)
+
+			DistanceRank[i/2]=statistics1.getMean();
+			}
+			
+		
+		}
+		System.out.println("DistanceRank: ");
+		for(int i=0;i<DistanceRank.length;i++)
+			System.out.print(i+":"+DistanceRank[i]+" ");
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
+	}
 	public double intRssi_to_distance(int intrssi){
 	   	   if(intrssi<=40){
 	   			Distance=(Math.pow(12,1.5*(intrssi/33.68361333)-1));
