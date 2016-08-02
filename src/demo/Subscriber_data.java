@@ -9,9 +9,7 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
 
-import demo.Experiment.Experiment_Exhibition_Revolution;
-import demo.Experiment.Experiment_Revolution;
-import demo.Experiment.Experiment_Rotation;
+import demo.Experiment.Experiment_OutputExcelRevolution;
 import demo.Experiment.Experiment_finalRevolution;
 
 
@@ -29,7 +27,8 @@ public class Subscriber_data {
     {
     	
     	new Thread(){
-    		public void run(){
+    		@Override
+			public void run(){
     	try {
 			
         ConnectionFactory factory = new ConnectionFactory();
@@ -71,6 +70,7 @@ public class Subscriber_data {
 	
 	
 	new Thread(){
+		@Override
 		public void run(){
 	try {
 		ConnectionFactory factory = new ConnectionFactory();
@@ -94,8 +94,10 @@ public class Subscriber_data {
         //實驗與跑數據用
         //Revolution_alogorithm revolution = new Revolution_alogorithm();
         //revolution.Revolution_processing();
-         Experiment_finalRevolution revolution =new Experiment_finalRevolution();
+         Experiment_OutputExcelRevolution revolution = new Experiment_OutputExcelRevolution();
          revolution.Revolution_processing(line);
+         //Experiment_finalRevolution revolution =new Experiment_finalRevolution();
+         //revolution.Revolution_processing(line);
 		
 		
 		

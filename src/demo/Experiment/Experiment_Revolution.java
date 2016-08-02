@@ -9,12 +9,8 @@ import java.net.URISyntaxException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

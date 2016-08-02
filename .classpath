@@ -2,11 +2,17 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/commons-cli-1.1.jar"/>
-	<classpathentry kind="lib" path="lib/commons-io-1.2.jar"/>
-	<classpathentry kind="lib" path="lib/junit.jar"/>
-	<classpathentry kind="lib" path="lib/rabbitmq-client-tests.jar"/>
-	<classpathentry kind="lib" path="lib/rabbitmq-client.jar"/>
 	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/java-json.jar"/>
+	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/commons-cli-1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/commons-io-1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/junit.jar"/>
+	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/poi-3.13-20150929.jar"/>
+	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/poi-examples-3.13-20150929.jar"/>
+	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/poi-excelant-3.13-20150929.jar"/>
+	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/poi-ooxml-3.13-20150929.jar"/>
+	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/poi-ooxml-schemas-3.13-20150929.jar"/>
+	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/poi-scratchpad-3.13-20150929.jar"/>
+	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/rabbitmq-client-tests.jar"/>
+	<classpathentry kind="lib" path="/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/lib/rabbitmq-client.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

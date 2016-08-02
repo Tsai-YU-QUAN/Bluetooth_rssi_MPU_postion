@@ -7,11 +7,7 @@ import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import gnu.io.UnsupportedCommOperationException;
 
-import java.awt.print.Printable;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -26,7 +22,6 @@ import java.util.Scanner;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.MessageProperties;
 
 
 
@@ -221,7 +216,8 @@ public class Publisher implements SerialPortEventListener {
 
     // readWrite method
 
-    public void serialEvent(SerialPortEvent evt) {
+    @Override
+	public void serialEvent(SerialPortEvent evt) {
 
         if (evt.getEventType() == SerialPortEvent.DATA_AVAILABLE) { // if data
                                                                     // available

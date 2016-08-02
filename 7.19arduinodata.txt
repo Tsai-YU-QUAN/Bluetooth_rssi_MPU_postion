@@ -1,0 +1,254 @@
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 39 33 3a 43 33 3a 45 37 21 34 33 65 01 65 01 6a 01 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 39 33 3a 42 45 3a 39 42 21 35 33 65 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 39 33 3a 43 33 3a 45 37 21 34 33 65 01 65 01 6a 01 63 7e 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 7d 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 46 46 30 30 2c 2d 36 30 21 20 32 65 51 39 33 3a 43 32 3a 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 45 38 21 35 32 65 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 46 46 30 30 2c 2d 36 30 21 20 38 65 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 39 33 3a 42 46 3a 46 42 21 34 37 65 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 46 46 30 30 2c 2d 36 30 21 20 32 65 01 65 01 6a 01 63 7e 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 7d 01 65 01 6a 01 63 7e 7d 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 01 65 01 6a 01 63 7e 7d 01 65 01 6a 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> ei
+Notification handle = 0x000a value: 51 46 46 30 30 2c 2d 35 35 21 0d 0a 65 
+[CON][80:C1:BA:74:56:6B][LE]> ei
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> eix
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> eix
+Notification handle = 0x000a value: 51 46 46 30 30 2c 2d 35 35 21 0d 0a 65 01 65 01 6a 01 63 7e 
+[CON][80:C1:BA:74:56:6B][LE]> eix
+Notification handle = 0x000a value: 7d 
+[CON][80:C1:BA:74:56:6B][LE]> eix
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> eixt
+Notification handle = 0x000a value: 51 46 46 30 30 2c 2d 36 30 21 30 3a 65 
+[CON][80:C1:BA:74:56:6B][LE]> eixt
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> eixt
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> eixt
+eixt: command not found
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 39 33 3a 42 46 3a 46 42 21 34 38 65 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 46 46 30 30 2c 2d 36 30 21 20 38 65 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 39 33 3a 42 46 3a 46 42 21 34 38 65 01 65 01 6a 01 63 7e 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 01 65 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 39 33 3a 42 44 3a 38 33 21 35 30 65 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 39 33 3a 42 45 3a 39 42 21 35 35 65 01 65 01 6a 01 63 7e 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 7d 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 51 39 33 3a 43 33 3a 45 37 21 34 33 65 
+[CON][80:C1:BA:74:56:6B][LE]> 
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> e
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> ex
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> ex
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> ex
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> ex
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> exi
+Notification handle = 0x000a value: 01 65 01 6a 01 63 7e 7d 01 65 01 6a 01 63 7e 7d 01 65 01 6a 
+[CON][80:C1:BA:74:56:6B][LE]> exi
+Notification handle = 0x000a value: 01 63 7e 7d 
+[CON][80:C1:BA:74:56:6B][LE]> exit

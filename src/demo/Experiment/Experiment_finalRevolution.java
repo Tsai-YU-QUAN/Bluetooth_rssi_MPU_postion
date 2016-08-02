@@ -16,6 +16,8 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import apple.laf.JRSUIConstants.Size;
+
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -32,16 +34,19 @@ public class Experiment_finalRevolution {
 	   static Channel channel_publish;
 	   String Prestate="", Currentstate="3";
 	   String text_name="公轉270_n=10_自轉0",time_name="公轉270_n=10_自轉0時間";
-	   double User1adjsut_scale=0.0,User2adjsut_scale=0.0;
+	   double User1LeftRight_scale=0.0,User1FrontBehind_scale=0.0,User2LeftRight_scale=0.0,User2FrontBehind_scale=0.0;
 	   static long starttime,currenttime;
 	   static int OK_times=0, fail_times;
-	   int slide_windows=5, min_window=3;
-	   double Real_User1DownLeft_User1DownRight=20;    //20CM
+	   int slide_windows=3, min_window=3;
+	   double Real_User1DownLeft_User1DownRight=30,Real_User1DownFront_User1DownBehind=22;    //30,22CM
 	   double Real_final_User2DownRight_User2DownLeft=100;     //100CM
+	   double final_User1DownLeft_User1DownRight,final_User1DownFront_User1DownBehind;
 	   static int count=0;    //for realtime compute
+	   static int Distance_count=0;
 	   private static final String TOPIC_location = "wise.position";    
 	   private static final String TOPIC_location2 = "wise.position2";  // 測試用
 	   private static boolean if_init=false;
+	   private static boolean if_restartime=false;
 	   
 	   //Tim=user1   , Jack=user2   //8個節點  56條線
 	   static ArrayList<ArrayList<Double>> Totoalline = new ArrayList<ArrayList<Double>>();
@@ -83,6 +88,14 @@ public class Experiment_finalRevolution {
 		static String nodeName;
 	    String Clear_MAC;
 	    String RSSI;
+	    //**********************************為了擴大判斷與即時性********************************************//
+	   static int User1Left_size,User1Right_size,User1Front_size,User1Behind_size;                  
+	   static Double User1Left_Distance,User1Right_Distance,User1Front_Distance,User1Behind_Distance;
+	   
+	   
+	   
+	   
+	   
 	   static int User1DownLeft_User1DownRight_size=-1;//User1DownLeft_User1DownRight_presize=-2;    //六個節點  30條線
 	   static int User1DownRight_User1DownLeft_size=-1;//User1DownRight_User1DownLeft_presize=-2;
 	   static int User2DownRight_User2DownLeft_size=-1;//User2DownRight_User2DownLeft_presize=-2;
@@ -108,7 +121,8 @@ public class Experiment_finalRevolution {
 
 	   
 	   static ArrayList<Double> CoeffVarRank = new ArrayList<Double>();//大到小
-	   double [] DistanceRank= new double[28];
+	   double [] DistanceLine= new double[28];
+	   static ArrayList<Double> Distance_compare= new ArrayList<Double>();
 	 //static ArrayList<Double> DistanceRank = new ArrayList<Double>();//大到小
 
 	   
@@ -121,7 +135,21 @@ public class Experiment_finalRevolution {
 
     public void Revolution_processing(String posedata)
     
-    {  	
+    { 
+    	FileWriter fw1;
+		   try {
+				fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
+						+ "/"+"arduino有沒有資料測試.txt",true);
+			BufferedWriter bufferedWriter = new BufferedWriter(fw1);
+			bufferedWriter.write(posedata+"\n");
+			//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
+			bufferedWriter.flush();
+			bufferedWriter.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		   
     	if(if_init==false){   //先初始化，以後要判斷是哪一個state需要查表
     	Totoalline.add(User1DownLeft_User1DownRight);Totoalline.add(User1DownRight_User1DownLeft);   //0
     	Totoalline.add(User1DownLeft_User2DownLeft);Totoalline.add(User2DownLeft_User1DownLeft);     //1
@@ -179,11 +207,11 @@ public class Experiment_finalRevolution {
          //channel.basicPublish(TOPIC_location, "", null, finaljson.getBytes());
 		 //finaljson = "{" + "Position"+": { x:"+-1+", y:"+0+", z:"+0+ "} }";
          //channel.basicPublish(TOPIC_location, "", null, finaljson.getBytes());
-    	/*if(if_restartime==false){
+    	if(if_restartime==false){
         starttime=System.currentTimeMillis();
         if_restartime=true;
     	}
-    	*/
+    	
         
     	nodeName=posedata.substring(0, posedata.indexOf(":"));
     	Clear_MAC=posedata.substring(posedata.length()-11, posedata.length()-3);
@@ -205,8 +233,7 @@ public class Experiment_finalRevolution {
     				//intRssi_to_distance(intrssi);
     				
     				if(Experiment_Globalvariable.Tim_Down_Front[0].equals(Clear_MAC)){
-    					User1DownFront_User1DownBehind.add(intRssi_to_distance(intrssi));
-    					
+    					User1DownFront_User1DownBehind.add(intRssi_to_distance(intrssi));   					
     				}
     				if(Experiment_Globalvariable.Tim_Down_Front[1].equals(Clear_MAC)){
     					User1DownFront_User2DownLeft.add(intRssi_to_distance(intrssi));
@@ -220,7 +247,7 @@ public class Experiment_finalRevolution {
     				}  	
     				if(Experiment_Globalvariable.Tim_Down_Front[4].equals(Clear_MAC)){
     					User1DownFront_User2DownBehind.add(intRssi_to_distance(intrssi));
-    				}  	
+    				}
     				
         			}catch(Exception e){
         				e.printStackTrace();
@@ -258,6 +285,7 @@ public class Experiment_finalRevolution {
     				if(Experiment_Globalvariable.Tim_Down_Behind[4].equals(Clear_MAC)){
     					User1DownBehind_User2DownBehind.add(intRssi_to_distance(intrssi));
     				}
+    				
     				
         			}catch(Exception e){
         				e.printStackTrace();
@@ -479,50 +507,16 @@ public class Experiment_finalRevolution {
         		" "+User2DownRight_User1DownFront.size()+" "+User2DownRight_User1DownBehind.size()+
         		" "+User2DownRight_User1DownLeft.size());
 		
-       // if(User1DownLeft_User2DownLeft_size!=User1DownLeft_User2DownLeft_presize  ||
-       //    User1DownLeft_User2DownRight_size!=User1DownLeft_User2DownRight_presize ||
-       //    User1DownRight_User2DownLeft_size!=User1DownRight_User2DownLeft_presize ||
-       //    User1DownRight_User2DownRight_size!=User1DownRight_User2DownRight_presize){    //判斷是否有refresh
  	    currenttime =System.currentTimeMillis();
  	   //if(currenttime - starttime >=   1000){     //每隔1s進行偵測是否要算
-    	/*if(User1DownLeft_User1DownRight.size()>=min_window && User1DownRight_User1DownLeft.size() >=min_window &&
-    	   User2DownRight_User2DownLeft.size()>=min_window && User2DownLeft_User2DownRight.size()>=min_window &&
-    	   User1DownLeft_User2DownLeft.size()>=min_window &&  User2DownLeft_User1DownLeft.size()>=slide_windows &&
-    	   User1DownLeft_User2DownRight.size()>=min_window && User2DownRight_User1DownLeft.size()>=min_window &&
-    	   User1DownRight_User2DownLeft.size()>=min_window && User2DownLeft_User1DownRight.size()>=min_window &&
-    	   User1DownRight_User2DownRight.size()>=min_window && User2DownRight_User1DownRight.size()>=min_window &&
-    	   User1DownLeft_User2DownFront.size()>=min_window && User1DownLeft_User2DownBehind.size()>=min_window &&
-    	   User1DownRight_User2DownFront.size()>=min_window && User1DownRight_User2DownBehind.size()>=min_window){   //判斷是否所有的線都超過min_window
-        */
-    	/*	if(User1DownLeft_User1DownRight.size()+User1DownRight_User1DownLeft.size()>=slide_windows &&
-    		   User2DownRight_User2DownLeft.size()+User2DownLeft_User2DownRight.size()>=slide_windows &&
-    		   User1DownLeft_User2DownLeft.size()+User2DownLeft_User1DownLeft.size()>=slide_windows &&
-    		   User1DownLeft_User2DownRight.size()+User2DownRight_User1DownLeft.size()>=slide_windows&&
-    		   User1DownRight_User2DownLeft.size()+User2DownLeft_User1DownRight.size()>=slide_windows &&
-    		   User1DownRight_User2DownRight.size()+User2DownRight_User1DownRight.size()>=slide_windows&&
-    		   User1DownLeft_User2DownFront.size()+User1DownLeft_User2DownBehind.size()>=slide_windows &&
-    		   User1DownRight_User2DownFront.size()+User1DownRight_User2DownBehind.size()>=slide_windows){          //判斷是否雙向的線都超過slide_window
-        */
- 	     /* if(User1DownLeft_User2DownLeft.size()>=slide_windows && User1DownLeft_User2DownRight.size()>=slide_windows && 
- 				User1DownRight_User2DownLeft.size()>=slide_windows && User1DownRight_User2DownRight.size()>=slide_windows &&
- 				User1DownFront_User2DownLeft.size()>=slide_windows && User1DownFront_User2DownRight.size()>=slide_windows&&
- 				User1DownBehind_User2DownLeft.size()>=slide_windows &&User1DownBehind_User2DownRight.size()>=slide_windows &&
- 				User2DownLeft_User1DownLeft.size()>=slide_windows&& User2DownLeft_User1DownRight.size()>=slide_windows && 
- 				User2DownLeft_User1DownFront.size()>=slide_windows && User2DownLeft_User1DownBehind.size()>=slide_windows && 
- 				User2DownRight_User1DownLeft.size()>=slide_windows && User2DownRight_User1DownRight.size()>=slide_windows && 
- 			    User2DownRight_User1DownFront.size()>=slide_windows &&User2DownRight_User1DownBehind.size()>=slide_windows &&
- 			    User2DownRight_User1DownLeft .size()>=slide_windows &&User1DownLeft_User2DownRight.size()>=slide_windows) {          
- 			    //判斷四個腳擺法(test)
- 			     */
+ 	    //之後1S判斷一次//
+ 	    //********************************以下會有16種相互自轉判斷組合******************************************//			
+ 			LimitSize();
+ 			System.out.println("LimitSize: "+User1Left_size+" "+User1Right_size+" "+User1Front_size+" "+User1Behind_size+" "+
+ 					User1DownLeft_User1DownRight.size()+" "+User1DownRight_User1DownLeft.size()+" "+User1DownFront_User1DownBehind.size()+" "+User1DownBehind_User1DownFront.size());
 
- 		if(Totoalline.get(4).size()+Totoalline.get(5).size()>slide_windows &&
- 		   Totoalline.get(10).size()+Totoalline.get(11).size()>slide_windows &&
- 		   Totoalline.get(24).size()+Totoalline.get(25).size()>slide_windows &&
- 		   Totoalline.get(36).size()+Totoalline.get(37).size()>slide_windows ) //判斷四個腳擺法(test)
- 		{
- 			
- 			
- 			Precompute();    //做資料前運算，目前版本就直接平均
+ 			if(User1Left_size>=slide_windows &&User1Right_size>=slide_windows&&User1Front_size>=slide_windows&&User1Behind_size>=slide_windows){
+ 				String Mindirection=Precompute();    //做資料前運算，目前版本就直接平均，並算出User1距離User2哪一個點最小
     		
      //****************************用機率估算目前已知距離***********************************//
     	/*	
@@ -661,127 +655,14 @@ public class Experiment_finalRevolution {
 					+" "+final_User1DownRight_User2DownRight+" "+starttime);        //可靠度
 			DistanceRank.add(final_User1DownRight_User2DownBehind);
 			*/
-			
-			
-			
-			//******************************沒有做運算，就以估算目前已知距離*********************************//
-/*    		Collections.sort(User1DownLeft_User1DownRight);
-			Statistics statistics1 =new Statistics(User1DownLeft_User1DownRight.
-					subList(User1DownLeft_User1DownRight.size()-slide_windows, User1DownLeft_User1DownRight.size()));   //去頭去尾，如果size=10，就是取(1,9)
-			
-			for(double temp :User1DownLeft_User1DownRight.
-					subList(User1DownLeft_User1DownRight.size()-slide_windows, User1DownLeft_User1DownRight.size())){
-				System.out.println("statistics1: "+temp);
-			}
-			System.out.println("statistics1: "+statistics1.getMean());        //可靠度
-			
-			
-    		Collections.sort(User1DownRight_User1DownLeft);
-			Statistics statistics2 =new Statistics(User1DownRight_User1DownLeft.
-					subList(User1DownRight_User1DownLeft.size()-slide_windows, User1DownRight_User1DownLeft.size()));   //去頭去尾，如果size=10，就是取(1,9)
-			
-			for(double temp :User1DownRight_User1DownLeft.
-					subList(User1DownRight_User1DownLeft.size()-slide_windows, User1DownRight_User1DownLeft.size())){
-				System.out.println("statistics2: "+temp);
-			}
-			final_User1DownLeft_User1DownRight=(statistics1.getMean()+statistics2.getMean())/2;
-			System.out.println("statistics2與User1可靠度 "+statistics2.getMean()+" "+" "+final_User1DownLeft_User1DownRight);        //可靠度
-			DistanceRank.add(final_User1DownLeft_User1DownRight);
-			
-			
-			
-    		Collections.sort(User2DownLeft_User2DownRight);
-			Statistics statistics3 =new Statistics(User2DownLeft_User2DownRight.
-					subList(User2DownLeft_User2DownRight.size()-slide_windows, User2DownLeft_User2DownRight.size()));   //去頭去尾，如果size=10，就是取(1,9)
-			
-			//for(double temp :User2DownLeft_User2DownRight.
-			//		subList(User2DownLeft_User2DownRight.size()-slide_windows+1, User2DownLeft_User2DownRight.size()-1)){
-			//	System.out.println("statistics3: "+temp);
-			//}
-			System.out.println("statistics3: "+statistics3.getMean());        //可靠度
-			
-			
-    		Collections.sort(User2DownRight_User2DownLeft);
-			Statistics statistics4 =new Statistics(User2DownRight_User2DownLeft.
-					subList(User2DownRight_User2DownLeft.size()-slide_windows, User2DownRight_User2DownLeft.size()));   //去頭去尾，如果size=10，就是取(1,9)
-			
-			//for(double temp :User2DownRight_User2DownLeft.
-			//		subList(User2DownRight_User2DownLeft.size()-slide_windows+1, User2DownRight_User2DownLeft.size()-1)){
-			//	System.out.println("statistics4: "+temp);
-			//}
-			final_User2DownRight_User2DownLeft=(statistics3.getMean()+statistics4.getMean())/2;
-			System.out.println("statistics4與User2可靠度 "+statistics4.getMean()+" "+final_User2DownRight_User2DownLeft);        //可靠度
-			DistanceRank.add(final_User2DownRight_User2DownLeft);
-
-			
-			Collections.sort(User1DownLeft_User2DownLeft);
-			Statistics statistics5 =new Statistics(User1DownLeft_User2DownLeft.
-					subList(User1DownLeft_User2DownLeft.size()-slide_windows, User1DownLeft_User2DownLeft.size()));   //去頭去尾，如果size=10，就是取(1,9)
-			System.out.println("statistics5: "+statistics5.getMean());        //可靠度
-			
-    		Collections.sort(User2DownLeft_User1DownLeft);
-			Statistics statistics6 =new Statistics(User2DownLeft_User1DownLeft.
-					subList(User2DownLeft_User1DownLeft.size()-slide_windows, User2DownLeft_User1DownLeft.size()));   //去頭去尾，如果size=10，就是取(1,9)		
-			final_User1DownLeft_User2DownLeft=(statistics5.getMean()+statistics6.getMean())/2;
-			System.out.println("statistics6 "+statistics6.getMean()+" "+final_User1DownLeft_User2DownLeft);        //可靠度
-			DistanceRank.add(final_User1DownLeft_User2DownLeft);
-
-			
-			Collections.sort(User1DownLeft_User2DownRight);
-			Statistics statistics7 =new Statistics(User1DownLeft_User2DownRight.
-					subList(User1DownLeft_User2DownRight.size()-slide_windows, User1DownLeft_User2DownRight.size()));   //去頭去尾，如果size=10，就是取(1,9)
-			System.out.println("statistics7: "+statistics7.getMean());        //可靠度
-			
-    		Collections.sort(User2DownRight_User1DownLeft);
-			Statistics statistics8 =new Statistics(User2DownRight_User1DownLeft.
-					subList(User2DownRight_User1DownLeft.size()-slide_windows, User2DownRight_User1DownLeft.size()));   //去頭去尾，如果size=10，就是取(1,9)		
-			final_User1DownLeft_User2DownRight=(statistics7.getMean()+statistics8.getMean())/2;
-			System.out.println("statistics8 "+statistics8.getMean()+" "+final_User1DownLeft_User2DownRight);        //可靠度
-			DistanceRank.add(final_User1DownLeft_User2DownRight);
-			
-			Collections.sort(User1DownRight_User2DownLeft);
-			Statistics statistics9 =new Statistics(User1DownRight_User2DownLeft.
-					subList(User1DownRight_User2DownLeft.size()-slide_windows, User1DownRight_User2DownLeft.size()));   //去頭去尾，如果size=10，就是取(1,9)
-			System.out.println("statistics9: "+statistics9.getMean());        //可靠度
-			
-    		Collections.sort(User2DownLeft_User1DownRight);
-			Statistics statistics10 =new Statistics(User2DownLeft_User1DownRight.
-					subList(User2DownLeft_User1DownRight.size()-slide_windows, User2DownLeft_User1DownRight.size()));   //去頭去尾，如果size=10，就是取(1,9)		
-			final_User1DownRight_User2DownLeft=(statistics9.getMean()+statistics10.getMean())/2;
-			System.out.println("statistics10 "+statistics10.getMean());        //可靠度
-			DistanceRank.add(final_User1DownRight_User2DownLeft);
-			for(double temp :User2DownRight_User1DownRight)
-				System.out.println("User1DownRight_User2DownRight: "+temp);
-	
-			Collections.sort(User1DownRight_User2DownRight);
-			Statistics statistics11 =new Statistics(User1DownRight_User2DownRight.
-					subList(User1DownRight_User2DownRight.size()-slide_windows, User1DownRight_User2DownRight.size()));   //去頭去尾，如果size=10，就是取(1,9)
-			System.out.println("statistics11: "+statistics11.getMean()+" "+statistics11.getStdDev()+" "+statistics11.getCoeffVar());        //可靠度
-			
-			for(double temp :User2DownRight_User1DownRight)
-				System.out.println("User2DownRight_User1DownRight: "+temp);
-			
-    		Collections.sort(User2DownRight_User1DownRight);
-			Statistics statistics12 =new Statistics(User2DownRight_User1DownRight.
-					subList(User2DownRight_User1DownRight.size()-slide_windows, User2DownRight_User1DownRight.size()));   //去頭去尾，如果size=10，就是取(1,9)		
-			final_User1DownRight_User2DownRight=(statistics11.getMean()+statistics12.getMean())/2;
-			System.out.println("statistics12 "+statistics12.getMean());        //可靠度
-			DistanceRank.add(final_User1DownRight_User2DownRight);
-	*/		
-			
-			
-			
-			
-			//***********************************************************************************//
-
-
-			
-
-
-			    	System.out.println("DistanceRank: "+DistanceRank[2]+" "+DistanceRank[5]+" "+DistanceRank[12]+" "+DistanceRank[18]);
-			    	if(DistanceRank[2] > (DistanceRank[5]+DistanceRank[12]+DistanceRank[18])/3){     
-    				Currentstate="state1";
+			//*****************根據User2自轉之後會有，16種判斷******************//
+ 				if(Mindirection.equals("MinUser1Behind")){ 
+ 	   				Currentstate="state1";
     				System.out.println("state1");
+ 					
+ 				}else if(Mindirection.equals("MinUser1Right")){
+    				Currentstate="state3";
+    				System.out.println("state3");
     				
     				///******輸出到Unity******///
     				 //finaljson = "{" + "Position"+": { x:"+1+", y:"+0+", z:"+0+ "} }";
@@ -813,8 +694,17 @@ public class Experiment_finalRevolution {
     	   					e.printStackTrace();
     	   				}
 			    	}
+			    	else if(Mindirection.equals("MinUser1Front")){
+	    				Currentstate="states5";
+	    				System.out.println("state5");
+			    		
+			    	}
+			    	else if(Mindirection.equals("MinUser1Left")){
+	    				Currentstate="states7";
+	    				System.out.println("state7");
+			    	}
 			    	else{
-			    		System.out.println("another state");
+	    				System.out.println("No_decision");
 			    		
 			    	}
 			    	
@@ -822,13 +712,14 @@ public class Experiment_finalRevolution {
 			    
     			
 			    
-    			
-    			
+ 			currenttime=System.currentTimeMillis();
+    		System.out.println("wiseserver執行時間:"+(currenttime-starttime));	
             System.exit(1);
 
     		
     		
-    	} //判斷雙向 Rssi要過門檻
+    
+ 		  }//Rssi過總數門檻
     	//} //Rssi個數要過門檻
        /*if_restartime=false;
  	   DistanceRank.clear();
@@ -902,52 +793,165 @@ public class Experiment_finalRevolution {
         }
     }
 
+	public void LimitSize(){
+		User1Left_size=Totoalline.get(2).size()+Totoalline.get(3).size()+Totoalline.get(4).size()+Totoalline.get(5).size()+
+				       Totoalline.get(6).size()+Totoalline.get(7).size()+Totoalline.get(8).size()+Totoalline.get(9).size();
+		
+		User1Right_size=Totoalline.get(10).size()+Totoalline.get(11).size()+Totoalline.get(12).size()+Totoalline.get(13).size()+
+			            Totoalline.get(14).size()+Totoalline.get(15).size()+Totoalline.get(16).size()+Totoalline.get(17).size();
+		
+		User1Front_size=Totoalline.get(24).size()+Totoalline.get(25).size()+Totoalline.get(26).size()+Totoalline.get(27).size()+
+	                    Totoalline.get(28).size()+Totoalline.get(29).size()+Totoalline.get(30).size()+Totoalline.get(31).size();
+		
+		User1Behind_size=Totoalline.get(36).size()+Totoalline.get(37).size()+Totoalline.get(38).size()+Totoalline.get(39).size()+
+	                    Totoalline.get(40).size()+Totoalline.get(41).size()+Totoalline.get(42).size()+Totoalline.get(43).size();
+		
+	}
     
-	public void Precompute(){         //做資料前運算
+	public String Precompute(){         //做資料前運算
 		
 		try{
 			for(int i=0;i<Totoalline.size();i++){
-				
-				if(Totoalline.get(i).size()!=0)
-					System.out.println(Totoalline.get(i));
+					System.out.println(i+": "+Totoalline.get(i));
 			}
+			//*****************************  先由固定長度做機率判斷  ********************************//
+			//First scale
+    		/*Collections.sort(User1DownLeft_User1DownRight);
+			Statistics statistics1 =new Statistics(User1DownLeft_User1DownRight.
+					subList(User1DownLeft_User1DownRight.size()-slide_windows+1, User1DownLeft_User1DownRight.size()-1));   //去頭去尾，如果size=10，就是取(1,9)
+			
+			//System.out.println("statistics1: "+statistics1.getMean()+" "+statistics1.getStdDev()+" "+statistics1.getCoeffVar());        //可靠度					
+    		Collections.sort(User1DownRight_User1DownLeft);
+			Statistics statistics2 =new Statistics(User1DownRight_User1DownLeft.
+					subList(User1DownRight_User1DownLeft.size()-slide_windows+1, User1DownRight_User1DownLeft.size()-1));   //去頭去尾，如果size=10，就是取(1,9)
+
+			final_User1DownLeft_User1DownRight=(statistics1.getMean()*statistics1.getCoeffVar()+statistics2.getMean()*statistics2.getCoeffVar())
+			/(statistics1.getCoeffVar()+statistics2.getCoeffVar());
+			User1LeftRight_scale=Real_User1DownLeft_User1DownRight/final_User1DownLeft_User1DownRight;
+			System.out.println("statistics2與User1可靠度 "+statistics2.getMean()+" "+statistics2.getStdDev()+" "+statistics2.getCoeffVar()
+					+" "+final_User1DownLeft_User1DownRight+" "+User1LeftRight_scale);        //可靠度
+			
+			//Second scale
+    		Collections.sort(User1DownFront_User1DownBehind);
+			Statistics statistics3 =new Statistics(User1DownFront_User1DownBehind.
+					subList(User1DownFront_User1DownBehind.size()-slide_windows+1, User1DownFront_User1DownBehind.size()-1));   //去頭去尾，如果size=10，就是取(1,9)
+			
+			//System.out.println("statistics1: "+statistics1.getMean()+" "+statistics1.getStdDev()+" "+statistics1.getCoeffVar());        //可靠度					
+    		Collections.sort(User1DownBehind_User1DownFront);
+			Statistics statistics4 =new Statistics(User1DownBehind_User1DownFront.
+					subList(User1DownBehind_User1DownFront.size()-slide_windows+1, User1DownBehind_User1DownFront.size()-1));   //去頭去尾，如果size=10，就是取(1,9)		
+
+			final_User1DownFront_User1DownBehind=(statistics3.getMean()*statistics3.getCoeffVar()+statistics4.getMean()*statistics4.getCoeffVar())
+			/(statistics3.getCoeffVar()+statistics4.getCoeffVar());
+			User1FrontBehind_scale=Real_User1DownFront_User1DownBehind/final_User1DownFront_User1DownBehind;
+			System.out.println("statistics4與User1可靠度 "+statistics4.getMean()+" "+statistics4.getStdDev()+" "+statistics4.getCoeffVar()
+					+" "+final_User1DownFront_User1DownBehind+" "+User1FrontBehind_scale);        //可靠度
+		    /////調整原本的長度//////////
+			for(int i=2;i<=16;i=i+2){    //看查表
+				for(int j=0;j<Totoalline.get(i).size();j++){
+					Totoalline.get(i).set(j,Totoalline.get(i).get(j)*User1LeftRight_scale);
+			}
+				}
+		for(int i=24;i<=30;i=i+2){    //看查表 12~15
+			for(int j=0;j<Totoalline.get(i).size();j++){
+			Totoalline.get(i).set(j,Totoalline.get(i).get(j)*User1FrontBehind_scale);
+			}
+			}
+		for(int i=18;i<=42;i=i+2){    //看查表 18~21
+			for(int j=0;j<Totoalline.get(i).size();j++){
+			Totoalline.get(i).set(j,Totoalline.get(i).get(j)*User1FrontBehind_scale);
+			}
+			}
+			*/
 			
 		for(int i=0;i<Totoalline.size();i=i+2){    //兩條雙線變成一條有唯一的值
 			
-			/*if(Totoalline.get(i).size()!=0 &&Totoalline.get(i+1).size()!=0){
-			Collections.sort(Totoalline.get(i));
-			Statistics statistics1 =new Statistics(Totoalline.get(i).subList(1, Totoalline.get(i).size()-1));   //去頭去尾，如果size=10，就是取(1,9)
 			
-			Collections.sort(Totoalline.get(i+1));
-			Statistics statistics2 =new Statistics(Totoalline.get(i+1).subList(1, Totoalline.get(i+1).size()-1));   //去頭去尾，如果size=10，就是取(1,9)	
-			
-			
-			DistanceRank[i/2]=(statistics1.getMean()+statistics2.getMean())/2;
-			}*/
-			
-			if(Totoalline.get(i).size()!=0 &&Totoalline.get(i+1).size()!=0){
+			if((Totoalline.get(i).size() + Totoalline.get(i+1).size())>=3){      //雙條線變成一條線
 			
 			for(int j=0;j<Totoalline.get(i+1).size();j++){
 				Totoalline.get(i).add(Totoalline.get(i+1).get(j));
 			}			
 			Collections.sort(Totoalline.get(i));
-			Statistics statistics1 =new Statistics(Totoalline.get(i).subList(1, Totoalline.get(i).size()-1));   //去頭去尾，如果size=10，就是取(1,9)
+			Statistics statistics5 =new Statistics(Totoalline.get(i).subList(1, Totoalline.get(i).size()-1));   //去頭去尾，如果size=10，就是取(1,9)
 
-			DistanceRank[i/2]=statistics1.getMean();
+			DistanceLine[i/2]=statistics5.getMean();
 			}
-			
+			else if(Totoalline.get(i).size()!=0 || Totoalline.get(i+1).size()!=0){                             //雙條線變成一條線
+				for(int j=0;j<Totoalline.get(i+1).size();j++){
+					Totoalline.get(i).add(Totoalline.get(i+1).get(j));
+				}			
+				Statistics statistics6 =new Statistics(Totoalline.get(i).subList(0, Totoalline.get(i).size()));
+				DistanceLine[i/2]=statistics6.getMean();			
+			}
+		}
+		
+		
+		System.out.println("DistanceLine: ");
+		for(int i=0;i<DistanceLine.length;i++)
+			System.out.print(i+":"+DistanceLine[i]+" ");
+		for(int i=1;i<=4;i++){
+			if(DistanceLine[i]>0.0){
+				Distance_count+=1;
+			}
+		}
+		User1Left_Distance=(DistanceLine[1]+DistanceLine[2]+DistanceLine[3]+DistanceLine[4])/Distance_count;
+		Distance_count=0;
+		
+		for(int i=5;i<=8;i++){
+			if(DistanceLine[i]>0.0){
+				Distance_count+=1;
+			}
+		}
+		User1Right_Distance=(DistanceLine[5]+DistanceLine[6]+DistanceLine[7]+DistanceLine[8])/Distance_count;
+		Distance_count=0;
+
+		for(int i=12;i<=15;i++){
+			if(DistanceLine[i]>0.0){
+				Distance_count+=1;
+			}
+		}
+		User1Front_Distance=(DistanceLine[12]+DistanceLine[13]+DistanceLine[14]+DistanceLine[15])/Distance_count;
+		Distance_count=0;
+		
+		for(int i=18;i<=21;i++){
+			if(DistanceLine[i]>0.0){
+				Distance_count+=1;
+			}
+		}
+		User1Behind_Distance=(DistanceLine[18]+DistanceLine[19]+DistanceLine[20]+DistanceLine[21])/Distance_count;
+		Distance_count=0;
+		
+
 		
 		}
-		System.out.println("DistanceRank: ");
-		for(int i=0;i<DistanceRank.length;i++)
-			System.out.print(i+":"+DistanceRank[i]+" ");
-		}
+		
 		catch(Exception e){
 			e.printStackTrace();
 		}
 		
+		//**************** 比較距離大小*******************//
+		Distance_compare.add(User1Left_Distance);Distance_compare.add(User1Right_Distance);
+		Distance_compare.add(User1Front_Distance);Distance_compare.add(User1Behind_Distance);
+		System.out.println("\n");
+		System.out.println("Distance_compare: "+Distance_compare);
+		Collections.sort(Distance_compare);
+		System.out.println("Distance_compare(sort後): "+Distance_compare);
+		if(Distance_compare.get(0).equals(User1Left_Distance)){
+			return "MinUser1Left";			
+		}else if(Distance_compare.get(0).equals(User1Right_Distance)){
+			return "MinUser1Right";			
+		}else if(Distance_compare.get(0).equals(User1Front_Distance)){
+			return "MinUser1Front";			
+		}else if(Distance_compare.get(0).equals(User1Behind_Distance)){
+			return "MinUser1Behind";				
+		}
+		else{
+			return "No_decision";
+		}
 		
 	}
+	
 	public double intRssi_to_distance(int intrssi){
 	   	   if(intrssi<=40){
 	   			Distance=(Math.pow(12,1.5*(intrssi/33.68361333)-1));

@@ -13,16 +13,11 @@ import java.net.URISyntaxException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
-
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
-import com.sun.org.apache.bcel.internal.generic.ATHROW;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
 public class Subscriber_bluetooth_position 
 {
