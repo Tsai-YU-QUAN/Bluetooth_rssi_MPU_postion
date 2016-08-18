@@ -27,7 +27,7 @@ import com.rabbitmq.client.ConnectionFactory;
 
 
 
-public class Experiment_OutputExcelRevolution {
+public class Experiment_OutputExcelRevolution2 {
 	   static Channel channel;
        static Connection connection;
 	   static Channel channel_publish;
@@ -95,7 +95,6 @@ public class Experiment_OutputExcelRevolution {
 	    private String[] nodeNames={"Tim_Down_Front","Tim_Down_Behind","Tim_Down_Left","Tim_Down_Right",
                 "Jack_Down_Front","Jack_Down_Behind","Jack_Down_Left","Jack_Down_Right"};       //Jack_Up_Left=>User2DownFront   Jack_Up_Right=>User2DownBehind
 		static String nodeName;
-		static int compare_count=0;
 	    String Clear_MAC;
 	    String RSSI;
 	    //**********************************為了擴大判斷與即時性********************************************//
@@ -123,11 +122,6 @@ public class Experiment_OutputExcelRevolution {
 	   
 
 
-	   
-
-
-
-
 
 
 	   
@@ -135,6 +129,7 @@ public class Experiment_OutputExcelRevolution {
 	   double [] DistanceLine= new double[28];
 	   static ArrayList<Double> Distance_compare= new ArrayList<Double>();
 	   static ArrayList<Double> Measurepower = new ArrayList<Double>();//大到小
+	   static int compare_count=0;
 	   double  [] Measurepower_state3 ={35.67121571,35.11919496,38.62570303,33.79520093,38.28567975,33.9023951,40.54102715,34.34922062,
 			                            35.18025015,33.79520093,45.39972909,35.46145485,35.11427548,36.39115823,29.57674348,34.19719854,
 			                            32.42837792,35.40705721,37.67333874,39.58336509,31.66484791,28.89073669,31.85613203,36.39115823,
@@ -158,7 +153,7 @@ public class Experiment_OutputExcelRevolution {
 	   
 	   
 	   private static FileWriter fw1,fw2,fw3,fw4;
-	   private static String finaljson;
+		private static String finaljson;
 		
 
 
@@ -267,7 +262,7 @@ public class Experiment_OutputExcelRevolution {
 			distanceString0="";distanceString1="";distanceString2="";distanceString3="";
 			distanceString4="";distanceString5="";distanceString6="";distanceString7="";
 			try {
-				filename_rssi = "/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/FullBleTable_1.xls";
+				filename_rssi = "/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/FullBleTable_2.xls";
 				fileOut = new FileOutputStream(filename_rssi);
 				workbook_rssi.write(fileOut);
             //fileOut.close();
@@ -805,7 +800,7 @@ public class Experiment_OutputExcelRevolution {
  		        System.out.println("currenttimedecisiontime: "+(decisiontime-starttime));
 	  			   try {
 	  					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-	  							+ "/"+"Decision_1.txt",true);
+	  							+ "/"+"Decision_2.txt",true);
 	  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 	  				bufferedWriter.write((Mindirection+" "+(decisiontime-starttime))+"\n");
 	  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1093,7 +1088,7 @@ public class Experiment_OutputExcelRevolution {
     	FileWriter fw1;
 		   try {
 				fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-						+ "/"+"compare.txt",true);
+						+ "/"+"compare_2.txt",true);
 			BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 			bufferedWriter.write(compare_count+":");
 			//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1109,7 +1104,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("L"+User1Left_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1125,7 +1120,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("L"+User1Left_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1141,7 +1136,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("L"+User1Left_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1157,7 +1152,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("R"+User1Right_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1173,7 +1168,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("R"+User1Right_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1189,7 +1184,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("R"+User1Right_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1205,7 +1200,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("F"+User1Front_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1221,7 +1216,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("F"+User1Front_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1237,7 +1232,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("F"+User1Front_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1253,7 +1248,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("B"+User1Behind_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1269,7 +1264,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("B"+User1Behind_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1285,7 +1280,7 @@ public class Experiment_OutputExcelRevolution {
 	    	//FileWriter fw1;
 			   try {
 					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/"+"compare.txt",true);
+							+ "/"+"compare_2.txt",true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 				bufferedWriter.write("B"+User1Behind_count);
 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1298,7 +1293,7 @@ public class Experiment_OutputExcelRevolution {
 		}
 		   try {
 				fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-						+ "/"+"compare.txt",true);
+						+ "/"+"compare_2.txt",true);
 			BufferedWriter bufferedWriter = new BufferedWriter(fw1);
 			bufferedWriter.write("\n");
 			//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
@@ -1308,7 +1303,6 @@ public class Experiment_OutputExcelRevolution {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
 		if(User1Left_count >User1Right_count &&User1Left_count >User1Front_count &&User1Left_count >User1Behind_count){
 			User1Left_count=0;User1Right_count=0;User1Front_count=0;User1Behind_count=0;
 			return "MinUser1Left";
@@ -1328,8 +1322,8 @@ public class Experiment_OutputExcelRevolution {
 		else {
 			User1Left_count=0;User1Right_count=0;User1Front_count=0;User1Behind_count=0;
 			return "No_decision";
-		}
-			*/
+		}*/
+		
 		if(Distance_compare.get(0).equals(User1Left_Distance)){
 			Distance_compare.clear();
 			return "MinUser1Left";
@@ -1346,44 +1340,14 @@ public class Experiment_OutputExcelRevolution {
 		else{
 			return "No_decision";
 		}
-		/*if(User1Left_Distance < User1Right_Distance ||User1Left_Distance < User1Front_Distance ||User1Left_Distance < User1Behind_Distance ){
-			Distance_compare.clear();
-			return "MinUser1Left";			
-		}else if(User1Right_Distance < User1Left_Distance ||User1Right_Distance < User1Front_Distance ||User1Right_Distance < User1Behind_Distance){
-			Distance_compare.clear();
-			return "MinUser1Right";			
-		}else if(User1Front_Distance < User1Left_Distance ||User1Front_Distance < User1Right_Distance ||User1Front_Distance < User1Behind_Distance){
-			Distance_compare.clear();
-			return "MinUser1Front";			
-		}else if(User1Behind_Distance < User1Left_Distance ||User1Behind_Distance < User1Right_Distance ||User1Behind_Distance < User1Front_Distance){
-			Distance_compare.clear();
-			return "MinUser1Behind";				
-		}
-		else{
-			return "No_decision";
-		}*/
 		
-		/*if(User1Left_Distance <User1Front_Distance || User1Left_Distance <User1Behind_Distance|| User1Left_Distance <User1Right_Distance){
-			User1Left_Distance=null;User1Right_Distance=null;User1Front_Distance=null;User1Behind_Distance=null;
-			return "MinUser1Left";
-		}else if(User1Right_Distance <User1Front_Distance || User1Right_Distance <User1Behind_Distance|| User1Right_Distance <User1Left_Distance){
-			User1Left_Distance=null;User1Right_Distance=null;User1Front_Distance=null;User1Behind_Distance=null;
-			return "MinUser1Right";			
-		}else if(User1Front_Distance <User1Left_Distance || User1Front_Distance <User1Right_Distance|| User1Front_Distance <User1Behind_Distance){
-			User1Left_Distance=null;User1Right_Distance=null;User1Front_Distance=null;User1Behind_Distance=null;
-			return "MinUser1Front";			
-		}else if(User1Behind_Distance <User1Left_Distance || User1Behind_Distance <User1Right_Distance|| User1Behind_Distance <User1Front_Distance){
-			User1Left_Distance=null;User1Right_Distance=null;User1Front_Distance=null;User1Behind_Distance=null;
-			return "MinUser1Behind";				
-		}
-		else{
-			return "No_decision";
-		}*/
 		//===================== 清空資料 ====================//		
 	}
 	
-	public double intRssi_to_distance(int intrssi,int index){		
-		Distance=Math.pow(10, 1.5*(intrssi/Measurepower_state1_5[index])-1);
+	public double intRssi_to_distance(int intrssi,int index){
+		
+		
+		Distance=Math.pow(10, 1.5*(intrssi/Measurepower_state3_7[index])-1);
 		if(Distance>=100.0){
 			return 100.0;
 		}

@@ -10,6 +10,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
 
 import demo.Experiment.Experiment_OutputExcelRevolution;
+import demo.Experiment.Experiment_OutputExcelRevolution2;
 import demo.Experiment.Experiment_finalRevolution;
 
 
@@ -94,10 +95,14 @@ public class Subscriber_data {
         //實驗與跑數據用
         //Revolution_alogorithm revolution = new Revolution_alogorithm();
         //revolution.Revolution_processing();
-         Experiment_OutputExcelRevolution revolution = new Experiment_OutputExcelRevolution();
-         revolution.Revolution_processing(line);
-         //Experiment_finalRevolution revolution =new Experiment_finalRevolution();
-         //revolution.Revolution_processing(line);
+          //Experiment_OutputExcelRevolution revolution = new Experiment_OutputExcelRevolution();
+          //revolution.Revolution_processing(line);
+          
+          Experiment_OutputExcelRevolution2 revolution2 = new Experiment_OutputExcelRevolution2();
+          revolution2.Revolution_processing(line);
+          
+          //Experiment_finalRevolution revolution =new Experiment_finalRevolution();
+          //revolution.Revolution_processing(line);
 		
 		
 		

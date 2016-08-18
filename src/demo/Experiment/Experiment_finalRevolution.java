@@ -37,7 +37,7 @@ public class Experiment_finalRevolution {
 	   double User1LeftRight_scale=0.0,User1FrontBehind_scale=0.0,User2LeftRight_scale=0.0,User2FrontBehind_scale=0.0;
 	   static long starttime,currenttime;
 	   static int OK_times=0, fail_times;
-	   int slide_windows=3, min_window=3;
+	   int slide_windows=5, min_window=3;
 	   double Real_User1DownLeft_User1DownRight=30,Real_User1DownFront_User1DownBehind=22;    //30,22CM
 	   double Real_final_User2DownRight_User2DownLeft=100;     //100CM
 	   double final_User1DownLeft_User1DownRight,final_User1DownFront_User1DownBehind;
@@ -49,36 +49,39 @@ public class Experiment_finalRevolution {
 	   private static boolean if_restartime=false;
 	   
 	   //Tim=user1   , Jack=user2   //8個節點  56條線
-	   static ArrayList<ArrayList<Double>> Totoalline = new ArrayList<ArrayList<Double>>();
-	   static ArrayList<Double> User1DownLeft_User1DownRight = new ArrayList<Double>(); static ArrayList<Double> User1DownRight_User1DownLeft = new ArrayList<Double>();       //校正用
-	   static ArrayList<Double> User1DownLeft_User2DownLeft = new ArrayList<Double>();  static ArrayList<Double> User2DownLeft_User1DownLeft = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownLeft_User2DownRight = new ArrayList<Double>(); static ArrayList<Double> User2DownRight_User1DownLeft = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownLeft_User2DownFront = new ArrayList<Double>();  static ArrayList<Double> User2DownFront_User1DownLeft = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownLeft_User2DownBehind = new ArrayList<Double>();  static ArrayList<Double> User2DownBehind_User1DownLeft = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownRight_User2DownLeft = new ArrayList<Double>(); static ArrayList<Double> User2DownLeft_User1DownRight  = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownRight_User2DownRight = new ArrayList<Double>(); static ArrayList<Double> User2DownRight_User1DownRight = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownRight_User2DownFront = new ArrayList<Double>();  static ArrayList<Double> User2DownFront_User1DownRight = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownRight_User2DownBehind = new ArrayList<Double>();  static ArrayList<Double> User2DownBehind_User1DownRight = new ArrayList<Double>();
+	   static ArrayList<ArrayList<Integer>> Totoalline = new ArrayList<ArrayList<Integer>>();
+	   static ArrayList<Integer> User1DownLeft_User1DownRight = new ArrayList<Integer>(); static ArrayList<Integer> User1DownRight_User1DownLeft = new ArrayList<Integer>();       //校正用
+	   static ArrayList<Integer> User1DownLeft_User2DownLeft = new ArrayList<Integer>();  static ArrayList<Integer> User2DownLeft_User1DownLeft = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownLeft_User2DownRight = new ArrayList<Integer>(); static ArrayList<Integer> User2DownRight_User1DownLeft = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownLeft_User2DownFront = new ArrayList<Integer>();  static ArrayList<Integer> User2DownFront_User1DownLeft = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownLeft_User2DownBehind = new ArrayList<Integer>();  static ArrayList<Integer> User2DownBehind_User1DownLeft = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownRight_User2DownLeft = new ArrayList<Integer>(); static ArrayList<Integer> User2DownLeft_User1DownRight  = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownRight_User2DownRight = new ArrayList<Integer>(); static ArrayList<Integer> User2DownRight_User1DownRight = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownRight_User2DownFront = new ArrayList<Integer>();  static ArrayList<Integer> User2DownFront_User1DownRight = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownRight_User2DownBehind = new ArrayList<Integer>();  static ArrayList<Integer> User2DownBehind_User1DownRight = new ArrayList<Integer>();
 
-	   static ArrayList<Double> User1DownFront_User1DownLeft = new ArrayList<Double>();  static ArrayList<Double> User1DownLeft_User1DownFront = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownFront_User1DownRight = new ArrayList<Double>(); static ArrayList<Double> User1DownRight_User1DownFront = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownFront_User1DownBehind = new ArrayList<Double>();static ArrayList<Double> User1DownBehind_User1DownFront = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownFront_User2DownLeft = new ArrayList<Double>();  static ArrayList<Double> User2DownLeft_User1DownFront = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownFront_User2DownRight = new ArrayList<Double>(); static ArrayList<Double> User2DownRight_User1DownFront = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownFront_User2DownFront = new ArrayList<Double>(); static ArrayList<Double> User2DownFront_User1DownFront = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownFront_User2DownBehind = new ArrayList<Double>();static ArrayList<Double> User2DownBehind_User1DownFront = new ArrayList<Double>();	   
-	   static ArrayList<Double> User1DownBehind_User1DownLeft = new ArrayList<Double>();  static ArrayList<Double> User1DownLeft_User1DownBehind = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownBehind_User1DownRight = new ArrayList<Double>(); static ArrayList<Double> User1DownRight_User1DownBehind = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownBehind_User2DownLeft = new ArrayList<Double>();  static ArrayList<Double> User2DownLeft_User1DownBehind = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownBehind_User2DownRight = new ArrayList<Double>(); static ArrayList<Double> User2DownRight_User1DownBehind = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownBehind_User2DownFront = new ArrayList<Double>(); static ArrayList<Double> User2DownFront_User1DownBehind = new ArrayList<Double>();
-	   static ArrayList<Double> User1DownBehind_User2DownBehind = new ArrayList<Double>();static ArrayList<Double> User2DownBehind_User1DownBehind = new ArrayList<Double>();
-	   static ArrayList<Double> User2DownLeft_User2DownFront = new ArrayList<Double>(); static ArrayList<Double> User2DownFront_User2DownLeft = new ArrayList<Double>();       //校正用
-	   static ArrayList<Double> User2DownLeft_User2DownBehind = new ArrayList<Double>(); static ArrayList<Double> User2DownBehind_User2DownLeft = new ArrayList<Double>();       //校正用
-	   static ArrayList<Double> User2DownRight_User2DownFront = new ArrayList<Double>(); static ArrayList<Double> User2Downront_User2DownRight = new ArrayList<Double>();       //校正用
-	   static ArrayList<Double> User2DownRight_User2DownBehind = new ArrayList<Double>(); static ArrayList<Double> User2DownBehund_User2DownRight = new ArrayList<Double>();       //校正用
-	   static ArrayList<Double> User2DownRight_User2DownLeft = new ArrayList<Double>(); static ArrayList<Double> User2DownLeft_User2DownRight = new ArrayList<Double>();       //校正用
-	   static ArrayList<Double> User2DownFront_User2DownBehind = new ArrayList<Double>();static ArrayList<Double> User2DownBehind_User2DownFront = new ArrayList<Double>();
+	   static ArrayList<Integer> User1DownFront_User1DownLeft = new ArrayList<Integer>();  static ArrayList<Integer> User1DownLeft_User1DownFront = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownFront_User1DownRight = new ArrayList<Integer>(); static ArrayList<Integer> User1DownRight_User1DownFront = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownFront_User1DownBehind = new ArrayList<Integer>();static ArrayList<Integer> User1DownBehind_User1DownFront = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownFront_User2DownLeft = new ArrayList<Integer>();  static ArrayList<Integer> User2DownLeft_User1DownFront = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownFront_User2DownRight = new ArrayList<Integer>(); static ArrayList<Integer> User2DownRight_User1DownFront = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownFront_User2DownFront = new ArrayList<Integer>(); static ArrayList<Integer> User2DownFront_User1DownFront = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownFront_User2DownBehind = new ArrayList<Integer>();static ArrayList<Integer> User2DownBehind_User1DownFront = new ArrayList<Integer>();	   
+	   static ArrayList<Integer> User1DownBehind_User1DownLeft = new ArrayList<Integer>();  static ArrayList<Integer> User1DownLeft_User1DownBehind = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownBehind_User1DownRight = new ArrayList<Integer>(); static ArrayList<Integer> User1DownRight_User1DownBehind = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownBehind_User2DownLeft = new ArrayList<Integer>();  static ArrayList<Integer> User2DownLeft_User1DownBehind = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownBehind_User2DownRight = new ArrayList<Integer>(); static ArrayList<Integer> User2DownRight_User1DownBehind = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownBehind_User2DownFront = new ArrayList<Integer>(); static ArrayList<Integer> User2DownFront_User1DownBehind = new ArrayList<Integer>();
+	   static ArrayList<Integer> User1DownBehind_User2DownBehind = new ArrayList<Integer>();static ArrayList<Integer> User2DownBehind_User1DownBehind = new ArrayList<Integer>();
+	   static ArrayList<Integer> User2DownLeft_User2DownFront = new ArrayList<Integer>(); static ArrayList<Integer> User2DownFront_User2DownLeft = new ArrayList<Integer>();       //校正用
+	   static ArrayList<Integer> User2DownLeft_User2DownBehind = new ArrayList<Integer>(); static ArrayList<Integer> User2DownBehind_User2DownLeft = new ArrayList<Integer>();       //校正用
+	   static ArrayList<Integer> User2DownRight_User2DownFront = new ArrayList<Integer>(); static ArrayList<Integer> User2Downront_User2DownRight = new ArrayList<Integer>();       //校正用
+	   static ArrayList<Integer> User2DownRight_User2DownBehind = new ArrayList<Integer>(); static ArrayList<Integer> User2DownBehund_User2DownRight = new ArrayList<Integer>();       //校正用
+	   static ArrayList<Integer> User2DownRight_User2DownLeft = new ArrayList<Integer>(); static ArrayList<Integer> User2DownLeft_User2DownRight = new ArrayList<Integer>();       //校正用
+	   static ArrayList<Integer> User2DownFront_User2DownBehind = new ArrayList<Integer>();static ArrayList<Integer> User2DownBehind_User2DownFront = new ArrayList<Integer>();
+	   static ArrayList<Integer> User2DownFront_User2DownRight = new ArrayList<Integer>(); static ArrayList<Integer> User2DownBehind_User2DownRight = new ArrayList<Integer>();     
+	   static ArrayList<Double> Measurepower = new ArrayList<Double>();static ArrayList<Double> RealDistnace = new ArrayList<Double>();
+	   static ArrayList<Double> RealRSSI = new ArrayList<Double>();    static ArrayList<Integer> Majority = new ArrayList<Integer>(); 
 
 	   
 	   //可以觀察用
@@ -123,6 +126,8 @@ public class Experiment_finalRevolution {
 	   static ArrayList<Double> CoeffVarRank = new ArrayList<Double>();//大到小
 	   double [] DistanceLine= new double[28];
 	   static ArrayList<Double> Distance_compare= new ArrayList<Double>();
+		static ArrayList<Integer> CountRSSI = new ArrayList<Integer>();
+
 	 //static ArrayList<Double> DistanceRank = new ArrayList<Double>();//大到小
 
 	   
@@ -150,8 +155,9 @@ public class Experiment_finalRevolution {
 				e.printStackTrace();
 			}
 		   
-    	if(if_init==false){   //先初始化，以後要判斷是哪一個state需要查表
-    	Totoalline.add(User1DownLeft_User1DownRight);Totoalline.add(User1DownRight_User1DownLeft);   //0
+    	if(if_init==false){   
+    	//先初始化，以後要判斷是哪一個state需要查表(為了互相對稱性)
+    	/*Totoalline.add(User1DownLeft_User1DownRight);Totoalline.add(User1DownRight_User1DownLeft);   //0
     	Totoalline.add(User1DownLeft_User2DownLeft);Totoalline.add(User2DownLeft_User1DownLeft);     //1
     	Totoalline.add(User1DownLeft_User2DownRight);Totoalline.add(User2DownRight_User1DownLeft);   //2
     	Totoalline.add(User1DownLeft_User2DownFront);Totoalline.add(User2DownFront_User1DownLeft);   //3
@@ -178,8 +184,24 @@ public class Experiment_finalRevolution {
     	Totoalline.add(User2DownRight_User2DownFront);Totoalline.add(User2Downront_User2DownRight);     //24
     	Totoalline.add(User2DownRight_User2DownBehind);Totoalline.add(User2DownBehund_User2DownRight);  //25
     	Totoalline.add(User2DownRight_User2DownLeft);Totoalline.add(User2DownLeft_User2DownRight);      //26
-    	Totoalline.add(User2DownFront_User2DownBehind);Totoalline.add(User2DownBehind_User2DownFront);  //27
-    	
+    	Totoalline.add(User2DownFront_User2DownBehind);Totoalline.add(User2DownBehind_User2DownFront);  //27*/
+    	//先初始化，為了求出Measurepower(32個)
+    	Totoalline.add(User1DownFront_User2DownFront);Totoalline.add(User1DownFront_User2DownBehind);   //1
+    	Totoalline.add(User1DownFront_User2DownLeft);Totoalline.add(User1DownFront_User2DownRight);     //2
+    	Totoalline.add(User1DownBehind_User2DownFront);Totoalline.add(User1DownBehind_User2DownBehind); //3
+    	Totoalline.add(User1DownBehind_User2DownLeft);Totoalline.add(User1DownBehind_User2DownRight);   //4
+    	Totoalline.add(User1DownLeft_User2DownFront);Totoalline.add(User1DownLeft_User2DownBehind);     //5
+    	Totoalline.add(User1DownLeft_User2DownLeft);Totoalline.add(User1DownLeft_User2DownRight);       //6
+    	Totoalline.add(User1DownRight_User2DownFront);Totoalline.add(User1DownRight_User2DownBehind);   //7
+    	Totoalline.add(User1DownRight_User2DownLeft);Totoalline.add(User1DownRight_User2DownRight);     //8
+    	Totoalline.add(User2DownFront_User1DownFront);Totoalline.add(User2DownFront_User1DownBehind);   //9
+    	Totoalline.add(User2DownFront_User1DownLeft);Totoalline.add(User2DownFront_User1DownRight);     //10
+    	Totoalline.add(User2DownBehind_User1DownFront);Totoalline.add(User2DownBehind_User1DownBehind); //11
+    	Totoalline.add(User2DownBehind_User1DownLeft);Totoalline.add(User2DownBehind_User1DownRight);   //12
+    	Totoalline.add(User2DownLeft_User1DownFront);Totoalline.add(User2DownLeft_User1DownBehind);     //13
+    	Totoalline.add(User2DownLeft_User1DownLeft);Totoalline.add(User2DownLeft_User1DownRight);       //14
+    	Totoalline.add(User2DownRight_User1DownFront);Totoalline.add(User2DownRight_User1DownBehind);   //15
+    	Totoalline.add(User2DownRight_User1DownLeft);Totoalline.add(User2DownRight_User1DownRight);    	//16
     	
     	if_init=true;
     	}
@@ -222,32 +244,44 @@ public class Experiment_finalRevolution {
     	
 
 
-        
         if(nodeName.equals(nodeNames[0])){      //Tim_Down_Front
         	for(int i=0;i<Experiment_Globalvariable.Tim_Down_Front.length;i++){
         		if(Experiment_Globalvariable.Tim_Down_Front[i].equals(Clear_MAC)){
         			try {
-        				
-
+        			
     				int intrssi=Integer.valueOf(RSSI);
     				//intRssi_to_distance(intrssi);
     				
     				if(Experiment_Globalvariable.Tim_Down_Front[0].equals(Clear_MAC)){
-    					User1DownFront_User1DownBehind.add(intRssi_to_distance(intrssi));   					
+    					User1DownFront_User1DownBehind.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Tim_Down_Front[1].equals(Clear_MAC)){
-    					User1DownFront_User2DownLeft.add(intRssi_to_distance(intrssi));
+    					User1DownFront_User2DownLeft.add((intrssi));
 
     				}
     				if(Experiment_Globalvariable.Tim_Down_Front[2].equals(Clear_MAC)){
-    					User1DownFront_User2DownRight.add(intRssi_to_distance(intrssi));
+    					User1DownFront_User2DownRight.add((intrssi));
     				} 
     				if(Experiment_Globalvariable.Tim_Down_Front[3].equals(Clear_MAC)){
-    					User1DownFront_User2DownFront.add(intRssi_to_distance(intrssi));
+    					User1DownFront_User2DownFront.add((intrssi));
     				}  	
     				if(Experiment_Globalvariable.Tim_Down_Front[4].equals(Clear_MAC)){
-    					User1DownFront_User2DownBehind.add(intRssi_to_distance(intrssi));
+    					User1DownFront_User2DownBehind.add((intrssi));
     				}
+    				if(Experiment_Globalvariable.Tim_Down_Front[5].equals(Clear_MAC)){
+    					User1DownFront_User1DownLeft.add((intrssi));
+    				}
+    				if(Experiment_Globalvariable.Tim_Down_Front[6].equals(Clear_MAC)){
+    					User1DownFront_User1DownRight.add((intrssi));
+    				}
+    				/*try {
+    					filename_rssi = "/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/FullBleTable.xls";
+    					fileOut = new FileOutputStream(filename_rssi);
+    					workbook_rssi.write(fileOut);
+    	            //fileOut.close();
+    		        } catch ( Exception ex ) {
+    		            System.out.println(ex);
+    		        }*/
     				
         			}catch(Exception e){
         				e.printStackTrace();
@@ -269,24 +303,27 @@ public class Experiment_finalRevolution {
     				//intRssi_to_distance(intrssi);
     				
     				if(Experiment_Globalvariable.Tim_Down_Behind[0].equals(Clear_MAC)){
-    					User1DownBehind_User1DownFront.add(intRssi_to_distance(intrssi));
-    					
+    					User1DownBehind_User1DownFront.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Tim_Down_Behind[1].equals(Clear_MAC)){
-    					User1DownBehind_User2DownLeft.add(intRssi_to_distance(intrssi));
+    					User1DownBehind_User2DownLeft.add((intrssi));
 
     				}
     				if(Experiment_Globalvariable.Tim_Down_Behind[2].equals(Clear_MAC)){
-    					User1DownBehind_User2DownRight.add(intRssi_to_distance(intrssi));
+    					User1DownBehind_User2DownRight.add((intrssi));
     				} 
     				if(Experiment_Globalvariable.Tim_Down_Behind[3].equals(Clear_MAC)){
-    					User1DownBehind_User2DownFront.add(intRssi_to_distance(intrssi));
+    					User1DownBehind_User2DownFront.add((intrssi));
     				}  	
     				if(Experiment_Globalvariable.Tim_Down_Behind[4].equals(Clear_MAC)){
-    					User1DownBehind_User2DownBehind.add(intRssi_to_distance(intrssi));
+    					User1DownBehind_User2DownBehind.add((intrssi));
     				}
-    				
-    				
+    				if(Experiment_Globalvariable.Tim_Down_Behind[5].equals(Clear_MAC)){
+    					User1DownBehind_User1DownLeft.add((intrssi));
+    				}
+    				if(Experiment_Globalvariable.Tim_Down_Behind[6].equals(Clear_MAC)){
+    					User1DownBehind_User1DownRight.add((intrssi));
+    				}
         			}catch(Exception e){
         				e.printStackTrace();
         			}
@@ -306,22 +343,26 @@ public class Experiment_finalRevolution {
     				
     				if(Experiment_Globalvariable.Tim_Down_Left[0].equals(Clear_MAC)){
     			        //System.out.println("User1DownLeft_User1DownRight "+User1DownLeft_User1DownRight.size() +" "+intRssi_to_distance(intrssi));
-    					User1DownLeft_User1DownRight.add(intRssi_to_distance(intrssi));
-    					
+    					User1DownLeft_User1DownRight.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Tim_Down_Left[1].equals(Clear_MAC)){
-    					User1DownLeft_User2DownLeft.add(intRssi_to_distance(intrssi));
-
+    					User1DownLeft_User2DownLeft.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Tim_Down_Left[2].equals(Clear_MAC)){
-    					User1DownLeft_User2DownRight.add(intRssi_to_distance(intrssi));
+    					User1DownLeft_User2DownRight.add((intrssi));
     				} 
     				if(Experiment_Globalvariable.Tim_Down_Left[3].equals(Clear_MAC)){
-    					User1DownLeft_User2DownFront.add(intRssi_to_distance(intrssi));
+    					User1DownLeft_User2DownFront.add((intrssi));
     				}  	
     				if(Experiment_Globalvariable.Tim_Down_Left[4].equals(Clear_MAC)){
-    					User1DownLeft_User2DownBehind.add(intRssi_to_distance(intrssi));
+    					User1DownLeft_User2DownBehind.add((intrssi));
     				}  	
+    				if(Experiment_Globalvariable.Tim_Down_Left[5].equals(Clear_MAC)){
+    					User1DownLeft_User1DownFront.add((intrssi));
+    				}  	
+    				if(Experiment_Globalvariable.Tim_Down_Left[6].equals(Clear_MAC)){
+    					User1DownLeft_User1DownBehind.add((intrssi));
+    				}
     				
         			}catch(Exception e){
         				e.printStackTrace();
@@ -339,21 +380,27 @@ public class Experiment_finalRevolution {
     				if(Experiment_Globalvariable.Tim_Down_Right[0].equals(Clear_MAC)){
     			        //System.out.println("User1DownRight_User1DownLeft "+User1DownRight_User1DownLeft.size() +" "+intRssi_to_distance(intrssi));
     					//System.out.println(User1DownRight_User1DownLeft.size());
-    			        User1DownRight_User1DownLeft.add(intRssi_to_distance(intrssi));
+    			        User1DownRight_User1DownLeft.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Tim_Down_Right[1].equals(Clear_MAC)){
-    			        User1DownRight_User2DownLeft.add(intRssi_to_distance(intrssi));
-
+    			        User1DownRight_User2DownLeft.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Tim_Down_Right[2].equals(Clear_MAC)){
-    			        User1DownRight_User2DownRight.add(intRssi_to_distance(intrssi));
+    			        User1DownRight_User2DownRight.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Tim_Down_Right[3].equals(Clear_MAC)){
-    			        User1DownRight_User2DownFront.add(intRssi_to_distance(intrssi));
+    			        User1DownRight_User2DownFront.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Tim_Down_Right[4].equals(Clear_MAC)){
-    			        User1DownRight_User2DownBehind.add(intRssi_to_distance(intrssi));
+    			        User1DownRight_User2DownBehind.add((intrssi));
     				}
+    				if(Experiment_Globalvariable.Tim_Down_Right[5].equals(Clear_MAC)){
+    			        User1DownRight_User1DownFront.add((intrssi));
+    				}
+    				if(Experiment_Globalvariable.Tim_Down_Right[5].equals(Clear_MAC)){
+    			        User1DownRight_User1DownBehind.add((intrssi));
+    				}
+ 
     				
         			}catch(Exception e){
         				e.printStackTrace();
@@ -369,21 +416,26 @@ public class Experiment_finalRevolution {
     				int intrssi=Integer.valueOf(RSSI);
     				
     				if(Experiment_Globalvariable.Jack_Down_Front[0].equals(Clear_MAC)){
-    					User2DownFront_User2DownBehind.add(intRssi_to_distance(intrssi));
+    					User2DownFront_User2DownBehind.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Front[1].equals(Clear_MAC)){
-    					User2DownFront_User1DownLeft.add(intRssi_to_distance(intrssi));
-
+    					User2DownFront_User1DownLeft.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Front[2].equals(Clear_MAC)){
-    					User2DownFront_User1DownRight.add(intRssi_to_distance(intrssi));
+    					User2DownFront_User1DownRight.add((intrssi));
     				}  	
     				if(Experiment_Globalvariable.Jack_Down_Front[3].equals(Clear_MAC)){
-    					User2DownFront_User1DownFront.add(intRssi_to_distance(intrssi));
+    					User2DownFront_User1DownFront.add((intrssi));
     				}  	
     				if(Experiment_Globalvariable.Jack_Down_Front[4].equals(Clear_MAC)){
-    					User2DownFront_User1DownBehind.add(intRssi_to_distance(intrssi));
-    				}  	
+    					User2DownFront_User1DownBehind.add((intrssi));
+    				}
+    				if(Experiment_Globalvariable.Jack_Down_Front[5].equals(Clear_MAC)){
+    					User2DownFront_User2DownLeft.add((intrssi));
+    				} 
+    				if(Experiment_Globalvariable.Jack_Down_Front[6].equals(Clear_MAC)){
+    					User2DownFront_User2DownRight.add((intrssi));
+    				} 
     				
         			}catch(Exception e){
         				e.printStackTrace();
@@ -399,21 +451,27 @@ public class Experiment_finalRevolution {
     				int intrssi=Integer.valueOf(RSSI);
     				
     				if(Experiment_Globalvariable.Jack_Down_Behind[0].equals(Clear_MAC)){
-    					User2DownBehind_User2DownFront.add(intRssi_to_distance(intrssi));
+    					User2DownBehind_User2DownFront.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Behind[1].equals(Clear_MAC)){
-    					User2DownBehind_User1DownLeft.add(intRssi_to_distance(intrssi));
-
+    					User2DownBehind_User1DownLeft.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Behind[2].equals(Clear_MAC)){
-    					User2DownBehind_User1DownRight.add(intRssi_to_distance(intrssi));
+    					User2DownBehind_User1DownRight.add((intrssi));
     				}  	
     				if(Experiment_Globalvariable.Jack_Down_Behind[3].equals(Clear_MAC)){
-    					User2DownBehind_User1DownFront.add(intRssi_to_distance(intrssi));
+    					User2DownBehind_User1DownFront.add((intrssi));
     				}  	
     				if(Experiment_Globalvariable.Jack_Down_Behind[4].equals(Clear_MAC)){
-    					User2DownBehind_User1DownBehind.add(intRssi_to_distance(intrssi));
+    					User2DownBehind_User1DownBehind.add((intrssi));
     				}  	
+    				if(Experiment_Globalvariable.Jack_Down_Behind[5].equals(Clear_MAC)){
+    					User2DownBehind_User2DownLeft.add((intrssi));
+    				}  	
+    				if(Experiment_Globalvariable.Jack_Down_Behind[6].equals(Clear_MAC)){
+    					User2DownBehind_User2DownRight.add((intrssi));
+    				}  	
+    				
     				
         			}catch(Exception e){
         				e.printStackTrace();
@@ -431,20 +489,26 @@ public class Experiment_finalRevolution {
     				int intrssi=Integer.valueOf(RSSI);
     				
     				if(Experiment_Globalvariable.Jack_Down_Left[0].equals(Clear_MAC)){
-    					User2DownLeft_User1DownLeft.add(intRssi_to_distance(intrssi));
+    					User2DownLeft_User1DownLeft.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Left[1].equals(Clear_MAC)){
-    					User2DownLeft_User1DownRight.add(intRssi_to_distance(intrssi));
+    					User2DownLeft_User1DownRight.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Left[2].equals(Clear_MAC)){
-    					User2DownLeft_User1DownFront.add(intRssi_to_distance(intrssi));
+    					User2DownLeft_User1DownFront.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Left[3].equals(Clear_MAC)){
-    					User2DownLeft_User1DownBehind.add(intRssi_to_distance(intrssi));
+    					User2DownLeft_User1DownBehind.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Left[4].equals(Clear_MAC)){
-    					User2DownLeft_User2DownRight.add(intRssi_to_distance(intrssi));
-    				}  		
+    					User2DownLeft_User2DownRight.add((intrssi));
+    				}  
+    				if(Experiment_Globalvariable.Jack_Down_Left[5].equals(Clear_MAC)){
+    					User2DownLeft_User2DownFront.add((intrssi));
+    				}  
+    				if(Experiment_Globalvariable.Jack_Down_Left[6].equals(Clear_MAC)){
+    					User2DownLeft_User2DownBehind.add((intrssi));
+    				}  
     				
         			}catch(Exception e){
         				e.printStackTrace();
@@ -461,19 +525,25 @@ public class Experiment_finalRevolution {
     				int intrssi=Integer.valueOf(RSSI);
     				
     				if(Experiment_Globalvariable.Jack_Down_Right[0].equals(Clear_MAC)){
-    					User2DownRight_User1DownLeft.add(intRssi_to_distance(intrssi));
+    					User2DownRight_User1DownLeft.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Right[1].equals(Clear_MAC)){
-    					User2DownRight_User1DownRight.add(intRssi_to_distance(intrssi));
+    					User2DownRight_User1DownRight.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Right[2].equals(Clear_MAC)){
-    					User2DownRight_User1DownFront.add(intRssi_to_distance(intrssi));
+    					User2DownRight_User1DownFront.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Right[3].equals(Clear_MAC)){
-    					User2DownRight_User1DownBehind.add(intRssi_to_distance(intrssi));
+    					User2DownRight_User1DownBehind.add((intrssi));
     				}
     				if(Experiment_Globalvariable.Jack_Down_Right[4].equals(Clear_MAC)){
-    					User2DownRight_User2DownLeft.add(intRssi_to_distance(intrssi));
+    					User2DownRight_User2DownLeft.add((intrssi));
+    				}
+    				if(Experiment_Globalvariable.Jack_Down_Right[5].equals(Clear_MAC)){
+    					User2DownRight_User2DownFront.add((intrssi));
+    				}
+    				if(Experiment_Globalvariable.Jack_Down_Right[6].equals(Clear_MAC)){
+    					User2DownRight_User2DownBehind.add((intrssi));
     				}
         			}catch(Exception e){
         				e.printStackTrace();
@@ -495,28 +565,102 @@ public class Experiment_finalRevolution {
  	                                          User2DownBehind_User1DownRight.size()+" "+User2DownBehind_User1DownFront.size()+" "+
  	                                         User2DownBehind_User1DownBehind.size());
  	                                         */
-        System.out.println("判斷size windows:"+User1DownLeft_User2DownLeft.size()+
-        		" "+User1DownLeft_User2DownRight.size()+" "+User1DownRight_User2DownLeft.size()+
-        		" "+User1DownRight_User2DownRight.size()+" "+User1DownFront_User2DownLeft.size()+
-        		" "+User1DownFront_User2DownRight.size()+" "+User1DownBehind_User2DownLeft.size()+
-        		" "+User1DownBehind_User2DownRight.size()+" "+User1DownLeft_User2DownRight.size()+
-        		
-        		" "+User2DownLeft_User1DownLeft.size()+" "+User2DownLeft_User1DownRight.size()+
-        		" "+User2DownLeft_User1DownFront.size()+" "+User2DownLeft_User1DownBehind.size()+
-        		" "+User2DownRight_User1DownLeft.size()+" "+User2DownRight_User1DownRight.size()+
-        		" "+User2DownRight_User1DownFront.size()+" "+User2DownRight_User1DownBehind.size()+
-        		" "+User2DownRight_User1DownLeft.size());
+        System.out.print("判斷size windows:");
+        for(int i=0;i<Totoalline.size();i++)
+        	System.out.print(Totoalline.get(i).size()+" ");
+        System.out.println("\n");
+
 		
  	    currenttime =System.currentTimeMillis();
+ 	    //*******************************測試Measure power(32組收集各10個)*************************************//
+ 	    //slidewindow Measurepower<array根據if判斷做排序> RealDistance<array根據if判斷做排序> RealRSSI<array根據if判斷做排序>
+ 	    if(User1DownFront_User2DownFront.size()>=slide_windows &&User1DownFront_User2DownBehind.size()>=slide_windows&&
+ 	       User1DownFront_User2DownLeft.size()>=slide_windows &&User1DownFront_User2DownRight.size()>=slide_windows&&
+ 	       User1DownBehind_User2DownFront.size()>=slide_windows &&User1DownBehind_User2DownBehind.size()>=slide_windows&&
+ 	       User1DownBehind_User2DownLeft.size()>=slide_windows &&User1DownBehind_User2DownRight.size()>=slide_windows&&
+ 	       User1DownLeft_User2DownFront.size()>=slide_windows &&User1DownLeft_User2DownBehind.size()>=slide_windows&&
+ 	       User1DownLeft_User2DownLeft.size()>=slide_windows &&User1DownLeft_User2DownRight.size()>=slide_windows&&
+ 	       User1DownRight_User2DownFront.size()>=slide_windows &&User1DownRight_User2DownBehind.size()>=slide_windows&&
+ 	       User1DownRight_User2DownLeft.size()>=slide_windows &&User1DownRight_User2DownRight.size()>=slide_windows&&
+ 	      
+ 	       User2DownFront_User1DownFront.size()>=slide_windows &&User2DownFront_User1DownBehind.size()>=slide_windows&&
+	       User2DownFront_User1DownLeft.size()>=slide_windows &&User2DownFront_User1DownRight.size()>=slide_windows&&
+	       User2DownBehind_User1DownFront.size()>=slide_windows &&User2DownBehind_User1DownBehind.size()>=slide_windows&&
+ 	       User2DownBehind_User1DownLeft.size()>=slide_windows &&User2DownBehind_User1DownRight.size()>=slide_windows&&
+ 	       User2DownLeft_User1DownFront.size()>=slide_windows &&User2DownLeft_User1DownBehind.size()>=slide_windows&&
+ 	       User2DownLeft_User1DownLeft.size()>=slide_windows &&User2DownLeft_User1DownRight.size()>=slide_windows&&
+ 	       User2DownRight_User1DownFront.size()>=slide_windows &&User2DownRight_User1DownBehind.size()>=slide_windows&&
+ 	       User2DownRight_User1DownLeft.size()>=slide_windows &&User2DownRight_User1DownRight.size()>=slide_windows){
+ 	    	//初始化距離參數
+ 	    	//===================================State3================================//
+ 	    	//RealDistnace.add(35.0);RealDistnace.add(40.31);RealDistnace.add(22.36);RealDistnace.add(50.99);
+ 	    	//RealDistnace.add(40.31);RealDistnace.add(35.0);RealDistnace.add(22.36);RealDistnace.add(50.99);
+ 	    	//RealDistnace.add(50.99);RealDistnace.add(50.99);RealDistnace.add(35.0);RealDistnace.add(65.0);
+ 	    	//RealDistnace.add(22.36);RealDistnace.add(22.36);RealDistnace.add(5.0);RealDistnace.add(35.0);
+ 	    	
+ 	    	//RealDistnace.add(35.0);RealDistnace.add(40.31);RealDistnace.add(50.99);RealDistnace.add(22.36);
+ 	    	//RealDistnace.add(40.31);RealDistnace.add(35.0);RealDistnace.add(50.99);RealDistnace.add(22.36);
+ 	    	//RealDistnace.add(22.36);RealDistnace.add(22.36);RealDistnace.add(35.0);RealDistnace.add(5.0);
+ 	    	//RealDistnace.add(50.99);RealDistnace.add(50.99);RealDistnace.add(65.0);RealDistnace.add(35.0);
+ 	    	
+ 	    	//===================================State7================================//
+ 	    	//RealDistnace.add(35.0);RealDistnace.add(40.31);RealDistnace.add(50.99);RealDistnace.add(22.36);
+ 	    	//RealDistnace.add(40.31);RealDistnace.add(35.0);RealDistnace.add(50.99);RealDistnace.add(22.36);
+ 	    	//RealDistnace.add(22.36);RealDistnace.add(22.36);RealDistnace.add(35.0);RealDistnace.add(5.0);
+ 	    	//RealDistnace.add(50.99);RealDistnace.add(50.99);RealDistnace.add(65.0);RealDistnace.add(35.0);
+ 	    	
+ 	    	//RealDistnace.add(35.0);RealDistnace.add(40.31);RealDistnace.add(22.36);RealDistnace.add(50.99);
+ 	    	//RealDistnace.add(40.31);RealDistnace.add(35.0);RealDistnace.add(22.36);RealDistnace.add(50.99);
+ 	    	//RealDistnace.add(50.99);RealDistnace.add(50.99);RealDistnace.add(35.0);RealDistnace.add(65.0);
+ 	    	//RealDistnace.add(22.36);RealDistnace.add(22.36);RealDistnace.add(5.0);RealDistnace.add(35.0);
+ 	    	
+ 	    	//===================================State1================================//
+ 	    	//RealDistnace.add(25.0);RealDistnace.add(45.0);RealDistnace.add(33.54);RealDistnace.add(33.54);
+ 	    	//RealDistnace.add(5.0);RealDistnace.add(25.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
+ 	    	//RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(25.0);RealDistnace.add(39.05);
+ 	    	//RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(39.05);RealDistnace.add(25.0);
+ 	    	
+ 	    	//RealDistnace.add(25.0);RealDistnace.add(5.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
+ 	    	//RealDistnace.add(45.0);RealDistnace.add(25.0);RealDistnace.add(38.08);RealDistnace.add(38.8);
+ 	    	//RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(25.0);RealDistnace.add(39.05);
+ 	    	//RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(39.05);RealDistnace.add(25.0);
+ 	    	
+ 	    	//===================================State5================================//
+ 	    	RealDistnace.add(25.0);RealDistnace.add(5.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
+ 	    	RealDistnace.add(45.0);RealDistnace.add(25.0);RealDistnace.add(38.08);RealDistnace.add(38.8);
+ 	    	RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(25.0);RealDistnace.add(39.05);
+ 	    	RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(39.05);RealDistnace.add(25.0);
+ 	    	
+ 	    	RealDistnace.add(25.0);RealDistnace.add(45.0);RealDistnace.add(33.54);RealDistnace.add(33.54);
+ 	    	RealDistnace.add(5.0);RealDistnace.add(25.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
+ 	    	RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(25.0);RealDistnace.add(39.05);
+ 	    	RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(39.05);RealDistnace.add(25.0);
+ 	    	
+
+ 	    	for(int i=0;i<Totoalline.size();i++){//算出目前個32條RSSI衆數
+ 	    		RealRSSI.add(Majoritymode(Totoalline.get(i)));   
+ 	    	}
+ 	    	for(int j=0;j<Totoalline.size();j++){//算出目前個32條Measurepower
+ 	    		Measurepower.add(1.5*(1/(1+Math.log10(RealDistnace.get(j))))*RealRSSI.get(j));
+
+ 	    	}
+ 	    	for(int k=0;k<Totoalline.size();k++)
+ 	    		System.out.print(Measurepower.get(k)+" ");
+ 	    	System.out.println("\n");
+ 	    	System.exit(1);
+ 	       
+ 	    	
+ 	    }
+ 	    
  	   //if(currenttime - starttime >=   1000){     //每隔1s進行偵測是否要算
  	    //之後1S判斷一次//
  	    //********************************以下會有16種相互自轉判斷組合******************************************//			
- 			LimitSize();
+ 			//LimitSize();
  			System.out.println("LimitSize: "+User1Left_size+" "+User1Right_size+" "+User1Front_size+" "+User1Behind_size+" "+
  					User1DownLeft_User1DownRight.size()+" "+User1DownRight_User1DownLeft.size()+" "+User1DownFront_User1DownBehind.size()+" "+User1DownBehind_User1DownFront.size());
 
  			if(User1Left_size>=slide_windows &&User1Right_size>=slide_windows&&User1Front_size>=slide_windows&&User1Behind_size>=slide_windows){
- 				String Mindirection=Precompute();    //做資料前運算，目前版本就直接平均，並算出User1距離User2哪一個點最小
+ 				//String Mindirection=Precompute();    //做資料前運算，目前版本就直接平均，並算出User1距離User2哪一個點最小
     		
      //****************************用機率估算目前已知距離***********************************//
     	/*	
@@ -656,18 +800,18 @@ public class Experiment_finalRevolution {
 			DistanceRank.add(final_User1DownRight_User2DownBehind);
 			*/
 			//*****************根據User2自轉之後會有，16種判斷******************//
- 				if(Mindirection.equals("MinUser1Behind")){ 
+ /*				if(Mindirection.equals("MinUser1Behind")){ 
  	   				Currentstate="state1";
     				System.out.println("state1");
  					
  				}else if(Mindirection.equals("MinUser1Right")){
     				Currentstate="state3";
     				System.out.println("state3");
-    				
+*/    				
     				///******輸出到Unity******///
     				 //finaljson = "{" + "Position"+": { x:"+1+", y:"+0+", z:"+0+ "} }";
     		         //channel.basicPublish(TOPIC_location, "", null, finaljson.getBytes());
-    	  			   try {
+/*    	  			   try {
     	  					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
     	  							+ "/"+ text_name+".txt",true);
     	  				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
@@ -707,14 +851,14 @@ public class Experiment_finalRevolution {
 	    				System.out.println("No_decision");
 			    		
 			    	}
-			    	
+*/			    	
 			    	
 			    
     			
 			    
  			currenttime=System.currentTimeMillis();
     		System.out.println("wiseserver執行時間:"+(currenttime-starttime));	
-            System.exit(1);
+            //System.exit(1);
 
     		
     		
@@ -808,12 +952,13 @@ public class Experiment_finalRevolution {
 		
 	}
     
-	public String Precompute(){         //做資料前運算
+	public void  Precompute(){         //做資料前運算
 		
-		try{
+		/*try{
 			for(int i=0;i<Totoalline.size();i++){
 					System.out.println(i+": "+Totoalline.get(i));
 			}
+			*/
 			//*****************************  先由固定長度做機率判斷  ********************************//
 			//First scale
     		/*Collections.sort(User1DownLeft_User1DownRight);
@@ -863,7 +1008,7 @@ public class Experiment_finalRevolution {
 			}
 			}
 			*/
-			
+		/*	
 		for(int i=0;i<Totoalline.size();i=i+2){    //兩條雙線變成一條有唯一的值
 			
 			
@@ -929,9 +1074,9 @@ public class Experiment_finalRevolution {
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		
+		*/
 		//**************** 比較距離大小*******************//
-		Distance_compare.add(User1Left_Distance);Distance_compare.add(User1Right_Distance);
+		/*Distance_compare.add(User1Left_Distance);Distance_compare.add(User1Right_Distance);
 		Distance_compare.add(User1Front_Distance);Distance_compare.add(User1Behind_Distance);
 		System.out.println("\n");
 		System.out.println("Distance_compare: "+Distance_compare);
@@ -948,7 +1093,7 @@ public class Experiment_finalRevolution {
 		}
 		else{
 			return "No_decision";
-		}
+		}*/
 		
 	}
 	
@@ -983,6 +1128,72 @@ public class Experiment_finalRevolution {
 		
 		
 	}
+	
+	
+	public static double Majoritymode(ArrayList<Integer> array) {   //求衆數函式
+		  Collections.sort(array);
+		  int count = 1;
+		  int temp=0,temp2=0;
+		  double mode = 0;
+		  ArrayList<Integer> Countnumber = new ArrayList<Integer>();
+
+		  for (int i = 0; i < array.size() - 1; i++) {
+		   if (array.get(i).equals(array.get(i+1))) {
+		    count++;
+		   }
+		   else {
+			CountRSSI.add(array.get(i));
+			Countnumber.add(count);
+		    count = 1;
+		    continue;
+		   }
+		   System.out.println(i+" "+(array.size()-2));
+		   if(i==(array.size()-2)){          //最後一個也要加入
+			   CountRSSI.add(array.get(i+1));
+				Countnumber.add(count);
+			    count = 1;
+		   }
+		   //if (count >= longest) {
+		   // longest = count;
+		   //}
+		  }
+		  System.out.println("前"+" "+CountRSSI+" "+Countnumber);
+		  for(int i=0;i<Countnumber.size()-1;i++){         //大的值往前放
+			  for(int j=1;j<Countnumber.size();j++){
+			  if(Countnumber.get(i)<=Countnumber.get(j)){
+				  temp=Countnumber.get(j);
+				  Countnumber.set(j,Countnumber.get(i));
+				  Countnumber.set(i, temp);
+				  
+				  temp2=CountRSSI.get(j);                   //CountRSSI要跟著移動
+				  CountRSSI.set(j,CountRSSI.get(i));
+				  CountRSSI.set(i, temp2);
+			  }
+			  }
+		  }
+		  for(int i=0;i<Countnumber.size()-1;i++){         //Majority必須要設值
+			  if(Countnumber.get(i)==Countnumber.get(i+1)){
+				  Majority.add(CountRSSI.get(i));
+			  }
+			  else{
+				  Majority.add(CountRSSI.get(i));
+				  break;
+			  }
+			  if(Countnumber.get(i)==Countnumber.get(i+1)&&i==(Countnumber.size()-2)){
+				  Majority.add(CountRSSI.get(i+1));
+			  }
+		  }
+		  
+		  for(int i=0;i<Majority.size();i++){     //計算衆數
+			  mode=mode+Majority.get(i);
+		  }
+		  mode=(mode/Majority.size());
+		  //System.out.println(mode+" "+CountRSSI+" "+Majority+" "+Countnumber);
+		  CountRSSI.clear();
+		  Majority.clear();
+		  Countnumber.clear();
+		  return mode;
+		 }
 	
 	
 
