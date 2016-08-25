@@ -1381,7 +1381,7 @@ public class Experiment_OutputExcelRevolution {
 		}*/
 		//===================== 清空資料 ====================//		
 	}
-	
+
 	public double intRssi_to_distance(int intrssi,int index){		
 		Distance=Math.pow(10, 1.5*(intrssi/Measurepower_state1_5[index])-1);
 		if(Distance>=100.0){

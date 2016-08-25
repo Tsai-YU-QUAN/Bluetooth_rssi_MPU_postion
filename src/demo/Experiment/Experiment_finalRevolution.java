@@ -37,12 +37,12 @@ public class Experiment_finalRevolution {
 	   double User1LeftRight_scale=0.0,User1FrontBehind_scale=0.0,User2LeftRight_scale=0.0,User2FrontBehind_scale=0.0;
 	   static long starttime,currenttime;
 	   static int OK_times=0, fail_times;
-	   int slide_windows=5, min_window=3;
+	   int slide_windows=1, min_window=3;
 	   double Real_User1DownLeft_User1DownRight=30,Real_User1DownFront_User1DownBehind=22;    //30,22CM
 	   double Real_final_User2DownRight_User2DownLeft=100;     //100CM
 	   double final_User1DownLeft_User1DownRight,final_User1DownFront_User1DownBehind;
 	   static int count=0;    //for realtime compute
-	   static int Distance_count=0;
+	   static int Distance_count=0, RSSI_mode=0;
 	   private static final String TOPIC_location = "wise.position";    
 	   private static final String TOPIC_location2 = "wise.position2";  // 測試用
 	   private static boolean if_init=false;
@@ -80,7 +80,7 @@ public class Experiment_finalRevolution {
 	   static ArrayList<Integer> User2DownRight_User2DownLeft = new ArrayList<Integer>(); static ArrayList<Integer> User2DownLeft_User2DownRight = new ArrayList<Integer>();       //校正用
 	   static ArrayList<Integer> User2DownFront_User2DownBehind = new ArrayList<Integer>();static ArrayList<Integer> User2DownBehind_User2DownFront = new ArrayList<Integer>();
 	   static ArrayList<Integer> User2DownFront_User2DownRight = new ArrayList<Integer>(); static ArrayList<Integer> User2DownBehind_User2DownRight = new ArrayList<Integer>();     
-	   static ArrayList<Double> Measurepower = new ArrayList<Double>();static ArrayList<Double> RealDistnace = new ArrayList<Double>();
+	   public static ArrayList<Double> Measurepower = new ArrayList<Double>();static ArrayList<Double> RealDistnace = new ArrayList<Double>();
 	   static ArrayList<Double> RealRSSI = new ArrayList<Double>();    static ArrayList<Integer> Majority = new ArrayList<Integer>(); 
 
 	   
@@ -122,7 +122,7 @@ public class Experiment_finalRevolution {
 
 
 
-	   
+	   static String [] State={"","State1_","State2_","State3_","State4_","State5_","State6_","State7_","State8_"};
 	   static ArrayList<Double> CoeffVarRank = new ArrayList<Double>();//大到小
 	   double [] DistanceLine= new double[28];
 	   static ArrayList<Double> Distance_compare= new ArrayList<Double>();
@@ -257,7 +257,6 @@ public class Experiment_finalRevolution {
     				}
     				if(Experiment_Globalvariable.Tim_Down_Front[1].equals(Clear_MAC)){
     					User1DownFront_User2DownLeft.add((intrssi));
-
     				}
     				if(Experiment_Globalvariable.Tim_Down_Front[2].equals(Clear_MAC)){
     					User1DownFront_User2DownRight.add((intrssi));
@@ -572,7 +571,8 @@ public class Experiment_finalRevolution {
 
 		
  	    currenttime =System.currentTimeMillis();
- 	    //*******************************測試Measure power(32組收集各10個)*************************************//
+ 	    if(currenttime - starttime >=   30000){     //30s進行MP運算
+ 	    //*******************************測試Measure power(32組收集至少各1個)*************************************//
  	    //slidewindow Measurepower<array根據if判斷做排序> RealDistance<array根據if判斷做排序> RealRSSI<array根據if判斷做排序>
  	    if(User1DownFront_User2DownFront.size()>=slide_windows &&User1DownFront_User2DownBehind.size()>=slide_windows&&
  	       User1DownFront_User2DownLeft.size()>=slide_windows &&User1DownFront_User2DownRight.size()>=slide_windows&&
@@ -591,7 +591,73 @@ public class Experiment_finalRevolution {
  	       User2DownLeft_User1DownLeft.size()>=slide_windows &&User2DownLeft_User1DownRight.size()>=slide_windows&&
  	       User2DownRight_User1DownFront.size()>=slide_windows &&User2DownRight_User1DownBehind.size()>=slide_windows&&
  	       User2DownRight_User1DownLeft.size()>=slide_windows &&User2DownRight_User1DownRight.size()>=slide_windows){
+ 	    	
+ 	       //********************************* 存RSSI值 ****************************//
+ 	    	for(int i=0;i<Totoalline.size();i++){
+ 	    		for(int index=0;index<Totoalline.get(i).size();index++){
+ 	    			FileWriter fw2;
+ 	    			try {
+ 	    				fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/"+State[1]+i+".txt",true); //0.txt
+ 	    				BufferedWriter bufferedWriter = new BufferedWriter(fw2);
+ 	    				bufferedWriter.write(Totoalline.get(i).get(index)+"\n");
+ 	    				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
+ 	    				bufferedWriter.flush();
+ 	    				bufferedWriter.close();
+ 	    				} catch (IOException e) {
+ 	    					// TODO Auto-generated catch block
+ 	    					e.printStackTrace();
+ 	    					}
+ 	    			}
+ 	    		
+ 	    	}
+  	       //Totalline [0,16] [1,20] [2,24] [3,28] [4,17]....
+ 	    	/*
+ 	    	for(int i=0,j=16;i<(Totoalline.size()/2)&& j<Totoalline.size();j+=4,i++){
+ 	    		for(int index=0;index<Totoalline.get(j).size();index++){   //合併
+ 	    			Totoalline.get(i).add(Totoalline.get(j).get(index));
+ 	    		}
+ 	    		System.out.println("ij "+i+" "+j);
+ 	    		for(int index2=0;index2<Totoalline.get(i).size();index2++){
+ 	    			FileWriter fw2;
+ 	    			try {
+ 	    				fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/"+i+".txt",true); //0.txt
+ 	    				BufferedWriter bufferedWriter = new BufferedWriter(fw2);
+ 	    				bufferedWriter.write(Totoalline.get(i).get(index2)+"\n");
+ 	    				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
+ 	    				bufferedWriter.flush();
+ 	    				bufferedWriter.close();
+ 	    				} catch (IOException e) {
+ 	    					// TODO Auto-generated catch block
+ 	    					e.printStackTrace();
+ 	    					}
+ 	    			}
+ 	    		RSSI_mode=RSSI_mode+1;
+ 	    		if(RSSI_mode%4==0){
+ 	    			j=j-15;               //上面例子28-15+4=17
+ 	    		}
+ 	    	}*/
+ 		   
  	    	//初始化距離參數
+ 	    	//===================================State1================================//
+ 	    	//RealDistnace.add(25.0);RealDistnace.add(45.0);RealDistnace.add(38.08);RealDistnace.add(38.08);
+ 	    	//RealDistnace.add(5.0);RealDistnace.add(25.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
+ 	    	//RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(25.0);RealDistnace.add(39.05);
+ 	    	//RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(39.05);RealDistnace.add(25.0);
+ 	    	
+ 	    	//RealDistnace.add(25.0);RealDistnace.add(5.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
+ 	    	//RealDistnace.add(45.0);RealDistnace.add(25.0);RealDistnace.add(38.08);RealDistnace.add(38.08);
+ 	    	//RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(25.0);RealDistnace.add(39.05);
+ 	    	//RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(39.05);RealDistnace.add(25.0);
+ 	    	//===================================State2================================//
+ 	    	//RealDistnace.add(29.15);RealDistnace.add(47.43);RealDistnace.add(35.0);RealDistnace.add(46.1);
+ 	    	//RealDistnace.add(11.18);RealDistnace.add(29.15);RealDistnace.add(15.0);RealDistnace.add(33.54);
+ 	    	//RealDistnace.add(33.54);RealDistnace.add(46.1);RealDistnace.add(29.15);RealDistnace.add(51.48);
+ 	    	//RealDistnace.add(15.0);RealDistnace.add(35.0);RealDistnace.add(29.15);RealDistnace.add(29.15);
+ 	    	
+ 	    	//RealDistnace.add(29.15);RealDistnace.add(11.18);RealDistnace.add(33.54);RealDistnace.add(15.0);
+ 	    	//RealDistnace.add(47.43);RealDistnace.add(29.15);RealDistnace.add(46.1);RealDistnace.add(35.0);
+ 	    	//RealDistnace.add(35.0);RealDistnace.add(15.0);RealDistnace.add(29.15);RealDistnace.add(29.15);
+ 	    	//RealDistnace.add(46.1);RealDistnace.add(33.54);RealDistnace.add(51.48);RealDistnace.add(29.15);
  	    	//===================================State3================================//
  	    	//RealDistnace.add(35.0);RealDistnace.add(40.31);RealDistnace.add(22.36);RealDistnace.add(50.99);
  	    	//RealDistnace.add(40.31);RealDistnace.add(35.0);RealDistnace.add(22.36);RealDistnace.add(50.99);
@@ -602,6 +668,38 @@ public class Experiment_finalRevolution {
  	    	//RealDistnace.add(40.31);RealDistnace.add(35.0);RealDistnace.add(50.99);RealDistnace.add(22.36);
  	    	//RealDistnace.add(22.36);RealDistnace.add(22.36);RealDistnace.add(35.0);RealDistnace.add(5.0);
  	    	//RealDistnace.add(50.99);RealDistnace.add(50.99);RealDistnace.add(65.0);RealDistnace.add(35.0);
+ 	    	//===================================State4================================//
+ 	    	//RealDistnace.add(29.15);RealDistnace.add(11.18);RealDistnace.add(15.0);RealDistnace.add(33.54);
+ 	    	//RealDistnace.add(47.43);RealDistnace.add(29.15);RealDistnace.add(35.0);RealDistnace.add(46.1);
+ 	    	//RealDistnace.add(46.1);RealDistnace.add(51.48);RealDistnace.add(33.54);RealDistnace.add(29.15);
+ 	    	//RealDistnace.add(35.0);RealDistnace.add(15.0);RealDistnace.add(29.15);RealDistnace.add(29.15);
+ 	    	
+ 	    	//RealDistnace.add(29.15);RealDistnace.add(47.43);RealDistnace.add(46.1);RealDistnace.add(35.0);
+ 	    	//RealDistnace.add(11.18);RealDistnace.add(29.15);RealDistnace.add(33.54);RealDistnace.add(15.0);
+ 	    	//RealDistnace.add(15.0);RealDistnace.add(35.0);RealDistnace.add(29.15);RealDistnace.add(29.15);
+ 	    	//RealDistnace.add(33.54);RealDistnace.add(46.1);RealDistnace.add(51.48);RealDistnace.add(29.15);
+
+ 	    	//===================================State5================================//
+ 	    	//RealDistnace.add(25.0);RealDistnace.add(5.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
+ 	    	//RealDistnace.add(45.0);RealDistnace.add(25.0);RealDistnace.add(38.08);RealDistnace.add(38.08);
+ 	    	//RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(25.0);RealDistnace.add(39.05);
+ 	    	//RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(39.05);RealDistnace.add(25.0);
+ 	    	
+ 	    	//RealDistnace.add(25.0);RealDistnace.add(45.0);RealDistnace.add(38.08);RealDistnace.add(38.08);
+ 	    	//RealDistnace.add(5.0);RealDistnace.add(25.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
+ 	    	//RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(25.0);RealDistnace.add(39.05);
+ 	    	//RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(39.05);RealDistnace.add(25.0);
+ 	    	
+ 	    	//===================================State6================================//
+ 	    	//RealDistnace.add(29.15);RealDistnace.add(11.18);RealDistnace.add(33.54);RealDistnace.add(15.0);
+ 	    	//RealDistnace.add(47.43);RealDistnace.add(29.15);RealDistnace.add(46.1);RealDistnace.add(35.0);
+ 	    	//RealDistnace.add(35.0);RealDistnace.add(15.0);RealDistnace.add(29.15);RealDistnace.add(29.15);
+ 	    	//RealDistnace.add(46.1);RealDistnace.add(33.54);RealDistnace.add(51.48);RealDistnace.add(29.15);
+ 	    	
+ 	    	//RealDistnace.add(29.15);RealDistnace.add(47.43);RealDistnace.add(35.0);RealDistnace.add(46.1);
+ 	    	//RealDistnace.add(11.18);RealDistnace.add(29.15);RealDistnace.add(15.0);RealDistnace.add(33.54);
+ 	    	//RealDistnace.add(33.54);RealDistnace.add(46.1);RealDistnace.add(29.15);RealDistnace.add(51.48);
+ 	    	//RealDistnace.add(15.0);RealDistnace.add(35.0);RealDistnace.add(29.15);RealDistnace.add(29.15);
  	    	
  	    	//===================================State7================================//
  	    	//RealDistnace.add(35.0);RealDistnace.add(40.31);RealDistnace.add(50.99);RealDistnace.add(22.36);
@@ -613,43 +711,47 @@ public class Experiment_finalRevolution {
  	    	//RealDistnace.add(40.31);RealDistnace.add(35.0);RealDistnace.add(22.36);RealDistnace.add(50.99);
  	    	//RealDistnace.add(50.99);RealDistnace.add(50.99);RealDistnace.add(35.0);RealDistnace.add(65.0);
  	    	//RealDistnace.add(22.36);RealDistnace.add(22.36);RealDistnace.add(5.0);RealDistnace.add(35.0);
+
+ 	    	//===================================State8================================//
+ 	    	RealDistnace.add(29.15);RealDistnace.add(47.43);RealDistnace.add(46.1);RealDistnace.add(35.0);
+ 	    	RealDistnace.add(11.18);RealDistnace.add(29.15);RealDistnace.add(33.54);RealDistnace.add(15.0);
+ 	    	RealDistnace.add(15.0);RealDistnace.add(35.0);RealDistnace.add(29.15);RealDistnace.add(29.15);
+ 	    	RealDistnace.add(33.54);RealDistnace.add(46.1);RealDistnace.add(51.48);RealDistnace.add(29.15);
  	    	
- 	    	//===================================State1================================//
- 	    	//RealDistnace.add(25.0);RealDistnace.add(45.0);RealDistnace.add(33.54);RealDistnace.add(33.54);
- 	    	//RealDistnace.add(5.0);RealDistnace.add(25.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
- 	    	//RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(25.0);RealDistnace.add(39.05);
- 	    	//RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(39.05);RealDistnace.add(25.0);
- 	    	
- 	    	//RealDistnace.add(25.0);RealDistnace.add(5.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
- 	    	//RealDistnace.add(45.0);RealDistnace.add(25.0);RealDistnace.add(38.08);RealDistnace.add(38.8);
- 	    	//RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(25.0);RealDistnace.add(39.05);
- 	    	//RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(39.05);RealDistnace.add(25.0);
- 	    	
- 	    	//===================================State5================================//
- 	    	RealDistnace.add(25.0);RealDistnace.add(5.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
- 	    	RealDistnace.add(45.0);RealDistnace.add(25.0);RealDistnace.add(38.08);RealDistnace.add(38.8);
- 	    	RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(25.0);RealDistnace.add(39.05);
- 	    	RealDistnace.add(38.08);RealDistnace.add(21.22);RealDistnace.add(39.05);RealDistnace.add(25.0);
- 	    	
- 	    	RealDistnace.add(25.0);RealDistnace.add(45.0);RealDistnace.add(33.54);RealDistnace.add(33.54);
- 	    	RealDistnace.add(5.0);RealDistnace.add(25.0);RealDistnace.add(21.22);RealDistnace.add(21.22);
- 	    	RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(25.0);RealDistnace.add(39.05);
- 	    	RealDistnace.add(21.22);RealDistnace.add(38.08);RealDistnace.add(39.05);RealDistnace.add(25.0);
+ 	    	RealDistnace.add(29.15);RealDistnace.add(11.18);RealDistnace.add(15.0);RealDistnace.add(33.54);
+ 	    	RealDistnace.add(47.43);RealDistnace.add(29.15);RealDistnace.add(35.0);RealDistnace.add(46.1);
+ 	    	RealDistnace.add(46.1);RealDistnace.add(51.48);RealDistnace.add(33.54);RealDistnace.add(29.15);
+ 	    	RealDistnace.add(35.0);RealDistnace.add(15.0);RealDistnace.add(29.15);RealDistnace.add(29.15);
  	    	
 
- 	    	for(int i=0;i<Totoalline.size();i++){//算出目前個32條RSSI衆數
+
+ 	    	System.out.println("Totoallinesize "+Totoalline.size());
+ 	    	for(int i=0;i<Totoalline.size();i++){//算出目前個32條RSSI去頭去尾
  	    		RealRSSI.add(Majoritymode(Totoalline.get(i)));   
  	    	}
- 	    	for(int j=0;j<Totoalline.size();j++){//算出目前個32條Measurepower
+ 	    	for(int j=0;j<Totoalline.size();j++){//算出目前32條Measurepower
  	    		Measurepower.add(1.5*(1/(1+Math.log10(RealDistnace.get(j))))*RealRSSI.get(j));
-
  	    	}
- 	    	for(int k=0;k<Totoalline.size();k++)
- 	    		System.out.print(Measurepower.get(k)+" ");
+ 	    	for(int k=0;k<Totoalline.size();k++){
+ 	    		//System.out.print(Measurepower.get(k)+",");
+ 	       	FileWriter fw3;
+ 		   try {
+ 				fw3 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/MP_state5.txt",true);
+ 			BufferedWriter bufferedWriter = new BufferedWriter(fw3);
+ 			bufferedWriter.write(Measurepower.get(k)+"\n");
+ 			//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
+ 			bufferedWriter.flush();
+ 			bufferedWriter.close();
+ 			} catch (IOException e) {
+ 				// TODO Auto-generated catch block
+ 				e.printStackTrace();
+ 			}
+ 	    	}
  	    	System.out.println("\n");
  	    	System.exit(1);
  	       
  	    	
+ 	    }
  	    }
  	    
  	   //if(currenttime - starttime >=   1000){     //每隔1s進行偵測是否要算
@@ -1129,6 +1231,31 @@ public class Experiment_finalRevolution {
 		
 	}
 	
+	public static double cutheadtail(ArrayList<Integer> array){
+		  Collections.sort(array);
+		  
+	    	for(int i=0;i<array.size();i++){
+ 	    		System.out.print(array.get(i)+" ");
+ 	    	}
+	    	System.out.print("\n");
+		  double mode = 0,finalmode=0;
+		  if(array.size()>=3){
+			  for(int i=1;i<array.size()-2;i++){
+				  mode=mode+array.get(i);
+			  }
+			  finalmode=mode/(array.size()-2);
+			  return finalmode;
+		  }
+		  else{
+			  for(int i=0;i<array.size();i++){
+				  mode=mode+array.get(i);			  
+			  }
+			  finalmode=mode/(array.size());
+			  return finalmode;
+		  }
+
+	}
+	
 	
 	public static double Majoritymode(ArrayList<Integer> array) {   //求衆數函式
 		  Collections.sort(array);
@@ -1137,7 +1264,8 @@ public class Experiment_finalRevolution {
 		  double mode = 0;
 		  ArrayList<Integer> Countnumber = new ArrayList<Integer>();
 
-		  for (int i = 0; i < array.size() - 1; i++) {
+		  System.out.println("array "+array);
+		  for (int i = 0; i < array.size() - 1; i++) {    //CountRSSI Countnumber 加入
 		   if (array.get(i).equals(array.get(i+1))) {
 		    count++;
 		   }
@@ -1157,10 +1285,15 @@ public class Experiment_finalRevolution {
 		   // longest = count;
 		   //}
 		  }
-		  System.out.println("前"+" "+CountRSSI+" "+Countnumber);
+		  if(array.size()==1){                             //CountRSSI Countnumber 加入
+			  CountRSSI.add(array.get(0));
+			  Countnumber.add(count);
+		  
+		  }
+		  //System.out.println("前"+" "+CountRSSI+" "+Countnumber);
 		  for(int i=0;i<Countnumber.size()-1;i++){         //大的值往前放
-			  for(int j=1;j<Countnumber.size();j++){
-			  if(Countnumber.get(i)<=Countnumber.get(j)){
+			  for(int j=i+1;j<Countnumber.size();j++){
+			  if(Countnumber.get(i)<Countnumber.get(j)){
 				  temp=Countnumber.get(j);
 				  Countnumber.set(j,Countnumber.get(i));
 				  Countnumber.set(i, temp);
@@ -1168,27 +1301,36 @@ public class Experiment_finalRevolution {
 				  temp2=CountRSSI.get(j);                   //CountRSSI要跟著移動
 				  CountRSSI.set(j,CountRSSI.get(i));
 				  CountRSSI.set(i, temp2);
+				  //System.out.println("Countnumber1 "+i+" "+j+" "+Countnumber);
 			  }
 			  }
+			  //System.out.println("Countnumber2 "+i+Countnumber);
 		  }
 		  for(int i=0;i<Countnumber.size()-1;i++){         //Majority必須要設值
 			  if(Countnumber.get(i)==Countnumber.get(i+1)){
 				  Majority.add(CountRSSI.get(i));
+				  System.out.println("Majority1 "+" "+Majority);
 			  }
-			  else{
+			  else{                                     //代表他最大
 				  Majority.add(CountRSSI.get(i));
+				  System.out.println("Majority2 "+" "+Majority);
 				  break;
 			  }
-			  if(Countnumber.get(i)==Countnumber.get(i+1)&&i==(Countnumber.size()-2)){
-				  Majority.add(CountRSSI.get(i+1));
+			  if(Countnumber.get(i)==Countnumber.get(i+1)&&i==(Countnumber.size()-2)){ //Countnumber [3,3]
+			  	  Majority.add(CountRSSI.get(i+1));
 			  }
+		  
 		  }
 		  
+		  if(Countnumber.size()==1){                 //63,63 //Majority必須要設值
+			  Majority.add(CountRSSI.get(0));
+		  }
+		  System.out.println("Majority3 "+" "+Majority);
 		  for(int i=0;i<Majority.size();i++){     //計算衆數
 			  mode=mode+Majority.get(i);
 		  }
 		  mode=(mode/Majority.size());
-		  //System.out.println(mode+" "+CountRSSI+" "+Majority+" "+Countnumber);
+		  System.out.println(mode+" "+CountRSSI+" "+Majority+" "+Countnumber);
 		  CountRSSI.clear();
 		  Majority.clear();
 		  Countnumber.clear();

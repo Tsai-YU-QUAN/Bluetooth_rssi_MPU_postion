@@ -10,7 +10,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
 
 import demo.Experiment.Experiment_OutputExcelRevolution;
-import demo.Experiment.Experiment_OutputExcelRevolution2;
+import demo.Experiment.Final_Result;
 import demo.Experiment.Experiment_finalRevolution;
 
 
@@ -98,11 +98,14 @@ public class Subscriber_data {
           //Experiment_OutputExcelRevolution revolution = new Experiment_OutputExcelRevolution();
           //revolution.Revolution_processing(line);
           
-          Experiment_OutputExcelRevolution2 revolution2 = new Experiment_OutputExcelRevolution2();
-          revolution2.Revolution_processing(line);
+          //FindConfidence_Interval revolution2 = new FindConfidence_Interval();
+          //revolution2.Revolution_processing(line);
           
           //Experiment_finalRevolution revolution =new Experiment_finalRevolution();
           //revolution.Revolution_processing(line);
+          
+          Final_Result final_Result = new Final_Result();
+          final_Result.Revolution_processing(line);
 		
 		
 		
