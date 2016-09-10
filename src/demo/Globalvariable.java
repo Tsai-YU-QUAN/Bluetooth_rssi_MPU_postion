@@ -1,5 +1,7 @@
 package demo;
 
+import java.util.ArrayList;
+
 public class Globalvariable {
 //************************ For 展場自轉公轉
 static String Tim_Down_Left[]={"89:73:ED","87:C1:F1","8B:C6:26"};
@@ -31,5 +33,16 @@ static String Jack_Down_Right[]={"93:C2:FB","93:BE:A7","93:C3:E7","20:38:6E",
 
 
 static boolean if_all_connect[]={false,false,false,false,false,false,false,false};
+public static double User1offset_x=0.12;//====================================acc offset調整地方
+public static double User1offset_y=2.02;
+public static int TimYawOffset=471;     //=======================TimYawOffset調整地方
 
+public static int first_time_slot=5000;
+public static int time_slot=1000;
+public static long starttime;
+public static long endslotime;
+public static int TimDownRight_yaw=0;
+public static double FinalTim_yaw=0;
+public static ArrayList<Double> User1Totalacc_x = new ArrayList<Double>();
+public static ArrayList<Double> User1Totalacc_y = new ArrayList<Double>();
 }

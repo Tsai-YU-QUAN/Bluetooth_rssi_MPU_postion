@@ -10,6 +10,8 @@ import org.json.JSONObject;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
+import demo.Globalvariable;
+
 public class Experiment_Rotation {
 	
 	static Channel channel;
@@ -59,7 +61,7 @@ public class Experiment_Rotation {
             throws java.io.IOException, JSONException
     {
 		startTime= System.currentTimeMillis();   //from last node compute
-		System.out.println("startTime :"+startTime);
+		//System.out.println("startTime :"+startTime);
 
         JSONObject posedata_json;
         posedata_json= new JSONObject(posedata);
@@ -76,7 +78,7 @@ public class Experiment_Rotation {
 		}
 		else if(posedata_json.has("TimDownRight")){
 			TimDownRight_pitch=(Integer) posedata_json.getJSONObject("TimDownRight").get("x");
-			TimDownRight_yaw=(Integer) posedata_json.getJSONObject("TimDownRight").get("y");
+			Globalvariable.TimDownRight_yaw=(Integer) posedata_json.getJSONObject("TimDownRight").get("y");
 			TimDownRight_row=(Integer) posedata_json.getJSONObject("TimDownRight").get("z");		
 		}
 		else if(posedata_json.has("JackDownLeft")){
@@ -91,8 +93,12 @@ public class Experiment_Rotation {
 			JackDownRight_row=(Integer) posedata_json.getJSONObject("JackDownRight").get("z");	
 			
 		}
-		//System.out.println("TimDownLeft_pitch:"+TimDownLeft_pitch+"TimDownRight_pitch"+TimDownRight_pitch+
-		//		"JackDownLeft_pitch"+JackDownLeft_pitch+"JackDownRight_pitch"+JackDownRight_pitch);
+		
+		Globalvariable.FinalTim_yaw=Globalvariable.TimDownRight_yaw-Globalvariable.TimYawOffset;
+		Globalvariable.FinalTim_yaw=Math.toRadians(-Globalvariable.FinalTim_yaw);
+		System.out.println("未RadiansTimYaw,有: "+(-(Globalvariable.TimDownRight_yaw-Globalvariable.TimYawOffset))
+				+" "+Globalvariable.FinalTim_yaw);
+
 		if(TimDownLeft_pitch!=999 && TimDownRight_pitch!=999){
 			Tim_pitch=(TimDownLeft_pitch+TimDownRight_pitch)/2;
 			Tim_row=(TimDownLeft_row+TimDownRight_row)/2;
