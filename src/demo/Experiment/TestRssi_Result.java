@@ -176,11 +176,16 @@ public class TestRssi_Result {
 	   static ArrayList<Double> Measurepower = new ArrayList<Double>();//大到小
 	   static ArrayList<Double> AVGConfindence = new ArrayList<Double>();
 	   static ArrayList<Double> MeansquareState = new ArrayList<Double>();
-	   static ArrayList<Double> SortMeansquareState = new ArrayList<Double>();
+	   static ArrayList<Double> RssiStaterate = new ArrayList<Double>();
+	   static ArrayList<Double> FinalRssiStaterate = new ArrayList<Double>();
+	   static ArrayList<Double> TotalStaterate = new ArrayList<Double>();
+	   static ArrayList<Double> SortTotalStaterate = new ArrayList<Double>();
+	   //static ArrayList<Double> SortMeansquareState = new ArrayList<Double>();
 	   static ArrayList<Integer> U1Ox = new ArrayList<Integer>();
 	   static ArrayList<Integer> U1Oz = new ArrayList<Integer>();
 	   static int R1=15, R2=10; //=====================================人體裝置長度
 	   static int compare_count=0;
+	   static double TotalMeansquare=0.0,Rssirate=0.0;
 	   static double[] Measurepower_state1357 = new double[32]; 		
 	   //Coordinate coo_a;Coordinate coo_b;Coordinate coo_c;Coordinate coo_d;
 	   //Coordinate coo_A;Coordinate coo_B;Coordinate coo_C;Coordinate coo_D;
@@ -192,7 +197,7 @@ public class TestRssi_Result {
     public void Revolution_processing(String posedata)
     
     { 
-
+    	try {
 		   
     	if(if_init==false){   //先初始化，以後要判斷是哪一個state需要查表
 
@@ -792,39 +797,18 @@ public class TestRssi_Result {
  	    currenttime =System.currentTimeMillis();
  	    //System.out.println("currenttimeendslotime: "+(currenttime - endslotime));
  	   System.out.println("currenttimestarttime: "+(currenttime - Globalvariable.starttime));
- 	   if(if_first_time_slot!=true &&(currenttime - Globalvariable.starttime >=Globalvariable.time_slot)){ //第一次時 5s內取10個data
- 		   System.out.println("Begin current");
- 		  if_first_time_slot=true;
-
- 	 //=================================以下會有16種相互自轉判斷組合====================================//			
- 		   //LimitSize();
- 	       //System.out.print("LimitSize: "+User1Behind_size+" "+User1Front_size+" "+User1Left_size+" "+User1Right_size);
-			//if((Totoalline.get(2).size()+Totoalline.get(3).size())>=confidence_window && (Totoalline.get(4).size()+Totoalline.get(5).size())>=confidence_window &&
-			//   (Totoalline.get(6).size()+Totoalline.get(7).size())>=confidence_window && (Totoalline.get(8).size()+Totoalline.get(9).size())>=confidence_window &&
-			//   (Totoalline.get(10).size()+Totoalline.get(11).size())>=confidence_window && (Totoalline.get(12).size()+Totoalline.get(13).size())>=confidence_window &&
-			//   (Totoalline.get(14).size()+Totoalline.get(15).size())>=confidence_window && (Totoalline.get(16).size()+Totoalline.get(17).size())>=confidence_window &&
-			//   (Totoalline.get(24).size()+Totoalline.get(25).size())>=confidence_window &&(Totoalline.get(26).size()+Totoalline.get(27).size())>=confidence_window &&
-			//   (Totoalline.get(28).size()+Totoalline.get(29).size())>=confidence_window &&(Totoalline.get(30).size()+Totoalline.get(31).size())>=confidence_window &&
-			//   (Totoalline.get(36).size()+Totoalline.get(37).size())>=confidence_window &&(Totoalline.get(38).size()+Totoalline.get(39).size())>=confidence_window &&
-			//   (Totoalline.get(40).size()+Totoalline.get(41).size())>=confidence_window &&(Totoalline.get(42).size()+Totoalline.get(43).size())>=confidence_window){
-
- 		
- 		
+ 	   if(if_first_time_slot!=true &&(currenttime - Globalvariable.starttime >=1)){ //大於一毫秒
+  		  if_first_time_slot=true;
+ 		/*   System.out.println("Begin current");
+ 		 		
  		
  	 		startAlgotime=System.currentTimeMillis();
- 		    //String Mindirection=Precompute();    //做資料前運算，目前版本就直接平均，並算出User1距離User2之間大小關係
-			//=========================根據User2自轉之後會有16種判斷==========================//
- 		        decisiontime=System.currentTimeMillis();
- 		        //System.out.println("currenttimedecisiontime: "+(decisiontime-Globalvariable.starttime));	
- 		       //for(int i=0;i<Totoalline.size();i++){ //測試資料正確性
- 		    		  //System.out.println("TestData "+Totoalline.get(i)+" "+TimeTotoalline.get(i));
- 		       //}
+ 		    decisiontime=System.currentTimeMillis();
  		      //===============================================================================第一次時 5s內取10個data
  		       int count=0;double quality=0.0,mean=0.0;
  		       for(int i=0;i<Totoalline.size();i++){
  		    	   if(Totoalline.get(i).size()>=1){   //會有32條
  		    		   for(int j=Totoalline.get(i).size()-1;j>=0 && count<=10;j--,count++){  //第一次時 5s內取10個data
- 	 		    		   //System.out.println("quality "+i+" "+j+" "+Totoalline.get(i).get(j));
  		    			  quality=quality+Totoalline.get(i).get(j);	
  		    		   }
  		    		   mean=(quality/count);
@@ -842,32 +826,19 @@ public class TestRssi_Result {
  				for(int i=0;i<Meanlinejudge.size();i++){
  					bufferedWriter.write(Meanlinejudge.get(i)+"\n");
  					}
- 				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
  				bufferedWriter.flush();
  				bufferedWriter.close();
  				} catch (IOException e) {
  					// TODO Auto-generated catch block
  					e.printStackTrace();
- 				}
- 		    	  //System.out.println(Meanlinejudge.get(i));
- 		       
+ 				} 		       
  		      Meanlinejudge.clear();
- 		     Globalvariable.endslotime=System.currentTimeMillis();		    
- 			//endAlgotime=System.currentTimeMillis();
-    		//System.out.println("algo執行時間:"+(endAlgotime-startAlgotime));	 //目前algo時間 0.02s
-
-    		
-      // for(int i=0;i<Totoalline.size();i++){   //Rest ArrayList
- 			//Totoalline.get(i).clear();
-       //}
-       //System.exit(1); 	        
+ 		      */
+ 		     Globalvariable.endslotime=System.currentTimeMillis();		    	        
  	    }  //time slot做判斷
-        //}
 	   //===============================================================================1s內最多10個data
  	   else if(if_first_time_slot==true && (currenttime - Globalvariable.endslotime)>=Globalvariable.time_slot){ 		   
-		       for(int i=0;i<Totoalline.size();i++){ //測試資料正確性
-		    		   //System.out.println("TestData2 "+Totoalline.get(i)+" "+TimeTotoalline.get(i));
-		       }
+ 		       Globalvariable.if_statrtacc=true;
 		       int count=0,currentindex=0;double quality=0.0,mean=0.0;
 		       for(int i=0;i<TimeTotoalline.size();i++){                       
 		    	   //System.out.println("currentindex "+currentindex+" "+" "+currenttime+" "+Globalvariable.starttime);
@@ -899,7 +870,7 @@ public class TestRssi_Result {
 		    			   Meanlinejudge.add(-1.0);
 		    			   }
 		    	   
-	 		      	FileWriter fw2;
+	 		      /*	FileWriter fw2;
 	  			   try {
 	  					fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/"
 	  							+String.valueOf(currenttime-Globalvariable.starttime)+".txt",true);
@@ -914,14 +885,11 @@ public class TestRssi_Result {
 	  				} catch (IOException e) {
 	  					// TODO Auto-generated catch block
 	  					e.printStackTrace();
-	  				}
+	  				}*/
 	  			 StringMeanlinejudge.clear();
 		    	   }
-		          ReturnIndex(Meanlinejudge,AVGConfindence);
-		 		   //=====================================================需要自轉角轉換坐標
-		          
-		          //======================================================尋找Real coordinate
-		  		//=================初始化虛擬坐標
+		          ReturnIndex(Meanlinejudge,AVGConfindence);		          
+		  		//=================初始化虛擬坐標,自轉角轉換坐標
 		  		System.out.println("初始化虛擬坐標");
 		          
 		    	   Coordinate coo_a = new Coordinate(); Coordinate coo_b = new Coordinate();
@@ -1058,7 +1026,6 @@ public class TestRssi_Result {
 		        	  for(int i=0;i<RealTotoalline.size();i++){
 		        		  System.out.print(RealTotoalline.get(i)+" ");
 		        	  }
-		        	  System.out.println("\n");
 		        	 
 		        	  //======================================================運算RSSI與陀螺儀之間的mean square error
 		        	  System.out.println("運算RSSI與陀螺儀之間的mean square error");
@@ -1067,71 +1034,107 @@ public class TestRssi_Result {
 		        			              (AVGConfindence.get(IndexList.get(1))/(AVGConfindence.get(IndexList.get(0))+AVGConfindence.get(IndexList.get(1))+AVGConfindence.get(IndexList.get(2))))*Math.pow(RealTotoalline.get(IndexList.get(1))-Meanlinejudge.get(1), 2)+
 		        			              (AVGConfindence.get(IndexList.get(2))/(AVGConfindence.get(IndexList.get(0))+AVGConfindence.get(IndexList.get(1))+AVGConfindence.get(IndexList.get(2))))*Math.pow(RealTotoalline.get(IndexList.get(2))-Meanlinejudge.get(2), 2)); //avg*(Realline-RSSIline)
 		        	  }else if(IndexList.size()==2){
-			         MeansquareState.add((AVGConfindence.get(IndexList.get(0))/(AVGConfindence.get(IndexList.get(0))+AVGConfindence.get(IndexList.get(1))+AVGConfindence.get(IndexList.get(2))))*Math.pow(RealTotoalline.get(IndexList.get(0))-Meanlinejudge.get(0), 2)+
-			        		             (AVGConfindence.get(IndexList.get(2))/(AVGConfindence.get(IndexList.get(0))+AVGConfindence.get(IndexList.get(1))+AVGConfindence.get(IndexList.get(2))))*Math.pow(RealTotoalline.get(IndexList.get(1))-Meanlinejudge.get(1), 2)); //avg*(Realline-RSSIline)
+			         MeansquareState.add((AVGConfindence.get(IndexList.get(0))/(AVGConfindence.get(IndexList.get(0))+AVGConfindence.get(IndexList.get(1))))*Math.pow(RealTotoalline.get(IndexList.get(0))-Meanlinejudge.get(0), 2)+
+			        		             (AVGConfindence.get(IndexList.get(1))/(AVGConfindence.get(IndexList.get(0))+AVGConfindence.get(IndexList.get(1))))*Math.pow(RealTotoalline.get(IndexList.get(1))-Meanlinejudge.get(1), 2)); //avg*(Realline-RSSIline)
 		        		  
 		        	  }else if(IndexList.size()==1){
-			        	  MeansquareState.add((AVGConfindence.get(IndexList.get(0))/(AVGConfindence.get(IndexList.get(0))+AVGConfindence.get(IndexList.get(1))+AVGConfindence.get(IndexList.get(2))))*Math.pow(RealTotoalline.get(IndexList.get(0))-Meanlinejudge.get(0), 2)); //avg*(Realline-RSSIline)   		  
+			        	  MeansquareState.add((AVGConfindence.get(IndexList.get(0))/(AVGConfindence.get(IndexList.get(0))))*Math.pow(RealTotoalline.get(IndexList.get(0))-Meanlinejudge.get(0), 2)); //avg*(Realline-RSSIline) ,avg=1		  
 		        	  }else{
 		        		  System.out.println("Currently, System is not work!");
+			        	  System.out.println("\n");
+
 		        	  }
 
 		 		 	  RealTotoalline.clear();
 		          }
 		          
-	   	          //======================================================比較8 state mean square error
+	   	          //======================================================比較8 state mean square error(1.RSSI)
+		          if(IndexList.size()!=0){
 		          
 		          for(int i=0;i<MeansquareState.size();i++){
+		        	  TotalMeansquare=TotalMeansquare+MeansquareState.get(i);
 		        	  System.out.println("MeansquareState ");
 		        	  System.out.print(MeansquareState.get(i)+" ");
 		        	  System.out.println("\n");
 		          }
-		          for (int i = 0; i < MeansquareState.size(); i++) {
-		        	  SortMeansquareState.add(MeansquareState.get(i));
+		          System.out.println("TotalMeansquare "+TotalMeansquare);
+		          for (int i = 0; i <MeansquareState.size(); i++) {//先算出目前最高的比例
+		        	  RssiStaterate.add(1-(MeansquareState.get(i)/TotalMeansquare));
+			          System.out.println("Rssirate "+(1-(MeansquareState.get(i)/TotalMeansquare)));
+		        	  Rssirate=Rssirate+(1-(MeansquareState.get(i)/TotalMeansquare));
+
 				   }
-		          Collections.sort(SortMeansquareState);
-		          System.out.println(SortMeansquareState);
-		          for (int i = 0; i < MeansquareState.size(); i++) {
-		        	  if(SortMeansquareState.get(0).equals(MeansquareState.get(i))){
-		   		      	FileWriter fw2;
-		  			   try {
-		  					fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/OutputState.txt",true);
-		  				    BufferedWriter bufferedWriter = new BufferedWriter(fw2);
-		  					bufferedWriter.write(i+1+"\n");
-		  					
-		  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-		  				bufferedWriter.flush();
-		  				bufferedWriter.close();
-		  				} catch (IOException e) {
-		  					// TODO Auto-generated catch block
-		  					e.printStackTrace();
-		  				}
-						   
-		        		  System.out.println("State "+(i+1));
-		        		  break;
+		          System.out.println("Rssirate2 "+Rssirate);
+		          FinalRssiStaterate.add(0,0.0);
+		          for (int i = 1;    i <=          8        ; i++) {      //在做normalize index從一開始，i=1目的要跟ACC一致
+			          System.out.println("Rssirate3 "+(RssiStaterate.get(i-1)/Rssirate));
+			          FinalRssiStaterate.add(i,(RssiStaterate.get(i-1)/Rssirate));      	  
+		          }
+		          //======================================================比較8 state mean square error(2.ACC) 回傳acc各state機率
+		          System.out.println("FinalRssiStateratesize: "+FinalRssiStaterate.size());
+		          TotalStaterate.add(0,0.0);//先亂塞值
+		          for (int i = 1; i < FinalRssiStaterate.size(); i++) {       //把RSSI機率與加速度相乘
+		        	  //System.out.println("RSSI+ACC: "+RssiStaterate.get(i)+" "+Globalvariable.AccStaterate.get(i));
+		        	  if(Globalvariable.AccStaterate.size()!=9){
+			          //TotalStaterate.add(i,FinalRssiStaterate.get(i));
+		        		  Thread.sleep(50);
 		        	  }
+		        	  if(Globalvariable.AccStaterate.size()==9){
+			        	  TotalStaterate.add(i,FinalRssiStaterate.get(i)*Globalvariable.AccStaterate.get(i));
+					}
+				}
+		          SortTotalStaterate.add(0,0.0);
+		          for (int i = 1; i < TotalStaterate.size(); i++) {
+		        	  SortTotalStaterate.add(i,TotalStaterate.get(i));
+		        	  System.out.println("TotalStaterate ");
+		        	  System.out.println(TotalStaterate.get(i));
+		          }
+		          Collections.sort(SortTotalStaterate);
+		          System.out.println("SortTotalStaterate "+SortTotalStaterate);
+				
+
+		          for (int i = 1; i < TotalStaterate.size(); i++) {        //OutPut結果
+		        	  if(SortTotalStaterate.get(8).equals(TotalStaterate.get(i))){
+		        		  Globalvariable.RecordState.add(i);              //記錄目前State軌跡還沒寫好 有可能前面第一名第二名機率也要算進去
+
+		        		  Globalvariable.CurrentState=i;
+			        	  System.out.println("State: "+i);
+			        	  
+			   		      	FileWriter fw2;
+				  			   try {
+				  					fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/OutputState.txt",true);
+				  				    BufferedWriter bufferedWriter = new BufferedWriter(fw2);
+				  					bufferedWriter.write(Globalvariable.CurrentState+"\n");
+				  					
+				  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
+				  				bufferedWriter.flush();
+				  				bufferedWriter.close();
+				  				} catch (IOException e) {
+				  					// TODO Auto-generated catch block
+				  					e.printStackTrace();
+				  				}
+			        	  break;
+		        	  }
+		          }
+		          }else{//=============================================表示目前RSSI在此區間沒收到，所以就參照上一筆資料丟出
+		        	  Globalvariable.CurrentState=Globalvariable.RecordState.get(Globalvariable.RecordState.size()-2);
+		        	  System.out.println("參照上一筆狀態: "+Globalvariable.CurrentState);
+		   		      	FileWriter fw2;
+			  			   try {
+			  					fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/OutputState.txt",true);
+			  				    BufferedWriter bufferedWriter = new BufferedWriter(fw2);
+			  					bufferedWriter.write(Globalvariable.CurrentState+"\n");
+			  					
+			  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
+			  				bufferedWriter.flush();
+			  				bufferedWriter.close();
+			  				} catch (IOException e) {
+			  					// TODO Auto-generated catch block
+			  					e.printStackTrace();
+			  				}
 		        	  
 		          }
-		          //======================================================得到ACC機率
-			      	FileWriter fw3;
-					   try {
-							fw3 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/"
-									+"Accx"+String.valueOf(currenttime-Globalvariable.starttime)+".txt",true);
-							BufferedWriter bufferedWriter = new BufferedWriter(fw3);
-							for (int i = 0; i < Globalvariable.User1Totalacc_x.size(); i++) {
-				  				bufferedWriter.write(Globalvariable.User1Totalacc_x.get(i)+"\n");
-				  				bufferedWriter.write(Globalvariable.User1Totalacc_y.get(i)+"\n");
-							}
-							bufferedWriter.flush();
-							bufferedWriter.close();
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}					   
-			 		 Globalvariable.User1Totalacc_x.clear();
-			 		 Globalvariable.User1Totalacc_y.clear();
 		          
-
 		          
 		          //======================================================Unity呈現
 		 		 /*finaljson = "{" + "Position"+": { x:"+1+", y:"+0+", z:"+0+ "} }";
@@ -1145,9 +1148,16 @@ public class TestRssi_Result {
 		       
  		       //System.out.println(Meanlinejudge.get(i));
 		      MeansquareState.clear();
-		      SortMeansquareState.clear();
+		      RssiStaterate.clear();
+		      TotalStaterate.clear();
+		      SortTotalStaterate.clear();
+		      FinalRssiStaterate.clear();
 	 		  IndexList.clear();
  		      Meanlinejudge.clear();
+ 		     TotalMeansquare=0.0;Rssirate=0.0;
+ 		     Globalvariable.AccStaterate.clear();
+ 		 	 Globalvariable.User1Totalacc_x.clear();
+ 		 	 Globalvariable.User1Totalacc_y.clear();
  		     Globalvariable.endslotime=System.currentTimeMillis();
  		 	  coo_a.xList.clear();coo_a.zList.clear();coo_b.xList.clear();coo_b.zList.clear();
  		   	  coo_c.xList.clear();coo_c.zList.clear();coo_d.xList.clear();coo_d.zList.clear();
@@ -1160,12 +1170,15 @@ public class TestRssi_Result {
         channel.close();
         connection.close();
         
-  		} catch (IOException e) {
+  		} catch (Exception e) {
   			// TODO Auto-generated catch block
   			e.printStackTrace();
   		}
 
 
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
 
     }
 
@@ -1668,53 +1681,7 @@ public class TestRssi_Result {
 			return "No_decision";
 		}
 		
-		//===================== 清空資料 ====================//		
 	}
-/*	public double confidene_interval(ArrayList<Double> Contentarray){
-		double mean=0.0,standard_deviation=0.0,confidenedata;
-		int count=0;
-		Statistics statistics1 = new Statistics(Contentarray);
-		mean=statistics1.getMean();
-		standard_deviation=statistics1.getStdDev();
-		System.out.print("Mean "+mean+" "+"standard_deviation "+standard_deviation+" "+Contentarray+" ");
-		for(int i=0;i<Contentarray.size();i++){
-			if((mean-standard_deviation) <=Contentarray.get(i) && (mean+standard_deviation) >=Contentarray.get(i)){
-				count=count+1;
-			}
-		}
-		System.out.println("Count "+count+" "+Contentarray.size());
-
-		confidenedata=((double)count/Contentarray.size());
-		
-		System.out.print("confidenedata"+confidenedata+" ");
-		
-    	FileWriter fw1;
-		   try {
-				fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/confidenedata.txt",true);
-			BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-			bufferedWriter.write(confidenedata+"\n");
-			//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-			bufferedWriter.flush();
-			bufferedWriter.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	    	FileWriter fw2;
-			   try {
-					fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/mean.txt",true);
-				BufferedWriter bufferedWriter = new BufferedWriter(fw2);
-				bufferedWriter.write(mean+"\n");
-				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-				bufferedWriter.flush();
-				bufferedWriter.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		return confidenedata;
-	}
-	*/
 	public double intRssi_to_distance(int intrssi,int index){
 		
 		

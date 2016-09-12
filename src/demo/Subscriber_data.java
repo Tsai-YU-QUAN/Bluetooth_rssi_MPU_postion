@@ -9,7 +9,8 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
 
-import demo.Experiment.Experiment_Acceleration;
+import demo.Experiment.Experiment_Operate_Acceleration;
+import demo.Experiment.Experiment_Recieve_Acceleration;
 import demo.Experiment.Experiment_OutputExcelRevolution;
 import demo.Experiment.Experiment_Rotation;
 import demo.Experiment.TestRssi_Result;
@@ -72,7 +73,7 @@ public class Subscriber_data {
 		
 	}.start();
 	
-	//=============================================ACC
+	//=============================================ACC Receive
 	new Thread(){
 		@Override
 		public void run(){
@@ -101,8 +102,8 @@ public class Subscriber_data {
 	                //System.out.println("Lineacc: "+line);
 	                
 	                //實驗與跑數據用
-	                Experiment_Acceleration experiment_Acceleration =new Experiment_Acceleration();
-	                experiment_Acceleration.ACC_processing(line);
+	                Experiment_Recieve_Acceleration experiment_Acceleration =new Experiment_Recieve_Acceleration();
+	                experiment_Acceleration.ACC_receive(line);
 	            }
 	        		
 	        		} catch (Exception e) {
@@ -110,6 +111,26 @@ public class Subscriber_data {
 	        		}
 			
 			
+		}
+	}.start();
+	
+	//=============================================ACC Operate
+	
+	new Thread(){
+		@Override
+		public void run(){
+			
+	    	try {         	            
+	            while (true) {
+	                
+	                //實驗與跑數據用
+	                Experiment_Operate_Acceleration experiment_Acceleration =new Experiment_Operate_Acceleration();
+	                experiment_Acceleration.ACC_processing();
+	            }
+	        		
+	        		} catch (Exception e) {
+	        			// TODO: handle exception
+	        		}			
 		}
 	}.start();
 	
