@@ -1,0 +1,10 @@
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount NaNStateMinCount NaN
+StateMaxCount NaNStateMinCount NaN
+StateMaxCount 0.1StateMinCount 0.3
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount 0.0StateMinCount 0.0

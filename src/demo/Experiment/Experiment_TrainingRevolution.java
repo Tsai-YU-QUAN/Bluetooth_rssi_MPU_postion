@@ -653,6 +653,8 @@ public class Experiment_TrainingRevolution {
  	    	*/
  	    	
  	    	
+ 	    	
+ 	    	
  	    	//===================================State2================================//
  	    	//RealDistnace.add(29.15);RealDistnace.add(47.43);RealDistnace.add(35.0);RealDistnace.add(46.1);
  	    	//RealDistnace.add(11.18);RealDistnace.add(29.15);RealDistnace.add(15.0);RealDistnace.add(33.54);
@@ -674,6 +676,7 @@ public class Experiment_TrainingRevolution {
  	    	RealDistnace.add(22.36);RealDistnace.add(22.36);RealDistnace.add(35.0);RealDistnace.add(5.0);
  	    	RealDistnace.add(50.99);RealDistnace.add(50.99);RealDistnace.add(65.0);RealDistnace.add(35.0);
  	    	*/
+ 	    	
  	    	
  	    	//===================================State4================================//
  	    	//RealDistnace.add(29.15);RealDistnace.add(11.18);RealDistnace.add(15.0);RealDistnace.add(33.54);
@@ -699,7 +702,6 @@ public class Experiment_TrainingRevolution {
  	    	*/
  	    	
  	    	
- 	    	
  	    	//===================================State6================================//
  	    	//RealDistnace.add(29.15);RealDistnace.add(11.18);RealDistnace.add(33.54);RealDistnace.add(15.0);
  	    	//RealDistnace.add(47.43);RealDistnace.add(29.15);RealDistnace.add(46.1);RealDistnace.add(35.0);
@@ -721,6 +723,7 @@ public class Experiment_TrainingRevolution {
  	    	RealDistnace.add(40.31);RealDistnace.add(35.0);RealDistnace.add(22.36);RealDistnace.add(50.99);
  	    	RealDistnace.add(50.99);RealDistnace.add(50.99);RealDistnace.add(35.0);RealDistnace.add(65.0);
  	    	RealDistnace.add(22.36);RealDistnace.add(22.36);RealDistnace.add(5.0);RealDistnace.add(35.0);
+ 	    	
  	    	
  	    	
 

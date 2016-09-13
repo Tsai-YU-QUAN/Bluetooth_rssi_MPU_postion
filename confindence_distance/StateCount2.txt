@@ -1,0 +1,9 @@
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount 1.0StateMinCount 2.0
+StateMaxCount 3.0StateMinCount 2.0
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount 0.0StateMinCount 0.0
+StateMaxCount 0.0StateMinCount 0.0
