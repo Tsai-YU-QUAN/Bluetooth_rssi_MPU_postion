@@ -59,8 +59,8 @@ public class Subscriber_data {
             //System.out.println("Linepose: "+line);
             
             //實驗與跑數據用
-            //Experiment_Rotation experiment_Rotation =new Experiment_Rotation();
-            //experiment_Rotation.Pose_processing(line);
+            Experiment_Rotation experiment_Rotation =new Experiment_Rotation();
+            experiment_Rotation.Pose_processing(line);
             //展演DEMO用
             //Rotation rotation = new Rotation();
             //rotation.Pose_processing(line);
@@ -156,12 +156,9 @@ public class Subscriber_data {
 		while (true) {
         QueueingConsumer.Delivery delivery = consumer.nextDelivery();
         String line = new String(delivery.getBody());
-        //System.out.println("Line:"+line);
+        System.out.println("Line:"+line);
         //實驗與跑數據用
-        //Revolution_alogorithm revolution = new Revolution_alogorithm();
-        //revolution.Revolution_processing();
-          //Experiment_OutputExcelRevolution revolution = new Experiment_OutputExcelRevolution();
-          //revolution.Revolution_processing(line);
+
           
 
           

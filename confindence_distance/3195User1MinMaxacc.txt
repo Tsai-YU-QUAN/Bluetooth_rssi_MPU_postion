@@ -1,0 +1,2 @@
+RecordUser1Totalyaw [359, 359, 359]
+Globalvariable.User1MinMaxacc [0.0]

@@ -153,6 +153,7 @@ public class TestRssi_Result {
 	    private String[] nodeNames={"Tim_Down_Front","Tim_Down_Behind","Tim_Down_Left","Tim_Down_Right",
                 "Jack_Down_Front","Jack_Down_Behind","Jack_Down_Left","Jack_Down_Right"};       //Jack_Up_Left=>User2DownFront   Jack_Up_Right=>User2DownBehind
 		static String nodeName;
+		//static int AvgUser1Totalyaw;
 	    String Clear_MAC;
 	    String RSSI;
 	    //**********************************為了擴大判斷與即時性********************************************//
@@ -180,13 +181,16 @@ public class TestRssi_Result {
 	   static ArrayList<Double> FinalRssiStaterate = new ArrayList<Double>();
 	   static ArrayList<Double> TotalStaterate = new ArrayList<Double>();
 	   static ArrayList<Double> SortTotalStaterate = new ArrayList<Double>();
+//	   static ArrayList<Double> DirectionStaterate = new ArrayList<Double>();
+
 	   //static ArrayList<Double> SortMeansquareState = new ArrayList<Double>();
 	   static ArrayList<Integer> U1Ox = new ArrayList<Integer>();
 	   static ArrayList<Integer> U1Oz = new ArrayList<Integer>();
 	   static int R1=15, R2=10; //=====================================人體裝置長度
 	   static int compare_count=0;
 	   static double TotalMeansquare=0.0,Rssirate=0.0;
-	   static double[] Measurepower_state1357 = new double[32]; 		
+	   static double[] Measurepower_state1357 = new double[32];
+	   //static boolean if_rotation=false;
 	   //Coordinate coo_a;Coordinate coo_b;Coordinate coo_c;Coordinate coo_d;
 	   //Coordinate coo_A;Coordinate coo_B;Coordinate coo_C;Coordinate coo_D;
 		 
@@ -799,47 +803,151 @@ public class TestRssi_Result {
  	   System.out.println("currenttimestarttime: "+(currenttime - Globalvariable.starttime));
  	   if(if_first_time_slot!=true &&(currenttime - Globalvariable.starttime >=1)){ //大於一毫秒
   		  if_first_time_slot=true;
- 		/*   System.out.println("Begin current");
- 		 		
- 		
- 	 		startAlgotime=System.currentTimeMillis();
- 		    decisiontime=System.currentTimeMillis();
- 		      //===============================================================================第一次時 5s內取10個data
- 		       int count=0;double quality=0.0,mean=0.0;
- 		       for(int i=0;i<Totoalline.size();i++){
- 		    	   if(Totoalline.get(i).size()>=1){   //會有32條
- 		    		   for(int j=Totoalline.get(i).size()-1;j>=0 && count<=10;j--,count++){  //第一次時 5s內取10個data
- 		    			  quality=quality+Totoalline.get(i).get(j);	
- 		    		   }
- 		    		   mean=(quality/count);
-  		    		  Meanlinejudge.add(mean);
-    				  count=0;quality=0.0;mean=0.0;
- 		    	   }else{                          //空值
-   		    		  Meanlinejudge.add(-1.0);
- 		    	   }
- 		       }
- 		      	FileWriter fw2;
- 			   try {
- 					fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/"
- 							+String.valueOf(currenttime-Globalvariable.starttime)+".txt",true);
- 				BufferedWriter bufferedWriter = new BufferedWriter(fw2);
- 				for(int i=0;i<Meanlinejudge.size();i++){
- 					bufferedWriter.write(Meanlinejudge.get(i)+"\n");
- 					}
- 				bufferedWriter.flush();
- 				bufferedWriter.close();
- 				} catch (IOException e) {
- 					// TODO Auto-generated catch block
- 					e.printStackTrace();
- 				} 		       
- 		      Meanlinejudge.clear();
- 		      */
+
  		     Globalvariable.endslotime=System.currentTimeMillis();		    	        
  	    }  //time slot做判斷
 	   //===============================================================================1s內最多10個data
  	   else if(if_first_time_slot==true && (currenttime - Globalvariable.endslotime)>=Globalvariable.time_slot){ 		   
  		       Globalvariable.if_statrtacc=true;
 		       int count=0,currentindex=0;double quality=0.0,mean=0.0;
+
+		       //=======================================================針對有沒有自轉與方向性做收集資料與判斷
+		       for (int i = 0; i < Globalvariable.User1Totalyaw.size(); i++) {
+		    	   Globalvariable.AvgUser1Totalyaw=Globalvariable.AvgUser1Totalyaw+Globalvariable.User1Totalyaw.get(i);
+		       }
+		       if(Globalvariable.User1Totalyaw.size()!=0){
+		    	   Globalvariable.AvgUser1Totalyaw=Globalvariable.AvgUser1Totalyaw/Globalvariable.User1Totalyaw.size();
+		       Globalvariable.RecordUser1Totalyaw.add(Globalvariable.AvgUser1Totalyaw);
+		       }else {
+		    	   Globalvariable.AvgUser1Totalyaw=Globalvariable.RecordUser1Totalyaw.get(Globalvariable.RecordUser1Totalyaw.size()-1);
+		       }
+		       //=====================================================在區間內做Avg Rad Yaw
+		       for (int i = 0; i < Globalvariable.User1TotalRad_yaw.size(); i++) {
+		    	   Globalvariable.AvgUser1Rad_yaw=Globalvariable.AvgUser1Rad_yaw+Globalvariable.User1TotalRad_yaw.get(i);
+		       }
+		       if(Globalvariable.User1TotalRad_yaw.size()!=0){
+		    	   Globalvariable.AvgUser1Rad_yaw=Globalvariable.AvgUser1Rad_yaw/Globalvariable.User1TotalRad_yaw.size();    	   
+		       }
+		   	FileWriter fw3;
+			   try {
+					fw3 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/"
+							+String.valueOf(currenttime-Globalvariable.starttime)+"User1MinMaxacc.txt",true);
+				BufferedWriter bufferedWriter = new BufferedWriter(fw3);
+				bufferedWriter.write("RecordUser1Totalyaw "+Globalvariable.RecordUser1Totalyaw+"\n");
+				bufferedWriter.write("Globalvariable.User1MinMaxacc "+Globalvariable.User1MinMaxacc+"\n");
+				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
+				bufferedWriter.flush();
+				bufferedWriter.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			   
+		       System.out.println("RecordUser1Totalyaw "+Globalvariable.RecordUser1Totalyaw);
+		       System.out.println("User1MinMaxacc "+Globalvariable.User1MinMaxacc);
+		       /*if(Globalvariable.RecordState.size()>=2 && Globalvariable.User1MinMaxacc.size()>=1){
+		       if(Math.abs(Globalvariable.RecordUser1Totalyaw.get(Globalvariable.RecordUser1Totalyaw.size()-2)
+				  -Globalvariable.RecordUser1Totalyaw.get(Globalvariable.RecordUser1Totalyaw.size()-1))<Globalvariable.User1YawThrshold
+				  &&Globalvariable.User1MinMaxacc.get(Globalvariable.User1MinMaxacc.size()-1)>0.0){ //邊轉邊走情況下不會進入此判斷
+		    	   System.out.println("方向性判斷");
+		    	   if(Globalvariable.CurrentState==1){//分成四個State去移轉
+		    		   if(AvgUser1Totalyaw<=180 &&AvgUser1Totalyaw>=90){ //以下有四個狀態進行轉型
+		    			   if(AvgUser1Totalyaw<=135 && AvgUser1Totalyaw>=90){
+			    			   DirectionStaterate.set(3, new Double(AvgUser1Totalyaw-90)/45);
+		    			   }else if(AvgUser1Totalyaw<=180 && AvgUser1Totalyaw>=135){
+			    			   DirectionStaterate.set(3, new Double(AvgUser1Totalyaw-180)/45);
+		    			   }
+		    		   }else if(AvgUser1Totalyaw<=270 && AvgUser1Totalyaw>=180){
+		    			   if(AvgUser1Totalyaw<=225 && AvgUser1Totalyaw>=180){
+			    			   DirectionStaterate.set(7, new Double(AvgUser1Totalyaw-180)/45);
+		    			   }else if(AvgUser1Totalyaw<=270 && AvgUser1Totalyaw>=225){
+			    			   DirectionStaterate.set(7, new Double(AvgUser1Totalyaw-270)/45);
+		    			   }
+		    		   }
+		    	   }else if(Globalvariable.CurrentState==3){
+		    		   if(AvgUser1Totalyaw<=360 && AvgUser1Totalyaw>=270){
+		    			   if(AvgUser1Totalyaw<=315 && AvgUser1Totalyaw>=270){
+		    				   DirectionStaterate.set(1, new Double(Math.abs(AvgUser1Totalyaw-270))/45);
+		    			   }else if(AvgUser1Totalyaw<=360 && AvgUser1Totalyaw>=315){
+		    				   DirectionStaterate.set(1, new Double(Math.abs(AvgUser1Totalyaw-360))/45);
+		    			   }
+		    		   }else if(AvgUser1Totalyaw<=270 && AvgUser1Totalyaw>=180){
+		    			   if(AvgUser1Totalyaw<=225 && AvgUser1Totalyaw>=180){
+			    			   DirectionStaterate.set(5, new Double(AvgUser1Totalyaw-180)/45);
+		    			   }else if(AvgUser1Totalyaw<=270 && AvgUser1Totalyaw>=225){
+			    			   DirectionStaterate.set(5, new Double(AvgUser1Totalyaw-270)/45);
+		    			   }
+		    		   }
+		    	   }else if(Globalvariable.CurrentState==5){
+		    		   if(AvgUser1Totalyaw<=90 && AvgUser1Totalyaw>=0){
+		    			   if(AvgUser1Totalyaw<=45 && AvgUser1Totalyaw >=0){
+		    				   DirectionStaterate.set(3, new Double(Math.abs(AvgUser1Totalyaw))/45);
+		    			   }else if(AvgUser1Totalyaw<=90 && AvgUser1Totalyaw >=45){
+		    				   DirectionStaterate.set(3, new Double(Math.abs(AvgUser1Totalyaw-90))/45);
+		    			   }
+		    		   }else if(AvgUser1Totalyaw<=360 && AvgUser1Totalyaw>=270){
+		    			   if(AvgUser1Totalyaw<=315 && AvgUser1Totalyaw>=270){
+		    				   DirectionStaterate.set(7, new Double(Math.abs(AvgUser1Totalyaw-270))/45);
+		    			   }else if(AvgUser1Totalyaw<=360 && AvgUser1Totalyaw>=315){
+		    				   DirectionStaterate.set(7, new Double(Math.abs(AvgUser1Totalyaw-360))/45);
+		    			   }
+		    		   }
+		    	   }else if(Globalvariable.CurrentState==7){
+		    		   if(AvgUser1Totalyaw<=90 && AvgUser1Totalyaw>=0){
+		    			   if(AvgUser1Totalyaw<=45 && AvgUser1Totalyaw >=0){
+		    				   DirectionStaterate.set(1, new Double(Math.abs(AvgUser1Totalyaw))/45);
+		    			   }else if(AvgUser1Totalyaw<=90 && AvgUser1Totalyaw >=45){
+		    				   DirectionStaterate.set(1, new Double(Math.abs(AvgUser1Totalyaw-90))/45);
+		    			   }
+		    		   }
+		    		   else if(AvgUser1Totalyaw<=180 &&AvgUser1Totalyaw>=90){ //以下有四個狀態進行轉型
+		    			   if(AvgUser1Totalyaw<=135 && AvgUser1Totalyaw>=90){
+			    			   DirectionStaterate.set(5, new Double(AvgUser1Totalyaw-90)/45);
+		    			   }else if(AvgUser1Totalyaw<=180 && AvgUser1Totalyaw>=135){
+			    			   DirectionStaterate.set(5, new Double(AvgUser1Totalyaw-180)/45);
+		    			   }
+		    		   }
+		    		   
+		    	   }
+		    	   
+		       }}*/
+		       //if_rotation=false;
+		       if(Globalvariable.RecordUser1Totalyaw.size()>=2 &&Globalvariable.User1MinMaxacc.size()>=1){
+		    	 System.out.println("Recordyaw "+Math.abs(Math.cos(Math.toRadians(Globalvariable.RecordUser1Totalyaw.get(Globalvariable.RecordUser1Totalyaw.size()-2)))
+		          -Math.cos(Math.toRadians(Globalvariable.RecordUser1Totalyaw.get(Globalvariable.RecordUser1Totalyaw.size()-1)))*180));
+		       if(Math.abs((Math.cos(Math.toRadians(Globalvariable.RecordUser1Totalyaw.get(Globalvariable.RecordUser1Totalyaw.size()-2)))
+		          -Math.cos(Math.toRadians(Globalvariable.RecordUser1Totalyaw.get(Globalvariable.RecordUser1Totalyaw.size()-1))))*360)>=Globalvariable.User1YawThrshold 
+		          //ABS(cos(yaw1)-cos(yaw2))*360 大略互差實際10度，可算成虛擬5度
+		          && Globalvariable.User1MinMaxacc.get(Globalvariable.User1MinMaxacc.size()-1)>0.0){
+		    	   System.out.println("自轉中");//直接得到上一次的State不動
+		    	   Globalvariable.if_rotation=true;
+		    	 // if_rotation=true;
+		    	   
+		        	  if(Globalvariable.RecordState.size()>=1){
+		        	  Globalvariable.CurrentState=Globalvariable.RecordState.get(Globalvariable.RecordState.size()-1);
+		        	  Globalvariable.RecordState.add(Globalvariable.CurrentState);
+		        	  System.out.println("參照上一筆狀態: "+Globalvariable.CurrentState);
+		   		      	FileWriter fw2;
+			  			   try {
+			  					fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/RefOutputState.txt",true);
+			  				    BufferedWriter bufferedWriter = new BufferedWriter(fw2);
+			  					bufferedWriter.write(Globalvariable.CurrentState+"\n");
+			  					
+			  				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
+			  				bufferedWriter.flush();
+			  				bufferedWriter.close();
+			  				} catch (IOException e) {
+			  					// TODO Auto-generated catch block
+			  					e.printStackTrace();
+			  				}
+		        	  
+		          }
+		    	   
+		       }
+		       }
+		       //if(if_rotation==false)
+		       //{
+		       //=======================================================針對此區間RSSI做撰寫
 		       for(int i=0;i<TimeTotoalline.size();i++){                       
 		    	   //System.out.println("currentindex "+currentindex+" "+" "+currenttime+" "+Globalvariable.starttime);
 		    	   if(Totoalline.get(i).size()>=1){                   //表示不為空才能進去判斷
@@ -972,45 +1080,45 @@ public class TestRssi_Result {
 		        	  RealBb= sqrt_pow(coo_B.xList.get(size),U1Ox.get(state)+coo_b.xList.get(state),coo_B.zList.get(size),U1Oz.get(state)+coo_b.zList.get(state),Globalvariable.FinalTim_yaw);
 		        	  */
 		        	  //System.out.println("U1ox: "+(U1Ox.get(state)-R2*Math.sin(Globalvariable.FinalTim_yaw))+" "+(U1Oz.get(state)+R2*Math.cos(Globalvariable.FinalTim_yaw)));
-		        	  RealcC= sqrt_pow(U1Ox.get(state)-R2*Math.sin(Globalvariable.FinalTim_yaw),coo_C.xList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.FinalTim_yaw),coo_C.zList.get(size));
-		        	  RealcD= sqrt_pow(U1Ox.get(state)-R2*Math.sin(Globalvariable.FinalTim_yaw),coo_D.xList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.FinalTim_yaw),coo_D.zList.get(size));
-		        	  RealcA= sqrt_pow(U1Ox.get(state)-R2*Math.sin(Globalvariable.FinalTim_yaw),coo_A.xList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.FinalTim_yaw),coo_A.zList.get(size));
-		        	  RealcB= sqrt_pow(U1Ox.get(state)-R2*Math.sin(Globalvariable.FinalTim_yaw),coo_B.xList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.FinalTim_yaw),coo_B.zList.get(size));
+		        	  RealcC= sqrt_pow(U1Ox.get(state)-R2*Math.sin(Globalvariable.User1Rad_yaw),coo_C.xList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.User1Rad_yaw),coo_C.zList.get(size));
+		        	  RealcD= sqrt_pow(U1Ox.get(state)-R2*Math.sin(Globalvariable.User1Rad_yaw),coo_D.xList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.User1Rad_yaw),coo_D.zList.get(size));
+		        	  RealcA= sqrt_pow(U1Ox.get(state)-R2*Math.sin(Globalvariable.User1Rad_yaw),coo_A.xList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.User1Rad_yaw),coo_A.zList.get(size));
+		        	  RealcB= sqrt_pow(U1Ox.get(state)-R2*Math.sin(Globalvariable.User1Rad_yaw),coo_B.xList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.User1Rad_yaw),coo_B.zList.get(size));
 		        	  
-		        	  RealdC= sqrt_pow(U1Ox.get(state)+R2*Math.sin(Globalvariable.FinalTim_yaw),coo_C.xList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.FinalTim_yaw),coo_C.zList.get(size));
-		        	  RealdD= sqrt_pow(U1Ox.get(state)+R2*Math.sin(Globalvariable.FinalTim_yaw),coo_D.xList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.FinalTim_yaw),coo_D.zList.get(size));
-		        	  RealdA= sqrt_pow(U1Ox.get(state)+R2*Math.sin(Globalvariable.FinalTim_yaw),coo_A.xList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.FinalTim_yaw),coo_A.zList.get(size));
-		        	  RealdB= sqrt_pow(U1Ox.get(state)+R2*Math.sin(Globalvariable.FinalTim_yaw),coo_B.xList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.FinalTim_yaw),coo_B.zList.get(size));
+		        	  RealdC= sqrt_pow(U1Ox.get(state)+R2*Math.sin(Globalvariable.User1Rad_yaw),coo_C.xList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.User1Rad_yaw),coo_C.zList.get(size));
+		        	  RealdD= sqrt_pow(U1Ox.get(state)+R2*Math.sin(Globalvariable.User1Rad_yaw),coo_D.xList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.User1Rad_yaw),coo_D.zList.get(size));
+		        	  RealdA= sqrt_pow(U1Ox.get(state)+R2*Math.sin(Globalvariable.User1Rad_yaw),coo_A.xList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.User1Rad_yaw),coo_A.zList.get(size));
+		        	  RealdB= sqrt_pow(U1Ox.get(state)+R2*Math.sin(Globalvariable.User1Rad_yaw),coo_B.xList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.User1Rad_yaw),coo_B.zList.get(size));
 		        	  
-		        	  RealaC= sqrt_pow(U1Ox.get(state)-R1*Math.cos(Globalvariable.FinalTim_yaw),coo_C.xList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.FinalTim_yaw),coo_C.zList.get(size));
-		        	  RealaD= sqrt_pow(U1Ox.get(state)-R1*Math.cos(Globalvariable.FinalTim_yaw),coo_D.xList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.FinalTim_yaw),coo_D.zList.get(size));
-		        	  RealaA= sqrt_pow(U1Ox.get(state)-R1*Math.cos(Globalvariable.FinalTim_yaw),coo_A.xList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.FinalTim_yaw),coo_A.zList.get(size));
-		        	  RealaB= sqrt_pow(U1Ox.get(state)-R1*Math.cos(Globalvariable.FinalTim_yaw),coo_B.xList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.FinalTim_yaw),coo_B.zList.get(size));
+		        	  RealaC= sqrt_pow(U1Ox.get(state)-R1*Math.cos(Globalvariable.User1Rad_yaw),coo_C.xList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.User1Rad_yaw),coo_C.zList.get(size));
+		        	  RealaD= sqrt_pow(U1Ox.get(state)-R1*Math.cos(Globalvariable.User1Rad_yaw),coo_D.xList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.User1Rad_yaw),coo_D.zList.get(size));
+		        	  RealaA= sqrt_pow(U1Ox.get(state)-R1*Math.cos(Globalvariable.User1Rad_yaw),coo_A.xList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.User1Rad_yaw),coo_A.zList.get(size));
+		        	  RealaB= sqrt_pow(U1Ox.get(state)-R1*Math.cos(Globalvariable.User1Rad_yaw),coo_B.xList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.User1Rad_yaw),coo_B.zList.get(size));
 		        	  
-		        	  RealbC= sqrt_pow(U1Ox.get(state)+R1*Math.cos(Globalvariable.FinalTim_yaw),coo_C.xList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.FinalTim_yaw),coo_C.zList.get(size));
-		        	  RealbD= sqrt_pow(U1Ox.get(state)+R1*Math.cos(Globalvariable.FinalTim_yaw),coo_D.xList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.FinalTim_yaw),coo_D.zList.get(size));
-		        	  RealbA= sqrt_pow(U1Ox.get(state)+R1*Math.cos(Globalvariable.FinalTim_yaw),coo_A.xList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.FinalTim_yaw),coo_A.zList.get(size));
-		        	  RealbB= sqrt_pow(U1Ox.get(state)+R1*Math.cos(Globalvariable.FinalTim_yaw),coo_B.xList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.FinalTim_yaw),coo_B.zList.get(size));
+		        	  RealbC= sqrt_pow(U1Ox.get(state)+R1*Math.cos(Globalvariable.User1Rad_yaw),coo_C.xList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.User1Rad_yaw),coo_C.zList.get(size));
+		        	  RealbD= sqrt_pow(U1Ox.get(state)+R1*Math.cos(Globalvariable.User1Rad_yaw),coo_D.xList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.User1Rad_yaw),coo_D.zList.get(size));
+		        	  RealbA= sqrt_pow(U1Ox.get(state)+R1*Math.cos(Globalvariable.User1Rad_yaw),coo_A.xList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.User1Rad_yaw),coo_A.zList.get(size));
+		        	  RealbB= sqrt_pow(U1Ox.get(state)+R1*Math.cos(Globalvariable.User1Rad_yaw),coo_B.xList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.User1Rad_yaw),coo_B.zList.get(size));
 		        	  
-		        	  RealCc= sqrt_pow(coo_C.xList.get(size),U1Ox.get(state)-R2*Math.sin(Globalvariable.FinalTim_yaw),coo_C.zList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.FinalTim_yaw));
-		        	  RealCd= sqrt_pow(coo_C.xList.get(size),U1Ox.get(state)+R2*Math.sin(Globalvariable.FinalTim_yaw),coo_C.zList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.FinalTim_yaw));
-		        	  RealCa= sqrt_pow(coo_C.xList.get(size),U1Ox.get(state)-R1*Math.cos(Globalvariable.FinalTim_yaw),coo_C.zList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.FinalTim_yaw));
-		        	  RealCb= sqrt_pow(coo_C.xList.get(size),U1Ox.get(state)+R1*Math.cos(Globalvariable.FinalTim_yaw),coo_C.zList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.FinalTim_yaw));
+		        	  RealCc= sqrt_pow(coo_C.xList.get(size),U1Ox.get(state)-R2*Math.sin(Globalvariable.User1Rad_yaw),coo_C.zList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.User1Rad_yaw));
+		        	  RealCd= sqrt_pow(coo_C.xList.get(size),U1Ox.get(state)+R2*Math.sin(Globalvariable.User1Rad_yaw),coo_C.zList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.User1Rad_yaw));
+		        	  RealCa= sqrt_pow(coo_C.xList.get(size),U1Ox.get(state)-R1*Math.cos(Globalvariable.User1Rad_yaw),coo_C.zList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.User1Rad_yaw));
+		        	  RealCb= sqrt_pow(coo_C.xList.get(size),U1Ox.get(state)+R1*Math.cos(Globalvariable.User1Rad_yaw),coo_C.zList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.User1Rad_yaw));
 		        	  
-		        	  RealDc= sqrt_pow(coo_D.xList.get(size),U1Ox.get(state)-R2*Math.sin(Globalvariable.FinalTim_yaw),coo_D.zList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.FinalTim_yaw));
-		        	  RealDd= sqrt_pow(coo_D.xList.get(size),U1Ox.get(state)+R2*Math.sin(Globalvariable.FinalTim_yaw),coo_D.zList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.FinalTim_yaw));
-		        	  RealDa= sqrt_pow(coo_D.xList.get(size),U1Ox.get(state)-R1*Math.cos(Globalvariable.FinalTim_yaw),coo_D.zList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.FinalTim_yaw));
-		        	  RealDb= sqrt_pow(coo_D.xList.get(size),U1Ox.get(state)+R1*Math.cos(Globalvariable.FinalTim_yaw),coo_D.zList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.FinalTim_yaw));
+		        	  RealDc= sqrt_pow(coo_D.xList.get(size),U1Ox.get(state)-R2*Math.sin(Globalvariable.User1Rad_yaw),coo_D.zList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.User1Rad_yaw));
+		        	  RealDd= sqrt_pow(coo_D.xList.get(size),U1Ox.get(state)+R2*Math.sin(Globalvariable.User1Rad_yaw),coo_D.zList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.User1Rad_yaw));
+		        	  RealDa= sqrt_pow(coo_D.xList.get(size),U1Ox.get(state)-R1*Math.cos(Globalvariable.User1Rad_yaw),coo_D.zList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.User1Rad_yaw));
+		        	  RealDb= sqrt_pow(coo_D.xList.get(size),U1Ox.get(state)+R1*Math.cos(Globalvariable.User1Rad_yaw),coo_D.zList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.User1Rad_yaw));
 		        	 
-		        	  RealAc= sqrt_pow(coo_A.xList.get(size),U1Ox.get(state)-R2*Math.sin(Globalvariable.FinalTim_yaw),coo_A.zList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.FinalTim_yaw));
-		        	  RealAd= sqrt_pow(coo_A.xList.get(size),U1Ox.get(state)+R2*Math.sin(Globalvariable.FinalTim_yaw),coo_A.zList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.FinalTim_yaw));
-		        	  RealAa= sqrt_pow(coo_A.xList.get(size),U1Ox.get(state)-R1*Math.cos(Globalvariable.FinalTim_yaw),coo_A.zList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.FinalTim_yaw));
-		        	  RealAb= sqrt_pow(coo_A.xList.get(size),U1Ox.get(state)+R1*Math.cos(Globalvariable.FinalTim_yaw),coo_A.zList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.FinalTim_yaw));
+		        	  RealAc= sqrt_pow(coo_A.xList.get(size),U1Ox.get(state)-R2*Math.sin(Globalvariable.User1Rad_yaw),coo_A.zList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.User1Rad_yaw));
+		        	  RealAd= sqrt_pow(coo_A.xList.get(size),U1Ox.get(state)+R2*Math.sin(Globalvariable.User1Rad_yaw),coo_A.zList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.User1Rad_yaw));
+		        	  RealAa= sqrt_pow(coo_A.xList.get(size),U1Ox.get(state)-R1*Math.cos(Globalvariable.User1Rad_yaw),coo_A.zList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.User1Rad_yaw));
+		        	  RealAb= sqrt_pow(coo_A.xList.get(size),U1Ox.get(state)+R1*Math.cos(Globalvariable.User1Rad_yaw),coo_A.zList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.User1Rad_yaw));
 
-		        	  RealBc= sqrt_pow(coo_B.xList.get(size),U1Ox.get(state)-R2*Math.sin(Globalvariable.FinalTim_yaw),coo_B.zList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.FinalTim_yaw));
-		        	  RealBd= sqrt_pow(coo_B.xList.get(size),U1Ox.get(state)+R2*Math.sin(Globalvariable.FinalTim_yaw),coo_B.zList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.FinalTim_yaw));
-		        	  RealBa= sqrt_pow(coo_B.xList.get(size),U1Ox.get(state)-R1*Math.cos(Globalvariable.FinalTim_yaw),coo_B.zList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.FinalTim_yaw));
-		        	  RealBb= sqrt_pow(coo_B.xList.get(size),U1Ox.get(state)+R1*Math.cos(Globalvariable.FinalTim_yaw),coo_B.zList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.FinalTim_yaw));
+		        	  RealBc= sqrt_pow(coo_B.xList.get(size),U1Ox.get(state)-R2*Math.sin(Globalvariable.User1Rad_yaw),coo_B.zList.get(size),U1Oz.get(state)+R2*Math.cos(Globalvariable.User1Rad_yaw));
+		        	  RealBd= sqrt_pow(coo_B.xList.get(size),U1Ox.get(state)+R2*Math.sin(Globalvariable.User1Rad_yaw),coo_B.zList.get(size),U1Oz.get(state)-R2*Math.cos(Globalvariable.User1Rad_yaw));
+		        	  RealBa= sqrt_pow(coo_B.xList.get(size),U1Ox.get(state)-R1*Math.cos(Globalvariable.User1Rad_yaw),coo_B.zList.get(size),U1Oz.get(state)-R1*Math.sin(Globalvariable.User1Rad_yaw));
+		        	  RealBb= sqrt_pow(coo_B.xList.get(size),U1Ox.get(state)+R1*Math.cos(Globalvariable.User1Rad_yaw),coo_B.zList.get(size),U1Oz.get(state)+R1*Math.sin(Globalvariable.User1Rad_yaw));
 
 		        	  
 				  		RealTotoalline.add(RealcC);RealTotoalline.add(RealcD);RealTotoalline.add(RealcA);RealTotoalline.add(RealcB);
@@ -1050,7 +1158,10 @@ public class TestRssi_Result {
 		          }
 		          
 	   	          //======================================================比較8 state mean square error(1.RSSI)
-		          if(IndexList.size()!=0){
+	        	  if(Globalvariable.if_operateACC==true){               //Acc沒有收集完的時候
+	        		  Thread.sleep(10);
+	        	  }
+		          if(IndexList.size()!=0 &&Globalvariable.AccStaterate.size()==9){//怕來不及算RSI and ACC
 		          
 		          for(int i=0;i<MeansquareState.size();i++){
 		        	  TotalMeansquare=TotalMeansquare+MeansquareState.get(i);
@@ -1084,31 +1195,43 @@ public class TestRssi_Result {
 		          //======================================================比較8 state mean square error(2.ACC) 回傳acc各state機率
 		          System.out.println("FinalRssiStateratesize: "+FinalRssiStaterate.size());
 		          TotalStaterate.add(0,0.0);//先亂塞值
-		          for (int i = 1; i < FinalRssiStaterate.size(); i++) {       //把RSSI機率與加速度相乘
+		          for (int i = 1; i < FinalRssiStaterate.size(); i++) {       //RSSI機率,加速度機率,方向機率
 		        	  //System.out.println("RSSI+ACC: "+RssiStaterate.get(i)+" "+Globalvariable.AccStaterate.get(i));
-		        	  if(Globalvariable.AccStaterate.size()!=9){              //Acc沒有收集完的時候
-		        		  Thread.sleep(50);
-		        	  }
-		        	  if(Globalvariable.AccStaterate.size()==9){
+
 		        		  if(Experiment_Operate_Acceleration.StateMaxCount+Experiment_Operate_Acceleration.StateMinCount==0){//原地不動時
+		        		  System.out.println("原地不動時");
+				          	FileWriter fw1;
+					 		   try {
+					 				fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance"
+					 						+ "/"+String.valueOf(currenttime-Globalvariable.starttime)+"TotalStaterate.txt",true);
+					 			BufferedWriter bufferedWriter = new BufferedWriter(fw1);
+					 			bufferedWriter.write(FinalRssiStaterate.get(i)+" "+Globalvariable.AccStaterate.get(i)+" "+((FinalRssiStaterate.get(i))*Globalvariable.AccStaterate.get(i))+"\n");
+					 			//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
+					 			bufferedWriter.flush();
+					 			bufferedWriter.close();
+					 			} catch (IOException e) {
+					 				// TODO Auto-generated catch block
+					 				e.printStackTrace();
+					 			}
 		        		  TotalStaterate.add(i,FinalRssiStaterate.get(i)*Globalvariable.AccStaterate.get(i));
 		        		  }else{
-			        	  TotalStaterate.add(i,(0.99*FinalRssiStaterate.get(i))+(0.01*Globalvariable.AccStaterate.get(i)));  //a*A+b*B對外宣稱
+					          	FileWriter fw1;
+						 		   try {
+						 				fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance"
+						 						+ "/"+String.valueOf(currenttime-Globalvariable.starttime)+"TotalStaterate.txt",true);
+						 			BufferedWriter bufferedWriter = new BufferedWriter(fw1);
+						 			bufferedWriter.write(FinalRssiStaterate.get(i)+" "+Globalvariable.AccStaterate.get(i)+" "+((FinalRssiStaterate.get(i))+Globalvariable.AccStaterate.get(i))+"\n");
+						 			//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
+						 			bufferedWriter.flush();
+						 			bufferedWriter.close();
+						 			} catch (IOException e) {
+						 				// TODO Auto-generated catch block
+						 				e.printStackTrace();
+						 			}
+			        	  //TotalStaterate.add(i,(FinalRssiStaterate.get(i))+Globalvariable.AccStaterate.get(i));  //a*A+b*B
+						    TotalStaterate.add(i,Globalvariable.AccStaterate.get(i));
 		        		  }
-					  }
-			          	FileWriter fw1;
-				 		   try {
-				 				fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance"
-				 						+ "/"+String.valueOf(currenttime-Globalvariable.starttime)+"TotalStaterate.txt",true);
-				 			BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-				 			bufferedWriter.write(0.99*FinalRssiStaterate.get(i)+" "+0.01*Globalvariable.AccStaterate.get(i)+" "+((0.99*FinalRssiStaterate.get(i))+(0.01*Globalvariable.AccStaterate.get(i)))+"\n");
-				 			//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-				 			bufferedWriter.flush();
-				 			bufferedWriter.close();
-				 			} catch (IOException e) {
-				 				// TODO Auto-generated catch block
-				 				e.printStackTrace();
-				 			}
+		        		  
 				}
 		          SortTotalStaterate.add(0,0.0);
 		          for (int i = 1; i < TotalStaterate.size(); i++) {
@@ -1143,15 +1266,15 @@ public class TestRssi_Result {
 				  				}
 			        	  break;
 		        	  }
-		          }
-		          }else{//=============================================表示目前RSSI在此區間沒收到，所以就參照上一筆資料丟出
+		          }}
+		          else{//=============================================表示目前RSSI在此區間沒收到或是ACC不齊全或是陀螺儀沒資料，所以就參照上一筆資料丟出
 		        	  if(Globalvariable.RecordState.size()>=1){
 		        	  Globalvariable.CurrentState=Globalvariable.RecordState.get(Globalvariable.RecordState.size()-1);
 		        	  Globalvariable.RecordState.add(Globalvariable.CurrentState);
 		        	  System.out.println("參照上一筆狀態: "+Globalvariable.CurrentState);
 		   		      	FileWriter fw2;
 			  			   try {
-			  					fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/OutputState.txt",true);
+			  					fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance/RefOutputState.txt",true);
 			  				    BufferedWriter bufferedWriter = new BufferedWriter(fw2);
 			  					bufferedWriter.write(Globalvariable.CurrentState+"\n");
 			  					
@@ -1164,7 +1287,11 @@ public class TestRssi_Result {
 			  				}
 		        	  
 		          }}
-		          
+	 		 	  coo_a.xList.clear();coo_a.zList.clear();coo_b.xList.clear();coo_b.zList.clear();
+	 		   	  coo_c.xList.clear();coo_c.zList.clear();coo_d.xList.clear();coo_d.zList.clear();
+	 		   	  coo_A.xList.clear();coo_A.zList.clear();coo_B.xList.clear();coo_B.zList.clear();
+	 		   	  coo_C.xList.clear();coo_C.zList.clear();coo_D.xList.clear();coo_D.zList.clear();
+		       //}     
 		          
 		          //======================================================Unity呈現
 		 		 /*finaljson = "{" + "Position"+": { x:"+1+", y:"+0+", z:"+0+ "} }";
@@ -1185,14 +1312,24 @@ public class TestRssi_Result {
 	 		  IndexList.clear();
  		      Meanlinejudge.clear();
  		     TotalMeansquare=0.0;Rssirate=0.0;
+ 		     Experiment_Operate_Acceleration.StateMinCount=0.0;
+ 		     Experiment_Operate_Acceleration.StateMaxCount=0.0;
  		     Globalvariable.AccStaterate.clear();
+ 		     System.out.println("AccStaterate.clear");
  		 	 Globalvariable.User1Totalacc_x.clear();
  		 	 Globalvariable.User1Totalacc_y.clear();
+ 		 	 Globalvariable.User1Postiveacc_x.clear();
+ 		 	 Globalvariable.User1Postiveacc_y.clear();
+ 		 	 Globalvariable.User1MinMaxacc.clear();
+ 		 	 Globalvariable.User1Totalyaw.clear();
+ 		 	 Globalvariable.User1Work_x=0.0;Globalvariable.User1Work_y=0.0;
+ 		     Globalvariable.AvgUser1Totalyaw=0;
+ 		     Globalvariable.if_rotation=false;
+ 		     //Globalvariable.if_initTx=false;Globalvariable.if_initTy=false;
  		     Globalvariable.endslotime=System.currentTimeMillis();
- 		 	  coo_a.xList.clear();coo_a.zList.clear();coo_b.xList.clear();coo_b.zList.clear();
- 		   	  coo_c.xList.clear();coo_c.zList.clear();coo_d.xList.clear();coo_d.zList.clear();
- 		   	  coo_A.xList.clear();coo_A.zList.clear();coo_B.xList.clear();coo_B.zList.clear();
- 		   	  coo_C.xList.clear();coo_C.zList.clear();coo_D.xList.clear();coo_D.zList.clear();
+ 			Globalvariable.User1Work_array_x.clear();
+ 			Globalvariable.User1Work_array_y.clear();
+
 
  		   
  	   }
@@ -1279,10 +1416,10 @@ public class TestRssi_Result {
 				
 			}
 		}}
-		//for (int i = 0; i < IndexList.size(); i++) {
-		//	System.out.println("IndexList "+IndexList.get(i)+" "+avgConfindence.get(IndexList.get(i)));
+		for (int i = 0; i < IndexList.size(); i++) {
+			System.out.println("IndexList "+IndexList.get(i)+" "+avgConfindence.get(IndexList.get(i)));
 			
-		//}
+		}
 		MaxavgConfindence.clear();
 				
 	}

@@ -1,0 +1,2703 @@
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:93:C0:E6,57
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Right 93:C0:E6 57
+ExcelTime: 3785
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 3 0 2 0 0 0 0 0 2 0 5 
+
+currenttimestarttime: 3785
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:93:C2:E8,60
+posedata: Jack_Down_Right 93:C2:E8 60
+ExcelTime: 3999
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 3 0 2 0 0 0 0 0 2 0 5 
+
+currenttimestarttime: 3999
+Line:Tim_Down_Right:93:BE:9B,57
+posedata: Tim_Down_Right 93:BE:9B 57
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 3 0 2 0 0 0 0 0 2 0 5 
+
+currenttimestarttime: 4010
+Line:Jack_Down_Behind:FF00,-47, 2
+posedata: Jack_Down_Behind FF00,-47  2
+ExcelTime: 4016
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 3 0 2 0 0 0 0 0 2 0 5 
+
+currenttimestarttime: 4016
+Line:Jack_Down_Behind:FF00,-47, 2
+posedata: Jack_Down_Behind FF00,-47  2
+ExcelTime: 4022
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 3 0 2 0 0 0 0 0 2 0 5 
+
+currenttimestarttime: 4022
+Line:Jack_Down_Behind:FF00,-47, 8
+posedata: Jack_Down_Behind FF00,-47  8
+ExcelTime: 4039
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 3 0 2 0 0 0 0 0 2 0 5 
+
+currenttimestarttime: 4040
+Line:Jack_Down_Right:93:BE:A7,61
+posedata: Jack_Down_Right 93:BE:A7 61
+ExcelTime: 4048
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 3 0 2 0 0 0 0 0 2 0 6 
+
+currenttimestarttime: 4048
+Line:Jack_Down_Behind:93:C0:E6,52
+posedata: Jack_Down_Behind 93:C0:E6 52
+ExcelTime: 4104
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 4 0 2 0 0 0 0 0 2 0 6 
+
+currenttimestarttime: 4104
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Right:93:C0:E6,57
+posedata: Jack_Down_Right 93:C0:E6 57
+ExcelTime: 4178
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 4 0 2 0 0 0 0 0 3 0 6 
+
+currenttimestarttime: 4178
+Line:Jack_Down_Behind:93:C2:E8,33
+posedata: Jack_Down_Behind 93:C2:E8 33
+ExcelTime: 4303
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 4 0 2 0 0 0 0 0 3 0 6 
+
+currenttimestarttime: 4303
+StateMaxCount+StateMinCount 0.0 0.0
+Globalvariable.AccStaterate 9
+RecordUser1Totalyaw [352, 352, 352, 352]
+User1MinMaxacc [0.0]
+Recordyaw 177.2579843047411
+IndexList 21 0.8125
+IndexList 15 0.8041666666666667
+IndexList 29 0.7035714285714286
+互差: 683.0841074452691 571.8252803657942 542.1877465302773
+互差: 959.5164058066674 810.3108307264845 1284.0367430655622
+互差: 1398.151279195233 1311.0137444473426 2844.847321300321
+互差: 949.4589339388847 1026.2075114465063 2298.5237382874866
+互差: 672.9635007447919 788.9351745111745 1565.0062853183774
+互差: 863.0851107530227 1017.1659026539363 1290.9948684445574
+互差: 1197.7420353669413 1289.9938088532265 487.4890688617662
+互差: 873.158947724223 801.232267236729 261.1886281527608
+MeansquareState 601.7987883108692 
+MeansquareState 1006.2086343101785 
+MeansquareState 1806.6356076518296 
+MeansquareState 1385.1392640961049 
+MeansquareState 983.6541889501179 
+MeansquareState 1046.243777620526 
+MeansquareState 1014.3436617319628 
+MeansquareState 662.6607786446763 
+TotalMeansquare 8506.684701316266
+Rssirate 0.9292557783154052
+Rssirate 0.8817155367055647
+Rssirate 0.7876216562520199
+Rssirate 0.8371704944134373
+Rssirate 0.8843669157271206
+Rssirate 0.8770092210589823
+Rssirate 0.8807592267320064
+Rssirate 0.9221011707954638
+Rssirate2 6.999999999999999
+FinalRssiStateratesize: 9
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.1263381308181601
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+SortTotalStaterate [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1263381308181601]
+State: 5
+AccStaterate.clear
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:93:BE:9B,#Ö
+Accdata User2A0.01!0.00c
+posedata: Jack_Down_Right 93:BE:9B #Ö
+ExcelTime: 4386
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 4 0 2 0 0 0 0 0 3 0 6 
+
+currenttimestarttime: 4386
+Line:Jack_Down_Right:93:C0:E6,56
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Right 93:C0:E6 56
+ExcelTime: 4521
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 4 0 2 0 0 0 0 0 4 0 6 
+
+currenttimestarttime: 4521
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:93:BE:9B,33
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Right 93:BE:9B 33
+ExcelTime: 4592
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 4 0 2 0 0 0 0 0 4 0 6 
+
+currenttimestarttime: 4592
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User1Ap0.02!n.08c
+java.lang.NumberFormatException: For input string: ".08c"未RadiansTimYaw,有: 352 6.14355896702004 8
+
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at demo.Experiment.Experiment_Recieve_Acceleration.ACC_receive(Experiment_Recieve_Acceleration.java:47)
+	at demo.Subscriber_data$2.run(Subscriber_data.java:106)
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Right:FF00,-6
+,8:
+posedata: Jack_Down_Right FF00,-6
+ 8:
+ExcelTime: 4797
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 4 0 2 0 0 0 0 0 4 0 6 
+
+currenttimestarttime: 4797
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User2A0.01!0.00c
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Right:FF00,-69,0:
+posedata: Jack_Down_Right FF00,-69 0:
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 4 0 2 0 0 0 0 0 4 0 6 
+
+currenttimestarttime: 5087
+Line:Jack_Down_Behind:93:C0:E6,53
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Behind 93:C0:E6 53
+ExcelTime: 5207
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 5 0 2 0 0 0 0 0 4 0 6 
+
+currenttimestarttime: 5208
+Line:Jack_Down_Right:FF00,-69,0:
+posedata: Jack_Down_Right FF00,-69 0:
+ExcelTime: 5250
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 5 0 2 0 0 0 0 0 4 0 6 
+
+currenttimestarttime: 5250
+Line:Jack_Down_Right:93:BE:A7,58
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Right 93:BE:A7 58
+ExcelTime: 5276
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 5 0 2 0 0 0 0 0 4 0 7 
+
+currenttimestarttime: 5276
+Line:Tim_Down_Right:93:BE:9B,55
+posedata: Tim_Down_Right 93:BE:9B 55
+ExcelTime: 5294
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 3 0 0 0 0 0 5 0 2 0 0 0 0 0 4 0 7 
+
+currenttimestarttime: 5295
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Tim_Down_Right:93:BE:9B,55
+posedata: Tim_Down_Right 93:BE:9B 55
+ExcelTime: 5473
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 2 0 0 0 0 0 4 0 7 
+
+currenttimestarttime: 5473
+RecordUser1Totalyaw [352, 352, 352, 352, 352]
+User1MinMaxacc [0.0]
+Recordyaw 177.2579843047411
+IndexList 21 0.8125
+IndexList 15 0.8041666666666667
+IndexList 29 0.7035714285714286
+互差: 683.0841074452691 571.8252803657942 542.1877465302773
+互差: 959.5164058066674 810.3108307264845 1284.0367430655622
+互差: 1398.151279195233 1311.0137444473426 2844.847321300321
+StateMaxCount+StateMinCount 0.0 0.0
+Globalvariable.AccStaterate 9
+互差: 949.4589339388847 1026.2075114465063 2298.5237382874866
+互差: 672.9635007447919 788.9351745111745 1565.0062853183774
+互差: 863.0851107530227 1017.1659026539363 1290.9948684445574
+互差: 1197.7420353669413 1289.9938088532265 487.4890688617662
+互差: 873.158947724223 801.232267236729 261.1886281527608
+MeansquareState 601.7987883108692 
+MeansquareState 1006.2086343101785 
+MeansquareState 1806.6356076518296 
+MeansquareState 1385.1392640961049 
+MeansquareState 983.6541889501179 
+MeansquareState 1046.243777620526 
+MeansquareState 1014.3436617319628 
+MeansquareState 662.6607786446763 
+TotalMeansquare 8506.684701316266
+Rssirate 0.9292557783154052
+Rssirate 0.8817155367055647
+Rssirate 0.7876216562520199
+Rssirate 0.8371704944134373
+Rssirate 0.8843669157271206
+Rssirate 0.8770092210589823
+Rssirate 0.8807592267320064
+Rssirate 0.9221011707954638
+Rssirate2 6.999999999999999
+FinalRssiStateratesize: 9
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.1263381308181601
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+SortTotalStaterate [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1263381308181601]
+State: 5
+AccStaterate.clear
+Line:Jack_Down_Behind:93:BE:9B,50
+posedata: Jack_Down_Behind 93:BE:9B 50
+ExcelTime: 5533
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 2 0 0 0 0 0 4 0 7 
+
+currenttimestarttime: 5533
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Right:93:BE:A7,58
+posedata: Jack_Down_Right 93:BE:A7 58
+ExcelTime: 5670
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 2 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 5671
+Accdata User1Ap0.03!n0.08c
+UserName後: User1 0.04 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Behind:93:BE:9B,49
+posedata: Jack_Down_Behind 93:BE:9B 49
+ExcelTime: 5925
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 2 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 5925
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:93:BE:9B,33
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Right 93:BE:9B 33
+ExcelTime: 5999
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 2 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 5999
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User2A0.01!0.00c
+Line:Jack_Down_Behind:93:BE:A7,51
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Behind 93:BE:A7 51
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 6214
+Line:Jack_Down_Right:93:BE:9B,33
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Right 93:BE:9B 33
+ExcelTime: 6293
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 6293
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Behind:FF00,-48, 7
+posedata: Jack_Down_Behind FF00,-48  7
+ExcelTime: 6408
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 6409
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1A0.02!n0.08c
+java.lang.NumberFormatException: For input string: ".02!"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at demo.Experiment.Experiment_Recieve_Acceleration.ACC_receive(Experiment_Recieve_Acceleration.java:43)
+	at demo.Subscriber_data$2.run(Subscriber_data.java:106)
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Right:FF00,-67, 2
+posedata: Jack_Down_Right FF00,-67  2
+ExcelTime: 6539
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 6540
+Accdata User2A0.01!0.00c
+StateMaxCount+StateMinCount 0.0 0.0
+Globalvariable.AccStaterate 9
+RecordUser1Totalyaw [352, 352, 352, 352, 352, 352]
+User1MinMaxacc [0.0]
+Recordyaw 177.2579843047411
+IndexList 23 0.8333333333333334
+IndexList 31 0.5
+MeansquareState 1075.1135273844513 
+MeansquareState 1022.6622287088238 
+MeansquareState 812.101889132894 
+MeansquareState 589.3176321671635 
+MeansquareState 645.1697343450628 
+MeansquareState 1164.590517105722 
+MeansquareState 2139.988655100013 
+MeansquareState 1590.6866734274204 
+TotalMeansquare 9039.63085737155
+Rssirate 0.881066655890298
+Rssirate 0.8868690276356945
+Rssirate 0.9101620517534021
+Rssirate 0.9348073343408052
+Rssirate 0.9286287521554106
+Rssirate 0.8711683546064237
+Rssirate 0.7632659243651618
+Rssirate 0.8240318992528038
+Rssirate2 6.999999999999999
+FinalRssiStateratesize: 9
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.1326612503079158
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+SortTotalStaterate [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1326612503079158]
+State: 5
+AccStaterate.clear
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Behind:FF00,-47, 7
+posedata: Jack_Down_Behind FF00,-47  7
+ExcelTime: 6668
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 6668
+Line:Jack_Down_Right:93:BE:9B,34
+posedata: Jack_Down_Right 93:BE:9B 34
+ExcelTime: 6745
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 6745
+Line:Jack_Down_Right:93:C2:E8,60
+posedata: Jack_Down_Right 93:C2:E8 60
+ExcelTime: 6754
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 6754
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Behind:FF00,-46, 2
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Behind FF00,-46  2
+ExcelTime: 6982
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 6982
+Line:Jack_Down_Behind:FF00,-46, 2
+posedata: Jack_Down_Behind FF00,-46  2
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 5 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 7025
+Line:Jack_Down_Behind:93:C0:E6,53
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User1Ap0.02!n.08c
+java.lang.NumberFormatException: For input string: ".08c"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at demo.Experiment.Experiment_Recieve_Acceleration.ACC_receive(Experiment_Recieve_Acceleration.java:47)
+	at demo.Subscriber_data$2.run(Subscriber_data.java:106)
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User2A0.01!0.00c
+posedata: Jack_Down_Behind 93:C0:E6 53
+ExcelTime: 7162
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 7163
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+未RadiansTimYaw,有: 352 6.14355896702004 8
+allzerocount 0
+Line:Jack_Down_Right:FF00,-65, 2
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Right FF00,-65  2
+ExcelTime: 7256
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 7256
+Line:Jack_Down_Behind:93:C2:E8,33
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Behind 93:C2:E8 33
+ExcelTime: 7302
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 3 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 7303
+Line:Jack_Down_Behind:93:BE:A7,51
+posedata: Jack_Down_Behind 93:BE:A7 51
+ExcelTime: 7324
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 4 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 7325
+Line:Tim_Down_Right:93:BE:A7,³á
+posedata: Tim_Down_Right 93:BE:A7 ³á
+ExcelTime: 7342
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 4 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 7342
+Accdata User2A0.01!0.00c
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Behind:FF00,-48, 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User2A0.01!0.00c
+posedata: Jack_Down_Behind FF00,-48  8
+ExcelTime: 7429
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 4 0 0 0 0 0 4 0 8 
+
+currenttimestarttime: 7429
+Line:Jack_Down_Right:93:BE:A7,61
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Right 93:BE:A7 61
+ExcelTime: 7460
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 4 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 7461
+Line:Jack_Down_Right:FF00,-62,
+
+posedata: Jack_Down_Right FF00,-62 
+
+ExcelTime: 7499
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 4 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 7500
+Line:Tim_Down_Right:FF00,-51, 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Tim_Down_Right FF00,-51  8
+ExcelTime: 7566
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 4 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 7566
+RecordUser1Totalyaw [352, 352, 352, 352, 352, 352, 352]
+User1MinMaxacc [0.0]
+Recordyaw 177.2579843047411
+StateMaxCount+StateMinCount 0.0 0.0
+Globalvariable.AccStaterate 9
+IndexList 23 0.8333333333333334
+IndexList 21 0.8125
+IndexList 31 0.5
+互差: 1377.0864755956457 683.0841074452691 571.8252803657942
+互差: 1150.0730674982274 959.5164058066674 810.3108307264845
+互差: 512.7547759442249 1398.151279195233 1311.0137444473426
+互差: 327.1837045995579 949.4589339388847 1026.2075114465063
+互差: 558.9104702453959 672.9635007447919 788.9351745111745
+互差: 1253.0452857767934 863.0851107530227 1017.1659026539363
+互差: 2649.9855628480855 1197.7420353669413 1289.9938088532265
+互差: 2064.359317141835 873.158947724223 801.232267236729
+MeansquareState 926.6752033298096 
+MeansquareState 998.7526452798519 
+MeansquareState 1034.0040853700903 
+MeansquareState 725.6818143914074 
+MeansquareState 655.6935876420476 
+MeansquareState 1050.4282758653794 
+MeansquareState 1783.2156631622481 
+MeansquareState 1319.001418064074 
+TotalMeansquare 8493.45269310491
+Rssirate 0.8908953476503029
+Rssirate 0.8824091118926639
+Rssirate 0.8782586866929267
+Rssirate 0.9145598567964563
+Rssirate 0.922800113059516
+Rssirate 0.8763249394774247
+Rssirate 0.7900482021157444
+Rssirate 0.844703742314965
+Rssirate2 7.0
+FinalRssiStateratesize: 9
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.13182858757993085
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+SortTotalStaterate [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.13182858757993085]
+State: 5
+AccStaterate.clear
+Line:Jack_Down_Behind:93:C2:E8,34
+posedata: Jack_Down_Behind 93:C2:E8 34
+ExcelTime: 7622
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 4 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 7622
+Line:Jack_Down_Behind:93:BE:A7,52
+posedata: Jack_Down_Behind 93:BE:A7 52
+ExcelTime: 7683
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 5 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 7683
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Behind:93:BE:A7,52
+posedata: Jack_Down_Behind 93:BE:A7 52
+ExcelTime: 7697
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 6 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 7698
+Line:Jack_Down_Right:93:C9:E8,58
+Accdata User2A0.01!0.00c
+posedata: Jack_Down_Right 93:C9:E8 58
+ExcelTime: 7759
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 6 0 6 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 7759
+Line:Jack_Down_Behind:93:C0:E6,55
+posedata: Jack_Down_Behind 93:C0:E6 55
+ExcelTime: 7835
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 7 0 6 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 7835
+Line:Jack_Down_Behind:Î3:BE:9¡,50
+Accdata User1Ap0.02!n0.08c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Behind Î3:BE:9¡ 50
+ExcelTime: 7895
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 7 0 6 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 7895
+Line:Jack_Down_Behind:Î3:BE:9¡,50
+posedata: Jack_Down_Behind Î3:BE:9¡ 50
+ExcelTime: 7902
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 7 0 6 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 7903
+Line:Jack_Down_Behind:93:C2:E8,33
+posedata: Jack_Down_Behind 93:C2:E8 33
+ExcelTime: 7953
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 7 0 6 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 7954
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User2A0.01!0.00c
+Line:Jack_Down_Right:93:BE:9B,Q:
+posedata: Jack_Down_Right 93:BE:9B Q:
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 7 0 6 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 8007
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:93:C2:E8,á+
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Right 93:C2:E8 á+
+ExcelTime: 8045
+java.lang.NumberFormatException: For input string: "á+"
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 4 0 0 0 0 0 7 0 6 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 8045
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.valueOf(Integer.java:766)
+	at demo.Experiment.TestRssi_Result.Revolution_processing(TestRssi_Result.java:752)
+	at demo.Subscriber_data$4.run(Subscriber_data.java:169)
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Tim_Down_Right:93:C2:E8,53
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+posedata: Tim_Down_Right 93:C2:E8 53
+ExcelTime: 8110
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 6 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 8110
+Line:Jack_Down_Behind:93:BE:A7,51
+posedata: Jack_Down_Behind 93:BE:A7 51
+ExcelTime: 8159
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 7 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 8160
+Line:Jack_Down_Behind:93:BE:A7,51
+posedata: Jack_Down_Behind 93:BE:A7 51
+ExcelTime: 8170
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 4 0 9 
+
+currenttimestarttime: 8171
+Line:Jack_Down_Right:93:BE:A7,62
+posedata: Jack_Down_Right 93:BE:A7 62
+ExcelTime: 8234
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 4 0 10 
+
+currenttimestarttime: 8235
+Line:Jack_Down_Right:93:BE:A7,62
+posedata: Jack_Down_Right 93:BE:A7 62
+ExcelTime: 8242
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 4 0 11 
+
+currenttimestarttime: 8242
+Line:Tim_Down_Right:93:BE:A7,33
+posedata: Tim_Down_Right 93:BE:A7 33
+ExcelTime: 8249
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 4 0 11 
+
+currenttimestarttime: 8250
+Line:Jack_Down_Behind:93:BE:9B,47
+posedata: Jack_Down_Behind 93:BE:9B 47
+ExcelTime: 8296
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 4 0 11 
+
+currenttimestarttime: 8296
+Line:Jack_Down_Right:93:C0:E6,55
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Right 93:C0:E6 55
+ExcelTime: 8406
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 8409
+Line:Jack_Down_Behind:9fÇhfg4ÿ,33
+posedata: Jack_Down_Behind 9fÇhfg4ÿ 33
+ExcelTime: 8487
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 8489
+Line:Jack_Down_Behind:9fÇhfg4ÿ,33
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Behind 9fÇhfg4ÿ 33
+ExcelTime: 8517
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 8518
+Line:Jack_Down_Right:93:C2=E8,59
+posedata: Jack_Down_Right 93:C2=E8 59
+ExcelTime: 8540
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 8541
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Behind:93C0:E6,53
+posedata: Jack_Down_Behind 93C0:E6 53
+ExcelTime: 8758
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 8759
+StateMaxCount+StateMinCount 0.0 0.0
+Globalvariable.AccStaterate 9
+RecordUser1Totalyaw [352, 352, 352, 352, 352, 352, 352, 352]
+User1MinMaxacc [0.0]
+Recordyaw 177.2579843047411
+IndexList 23 0.8333333333333334
+IndexList 21 0.8125
+IndexList 29 0.7035714285714286
+互差: 1377.0864755956457 683.0841074452691 542.1877465302773
+互差: 1150.0730674982274 959.5164058066674 1284.0367430655622
+互差: 512.7547759442249 1398.151279195233 2844.847321300321
+互差: 327.1837045995579 949.4589339388847 2298.5237382874866
+互差: 558.9104702453959 672.9635007447919 1565.0062853183774
+互差: 1253.0452857767934 863.0851107530227 1290.9948684445574
+互差: 2649.9855628480855 1197.7420353669413 487.4890688617662
+互差: 2064.359317141835 873.158947724223 261.1886281527608
+MeansquareState 887.052644767034 
+MeansquareState 1124.2902505009156 
+MeansquareState 1517.3404398784864 
+MeansquareState 1132.739723821071 
+MeansquareState 899.6471411468247 
+MeansquareState 1129.5491539819745 
+MeansquareState 1500.1544833184194 
+MeansquareState 1112.4119498653906 
+TotalMeansquare 9303.185787280117
+Rssirate 0.9046506578445561
+Rssirate 0.879149973330844
+Rssirate 0.8369009848268227
+Rssirate 0.8782417389352988
+Rssirate 0.9032968746709459
+Rssirate 0.8785846934792635
+Rssirate 0.8387483043314558
+Rssirate 0.8804267725808134
+Rssirate2 7.0
+FinalRssiStateratesize: 9
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.12904241066727798
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+SortTotalStaterate [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.12904241066727798]
+State: 5
+AccStaterate.clear
+Line:Jack_Down_Behind:93C0:E6,53
+posedata: Jack_Down_Behind 93C0:E6 53
+ExcelTime: 8806
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 8807
+Line:Jack_Down_Right:93:C2:E8,60
+posedata: Jack_Down_Right 93:C2:E8 60
+ExcelTime: 8870
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 8870
+Line:Jack_Down_Behind:93:BE:9B,4
+
+posedata: Jack_Down_Behind 93:BE:9B 4
+
+ExcelTime: 8890
+java.lang.NumberFormatException: For input string: "4
+"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.valueOf(Integer.java:766)
+	at demo.Experiment.TestRssi_Result.Revolution_processing(TestRssi_Result.java:656)
+	at demo.Subscriber_data$4.run(Subscriber_data.java:169)
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 8893
+Line:Jack_Down_Behind:93:C2:E8,33
+posedata: Jack_Down_Behind 93:C2:E8 33
+ExcelTime: 8911
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 8912
+Accdata User2A0.01!0.00c
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Behind:93:C0=E6,53
+posedata: Jack_Down_Behind 93:C0=E6 53
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 9131
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Behind:+INQ: 20,93
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Behind +INQ: 20 93
+ExcelTime: 9255
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 9255
+Line:Jack_Down_Behind:+INQ: 20,93
+posedata: Jack_Down_Behind +INQ: 20 93
+ExcelTime: 9282
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 8 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 9282
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Behind:93:BE:A7,52
+Accdata User2A0.01!0.00c
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Behind 93:BE:A7 52
+ExcelTime: 9410
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 9 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 9410
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Right:FF00,-68, 7
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Right FF00,-68  7
+ExcelTime: 9517
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 4 0 0 0 0 0 7 0 9 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 9518
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Tim_Down_Right:93:C2:E8,53
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Tim_Down_Right 93:C2:E8 53
+ExcelTime: 9605
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 4 0 0 0 0 0 7 0 9 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 9605
+Accdata User2A0.01!0.00c
+Line:Jack_Down_Behind:93:C2:E8,33
+posedata: Jack_Down_Behind 93:C2:E8 33
+ExcelTime: 9708
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 4 0 0 0 0 0 7 0 9 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 9708
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Behind:93:BE:9B,47
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Behind 93:BE:9B 47
+ExcelTime: 9917
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 4 0 0 0 0 0 7 0 9 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 9917
+StateMaxCount+StateMinCount 0.0 0.0
+Globalvariable.AccStaterate 9
+RecordUser1Totalyaw [352, 352, 352, 352, 352, 352, 352, 352, 352]
+User1MinMaxacc [0.0]
+Recordyaw 177.2579843047411
+IndexList 23 0.8333333333333334
+IndexList 13 0.6944444444444444
+MeansquareState 1377.0864755956459 
+MeansquareState 1150.0730674982274 
+MeansquareState 512.754775944225 
+MeansquareState 327.183704599558 
+MeansquareState 558.910470245396 
+MeansquareState 1253.0452857767937 
+MeansquareState 2649.9855628480855 
+MeansquareState 2064.359317141835 
+TotalMeansquare 9893.398659649767
+Rssirate 0.8608075421834467
+Rssirate 0.8837534898710995
+Rssirate 0.9481720292910569
+Rssirate 0.9669290891982372
+Rssirate 0.943506727114423
+Rssirate 0.8733453155094881
+Rssirate 0.7321460850803422
+Rssirate 0.7913397217519066
+Rssirate2 7.0
+FinalRssiStateratesize: 9
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.13478667530206043
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+SortTotalStaterate [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.13478667530206043]
+State: 5
+AccStaterate.clear
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Tim_Down_Right:93:C2:E8,60
+posedata: Tim_Down_Right 93:C2:E8 60
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 9 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 10061
+Line:Tim_Down_Right:93:BE:A7,3f
+Accdata User2A0.01!0.00c
+posedata: Tim_Down_Right 93:BE:A7 3f
+ExcelTime: 10126
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 9 0 0 0 0 0 5 0 11 
+
+currenttimestarttime: 10126
+Line:Jack_Down_Right:93:BE:A7,61
+posedata: Jack_Down_Right 93:BE:A7 61
+ExcelTime: 10131
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 9 0 0 0 0 0 5 0 12 
+
+currenttimestarttime: 10131
+Line:Jack_Down_Behind:FF00,-46, 7
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Behind FF00,-46  7
+ExcelTime: 10195
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 9 0 0 0 0 0 5 0 12 
+
+currenttimestarttime: 10195
+Line:Jack_Down_Right:93:BE:9B,33
+posedata: Jack_Down_Right 93:BE:9B 33
+ExcelTime: 10325
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 9 0 0 0 0 0 5 0 12 
+
+currenttimestarttime: 10326
+Accdata User2A0.01!0.00c
+Line:Jack_Down_Behind:93:BE:9B,47
+posedata: Jack_Down_Behind 93:BE:9B 47
+ExcelTime: 10458
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 9 0 0 0 0 0 5 0 12 
+
+currenttimestarttime: 10459
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Behind:93:BE:A7,51
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Behind 93:BE:A7 51
+ExcelTime: 10538
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 10 0 0 0 0 0 5 0 12 
+
+currenttimestarttime: 10549
+Line:Jack_Down_Right:93:BE:A7,61
+posedata: Jack_Down_Right 93:BE:A7 61
+ExcelTime: 10594
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 10 0 0 0 0 0 5 0 13 
+
+currenttimestarttime: 10595
+Line:Jack_Down_Right:93:BE:A7,61
+posedata: Jack_Down_Right 93:BE:A7 61
+ExcelTime: 10603
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 10 0 0 0 0 0 5 0 14 
+
+currenttimestarttime: 10603
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Behind:FF00,-48, 2
+Accdata User1Ap0.03!n0.08c
+UserName後: User1 0.04 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Behind FF00,-48  2
+ExcelTime: 10768
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 10 0 0 0 0 0 5 0 14 
+
+currenttimestarttime: 10769
+Line:Jack_Down_Right:93:C0:E6,61
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User2A0.01!0.00c
+posedata: Jack_Down_Right 93:C0:E6 61
+ExcelTime: 10813
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 10 0 0 0 0 0 6 0 14 
+
+currenttimestarttime: 10813
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.03!n0.07c
+UserName後: User1 0.04 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.00!n0.07c
+UserName後: User1 0.01 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:93:BE:A7,62
+posedata: Jack_Down_Right 93:BE:A7 62
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 10 0 0 0 0 0 6 0 15 
+
+currenttimestarttime: 11072
+StateMaxCount+StateMinCount 0.0 0.0
+Globalvariable.AccStaterate 9
+RecordUser1Totalyaw [352, 352, 352, 352, 352, 352, 352, 352, 352, 352]
+User1MinMaxacc [0.0]
+Recordyaw 177.2579843047411
+IndexList 23 0.8333333333333334
+IndexList 29 0.7035714285714286
+IndexList 31 0.5
+互差: 1377.0864755956457 542.1877465302773 571.8252803657942
+互差: 1150.0730674982274 1284.0367430655622 810.3108307264845
+互差: 512.7547759442249 2844.847321300321 1311.0137444473426
+互差: 327.1837045995579 2298.5237382874866 1026.2075114465063
+互差: 558.9104702453959 1565.0062853183774 788.9351745111745
+互差: 1253.0452857767934 1290.9948684445574 1017.1659026539363
+互差: 2649.9855628480855 487.4890688617662 1289.9938088532265
+互差: 2064.359317141835 261.1886281527608 801.232267236729
+MeansquareState 891.034546388065 
+MeansquareState 1112.9441328495789 
+MeansquareState 1514.2366351357864 
+MeansquareState 1179.697999623102 
+MeansquareState 962.8923536467746 
+MeansquareState 1208.2521019340395 
+MeansquareState 1569.1954023432602 
+MeansquareState 1131.462041774981 
+TotalMeansquare 9569.715213695588
+Rssirate 0.9068901710771005
+Rssirate 0.8837014364589657
+Rssirate 0.841767847702646
+Rssirate 0.8767259031977471
+Rssirate 0.8993812948300967
+Rssirate 0.8737421046548111
+Rssirate 0.8360248589114204
+Rssirate 0.8817663831672126
+Rssirate2 7.0
+FinalRssiStateratesize: 9
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.12848304211858524
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+SortTotalStaterate [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.12848304211858524]
+State: 5
+AccStaterate.clear
+Line:Tim_Down_Right:93:BE:A7,
+ÿ
+posedata: Tim_Down_Right 93:BE:A7 
+ÿ
+ExcelTime: 11087
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 10 0 0 0 0 0 6 0 15 
+
+currenttimestarttime: 11088
+Accdata User2A0.01!0.00c
+Line:Jack_Down_Right:FF00,-66, 8
+posedata: Jack_Down_Right FF00,-66  8
+ExcelTime: 11212
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 10 0 0 0 0 0 6 0 15 
+
+currenttimestarttime: 11212
+Accdata User2A0.01!0.00c
+Line:Jack_Down_Right:93:BE:A7,62
+posedata: Jack_Down_Right 93:BE:A7 62
+ExcelTime: 11274
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 7 0 10 0 0 0 0 0 6 0 16 
+
+currenttimestarttime: 11274
+Accdata User1Ap0.01!n0.07c
+UserName後: User1 0.02 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Behind:93:C0:E6,52
+posedata: Jack_Down_Behind 93:C0:E6 52
+ExcelTime: 11458
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 8 0 10 0 0 0 0 0 6 0 16 
+
+currenttimestarttime: 11458
+Accdata User1Ap0.03!n0.08c
+UserName後: User1 0.04 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Behind:93:BE:9B,50
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Behind 93:BE:9B 50
+ExcelTime: 11479
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 8 0 10 0 0 0 0 0 6 0 16 
+
+currenttimestarttime: 11480
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Right:FÆY3³, 7
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.01!n0.07c
+UserName後: User1 0.02 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Right FÆY3³  7
+ExcelTime: 11552
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 8 0 10 0 0 0 0 0 6 0 16 
+
+currenttimestarttime: 11552
+Line:Tim_Down_Right:93:BE:9B,57
+posedata: Tim_Down_Right 93:BE:9B 57
+ExcelTime: 11559
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 8 0 10 0 0 0 0 0 6 0 16 
+
+currenttimestarttime: 11560
+Accdata User2A0.01!0.00c
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Behind:FF00,-46, 7
+posedata: Jack_Down_Behind FF00,-46  7
+ExcelTime: 11733
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 8 0 10 0 0 0 0 0 6 0 16 
+
+currenttimestarttime: 11733
+Line:Jack_Down_Right:93:BE:A7,61
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Right 93:BE:A7 61
+ExcelTime: 11743
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 8 0 10 0 0 0 0 0 6 0 17 
+
+currenttimestarttime: 11743
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Right:93:C0:E6,57
+Accdata User2A0.01!0.00c
+posedata: Jack_Down_Right 93:C0:E6 57
+ExcelTime: 11906
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 8 0 10 0 0 0 0 0 7 0 17 
+
+currenttimestarttime: 11907
+Line:Jack_Down_Right:93:C0:E6,57
+posedata: Jack_Down_Right 93:C0:E6 57
+ExcelTime: 11926
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 8 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 11927
+Line:Jack_Down_Behind:FF00,-48, 8
+posedata: Jack_Down_Behind FF00,-48  8
+ExcelTime: 11944
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 8 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 11945
+Line:Jack_Down_Right:FF00,-66, 2
+Accdata User1Ap0.01!n0.08c
+UserName後: User1 0.02 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Right FF00,-66  2
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 8 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12024
+Line:Jack_Down_Right:FF00,-66, 2
+posedata: Jack_Down_Right FF00,-66  2
+ExcelTime: 12040
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 8 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12041
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User2A0.02!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1Ap0.03!n0.08c
+UserName後: User1 0.04 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User1Ap0.02!n0.08c
+UserName後: User1 0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User2A0.01!0.00c
+Line:Jack_Down_Behind:93:C0:E6,54
+Accdata User1Ap0.03!n0.08c
+UserName後: User1 0.04 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Accdata User2A0.01!0.00c
+posedata: Jack_Down_Behind 93:C0:E6 54
+ExcelTime: 12354
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 9 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12355
+StateMaxCount+StateMinCount 0.0 0.0
+Globalvariable.AccStaterate 9
+RecordUser1Totalyaw [352, 352, 352, 352, 352, 352, 352, 352, 352, 352, 352]
+User1MinMaxacc [0.0]
+Recordyaw 177.2579843047411
+IndexList 21 0.8125
+IndexList 15 0.8041666666666667
+IndexList 29 0.7035714285714286
+互差: 683.0841074452691 571.8252803657942 542.1877465302773
+互差: 959.5164058066674 810.3108307264845 1284.0367430655622
+互差: 1398.151279195233 1311.0137444473426 2844.847321300321
+互差: 949.4589339388847 1026.2075114465063 2298.5237382874866
+互差: 672.9635007447919 788.9351745111745 1565.0062853183774
+互差: 863.0851107530227 1017.1659026539363 1290.9948684445574
+互差: 1197.7420353669413 1289.9938088532265 487.4890688617662
+互差: 873.158947724223 801.232267236729 261.1886281527608
+MeansquareState 601.7987883108692 
+MeansquareState 1006.2086343101785 
+MeansquareState 1806.6356076518296 
+MeansquareState 1385.1392640961049 
+MeansquareState 983.6541889501179 
+MeansquareState 1046.243777620526 
+MeansquareState 1014.3436617319628 
+MeansquareState 662.6607786446763 
+TotalMeansquare 8506.684701316266
+Rssirate 0.9292557783154052
+Rssirate 0.8817155367055647
+Rssirate 0.7876216562520199
+Rssirate 0.8371704944134373
+Rssirate 0.8843669157271206
+Rssirate 0.8770092210589823
+Rssirate 0.8807592267320064
+Rssirate 0.9221011707954638
+Rssirate2 6.999999999999999
+FinalRssiStateratesize: 9
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.1263381308181601
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+SortTotalStaterate [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1263381308181601]
+State: 5
+AccStaterate.clear
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Right:93:BE:9B,33
+posedata: Jack_Down_Right 93:BE:9B 33
+ExcelTime: 12371
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 9 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12372
+Accdata User1Ap0.01!n0.08c
+UserName後: User1 0.02 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:FF00,-68, 2
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Right FF00,-68  2
+ExcelTime: 12520
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 9 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12521
+Line:Jack_Down_Right:FF00,-68, 2
+posedata: Jack_Down_Right FF00,-68  2
+ExcelTime: 12545
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 9 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12546
+Line:Jack_Down_Behind:FF00,-46,
+
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Behind FF00,-46 
+
+ExcelTime: 12557
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5 0 0 0 0 0 9 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12557
+Line:Tim_Down_Right:93:C2:E8,60
+posedata: Tim_Down_Right 93:C2:E8 60
+ExcelTime: 12564
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 9 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12565
+Accdata User1Ap0.04!n0.08c
+UserName後: User1 0.05 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+Line:Tim_Down_Right:FF00,-49,
+
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Tim_Down_Right FF00,-49 
+
+ExcelTime: 12646
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 9 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12647
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Behind:93:C0:E6,51
+Accdata User1Ap0.03!n0.08c
+UserName後: User1 0.04 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Behind 93:C0:E6 51
+ExcelTime: 12822
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12822
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Right:93:BE:9B,34
+Accdata User1Ap0.02!n0.09c
+UserName後: User1 0.03 -0.03 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Right 93:BE:9B 34
+ExcelTime: 12892
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 10 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12896
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Behind:93:BE:A7,50
+posedata: Jack_Down_Behind 93:BE:A7 50
+ExcelTime: 12947
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 11 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 12947
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User2A0.01!0.00c
+Accdata User1Ap0.01!n0.09c
+UserName後: User1 0.02 -0.03 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Accdata User1An0.03!n0.07c
+UserName後: User1 -0.019999999999999997 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Line:Tim_Down_Right:93:BE:A7,32
+Accdata User2A0.01!0.00c
+posedata: Tim_Down_Right 93:BE:A7 32
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 11 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 13094
+Line:Jack_Down_Behind:FF00,-47, 8
+posedata: Jack_Down_Behind FF00,-47  8
+ExcelTime: 13155
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 11 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 13155
+Line:Jack_Down_Behind:FF00,-47, 8
+Accdata User1Ap0.03!n0.07c
+UserName後: User1 0.04 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Accdata User1An0.04!n0.08c
+UserName後: User1 -0.03 -0.020000000000000004 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+posedata: Jack_Down_Behind FF00,-47  8
+ExcelTime: 13165
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 11 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 13165
+Line:Jack_Down_Right:93:B,0+I, 8
+Accdata User1Ap0.01!n0.05c
+UserName後: User1 0.02 0.009999999999999995 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Right 93:B,0+I  8
+ExcelTime: 13226
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 11 0 0 0 0 0 8 0 17 
+
+currenttimestarttime: 13226
+Accdata User1An0.55!n0.06c
+UserName後: User1 -0.54 0.0 false
+if_acccompute true true
+User1Final_x -0.54
+allzerocount 0
+Accdata User1An0.57!n0.06c
+UserName後: User1 -0.5599999999999999 0.0 false
+if_acccompute true true
+User1Final_x -0.5599999999999999
+allzerocount 0
+未RadiansTimYaw,有: 350 6.1086523819801535 10
+未RadiansTimYaw,有: 350 6.1086523819801535 10
+Line:Jack_Down_Right:93:BE:A7,60
+Accdata User1Ap0.20!p0.22c
+UserName後: User1 0.21000000000000002 0.28 false
+if_acccompute true true
+User1Final_y 0.28
+allzerocount 0
+posedata: Jack_Down_Right 93:BE:A7 60
+ExcelTime: 13504
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 13504
+StateMaxCount+StateMinCount 4.0 0.0
+Globalvariable.AccStaterate 9
+inStateMaxCount
+Globalvariable.User1Work -0.55 0.28
+RecordUser1Totalyaw [352, 352, 352, 352, 352, 352, 352, 352, 352, 352, 352, 351]
+User1MinMaxacc [4.0]
+Recordyaw 176.79363323838322
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9876883405951378 -0.1564344650402304
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 -0.1564344650402304 0.9876883405951377
+ExpAvgUser1Totalyaw 351 0 Find5.8
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9902680687415703 -0.13917310096006605
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 -0.13917310096006605 0.9902680687415703
+ExpAvgUser1Totalyaw 351 1 Find5.8
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9925461516413221 -0.1218693434051474
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 -0.1218693434051474 0.992546151641322
+ExpAvgUser1Totalyaw 351 2 Find5.8
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9945218953682734 -0.10452846326765272
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 -0.10452846326765272 0.9945218953682733
+ExpAvgUser1Totalyaw 351 3 Find5.8
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9961946980917455 -0.0871557427476585
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 -0.0871557427476585 0.9961946980917455
+ExpAvgUser1Totalyaw 351 4 Find5.8
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9975640502598243 -0.06975647374412494
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 -0.06975647374412494 0.9975640502598242
+ExpAvgUser1Totalyaw 351 5 Find5.8
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9986295347545738 -0.052335956242944556
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 -0.052335956242944556 0.9986295347545739
+ExpAvgUser1Totalyaw 351 6 Find5.8
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9993908270190958 -0.034899496702501004
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 -0.034899496702501004 0.9993908270190958
+ExpAvgUser1Totalyaw 351 7 Find5.8
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9998476951563913 -0.017452406437284632
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 -0.017452406437284632 0.9998476951563913
+ExpAvgUser1Totalyaw 351 8 Find5.8
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -1.0 -4.286263797015736E-16
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 -4.286263797015736E-16 1.0
+ExpAvgUser1Totalyaw 351 9 Find5.8
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9998476951563913 0.017452406437283775
+ExpAvgUser1Totalyaw 351 10 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.017452406437283775 0.9998476951563913
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9993908270190958 0.03489949670250015
+ExpAvgUser1Totalyaw 351 11 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.03489949670250015 0.9993908270190958
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9986295347545738 0.052335956242943696
+ExpAvgUser1Totalyaw 351 12 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.052335956242943696 0.9986295347545739
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9975640502598243 0.06975647374412408
+ExpAvgUser1Totalyaw 351 13 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.06975647374412408 0.9975640502598243
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9961946980917455 0.08715574274765764
+ExpAvgUser1Totalyaw 351 14 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.08715574274765764 0.9961946980917455
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9945218953682735 0.10452846326765186
+ExpAvgUser1Totalyaw 351 15 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.10452846326765186 0.9945218953682734
+IndexList 23 0.8333333333333334
+IndexList 21 0.8125
+IndexList 13 0.6944444444444444
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9925461516413221 0.12186934340514656
+ExpAvgUser1Totalyaw 351 16 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.12186934340514656 0.9925461516413221
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9902680687415704 0.13917310096006522
+ExpAvgUser1Totalyaw 351 17 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.13917310096006522 0.9902680687415705
+互差: 1339.8781043083459 687.0581615337338 1339.8781043083459
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9876883405951379 0.15643446504022956
+ExpAvgUser1Totalyaw 351 18 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.15643446504022956 0.9876883405951379
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9848077530122081 0.17364817766692972
+ExpAvgUser1Totalyaw 351 19 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.17364817766692972 0.9848077530122081
+互差: 1115.2980822861673 974.1518373208257 1115.2980822861673
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9816271834476643 0.19080899537654314
+ExpAvgUser1Totalyaw 351 20 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.19080899537654314 0.9816271834476641
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9781476007338055 0.20791169081776006
+ExpAvgUser1Totalyaw 351 21 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.20791169081776006 0.9781476007338056
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9743700647852352 0.22495105434386467
+ExpAvgUser1Totalyaw 351 22 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.22495105434386467 0.974370064785235
+互差: 507.93210422697274 1424.065765585265 507.93210422697274
+互差: 346.1905861335669 958.4546155866999 346.1905861335669
+互差: 575.1043465372572 671.2596853641423 575.1043465372572
+互差: 1266.4804582898093 850.6807359287716 1266.4804582898093
+互差: 2633.5907319807675 1174.0124553401265 2633.5907319807675
+互差: 2024.8291045483868 866.4097993721292 2024.8291045483868
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9702957262759964 0.24192189559966806
+ExpAvgUser1Totalyaw 351 23 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.24192189559966806 0.9702957262759964
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9659258262890684 0.2588190451025201
+ExpAvgUser1Totalyaw 351 24 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.2588190451025201 0.9659258262890682
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9612616959383189 0.27563735581699916
+ExpAvgUser1Totalyaw 351 25 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.27563735581699916 0.9612616959383188
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9563047559630353 0.2923717047227373
+ExpAvgUser1Totalyaw 351 26 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.2923717047227373 0.9563047559630355
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9510565162951536 0.309016994374947
+ExpAvgUser1Totalyaw 351 27 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.309016994374947 0.9510565162951536
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9455185755993167 0.3255681544571569
+ExpAvgUser1Totalyaw 351 28 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.3255681544571569 0.945518575599317
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9396926207859086 0.34202014332566794
+ExpAvgUser1Totalyaw 351 29 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.34202014332566794 0.9396926207859083
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9335804264972017 0.35836794954530016
+ExpAvgUser1Totalyaw 351 30 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.35836794954530016 0.9335804264972017
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9271838545667879 0.3746065934159109
+ExpAvgUser1Totalyaw 351 31 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.3746065934159109 0.9271838545667874
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9205048534524405 0.39073112848927327
+ExpAvgUser1Totalyaw 351 32 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.39073112848927327 0.9205048534524405
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9135454576426009 0.4067366430758003
+ExpAvgUser1Totalyaw 351 33 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.4067366430758003 0.9135454576426011
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.9063077870366504 0.4226182617406986
+ExpAvgUser1Totalyaw 351 34 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.4226182617406986 0.9063077870366503
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.898794046299167 0.4383711467890772
+ExpAvgUser1Totalyaw 351 35 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.4383711467890772 0.898794046299167
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.8910065241883685 0.4539904997395456
+ExpAvgUser1Totalyaw 351 36 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.4539904997395456 0.891006524188368
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.8829475928589272 0.4694715627858902
+ExpAvgUser1Totalyaw 351 37 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.4694715627858902 0.8829475928589272
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.8746197071393966 0.4848096202463355
+ExpAvgUser1Totalyaw 351 38 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.4848096202463355 0.8746197071393961
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.8660254037844392 0.4999999999999991
+ExpAvgUser1Totalyaw 351 39 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.4999999999999991 0.866025403784439
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.8571673007021124 0.5150380749100539
+ExpAvgUser1Totalyaw 351 40 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.5150380749100539 0.8571673007021128
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.8480480961564267 0.5299192642332038
+ExpAvgUser1Totalyaw 351 41 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.5299192642332038 0.8480480961564266
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.8386705679454244 0.5446390350150264
+ExpAvgUser1Totalyaw 351 42 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.5446390350150264 0.8386705679454244
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.8290375725550417 0.5591929034707468
+ExpAvgUser1Totalyaw 351 43 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.5591929034707468 0.8290375725550416
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.8191520442889914 0.5735764363510466
+ExpAvgUser1Totalyaw 351 44 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.5735764363510466 0.8191520442889918
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.8090169943749477 0.5877852522924728
+ExpAvgUser1Totalyaw 351 45 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.5877852522924728 0.8090169943749471
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.7986355100472926 0.6018150231520485
+ExpAvgUser1Totalyaw 351 46 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.6018150231520485 0.7986355100472926
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.7880107536067225 0.6156614753256576
+ExpAvgUser1Totalyaw 351 47 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.6156614753256576 0.7880107536067218
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.7771459614569709 0.6293203910498373
+ExpAvgUser1Totalyaw 351 48 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.6293203910498373 0.7771459614569709
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.7660444431189777 0.6427876096865397
+ExpAvgUser1Totalyaw 351 49 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.6427876096865397 0.7660444431189781
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.7547095802227723 0.6560590289905068
+ExpAvgUser1Totalyaw 351 50 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.6560590289905068 0.7547095802227722
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.7431448254773941 0.6691306063588583
+ExpAvgUser1Totalyaw 351 51 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.6691306063588583 0.743144825477394
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.7313537016191711 0.6819983600624978
+ExpAvgUser1Totalyaw 351 52 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.6819983600624978 0.7313537016191705
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.7193398003386513 0.694658370458997
+ExpAvgUser1Totalyaw 351 53 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.694658370458997 0.7193398003386512
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.7071067811865471 0.7071067811865466
+ExpAvgUser1Totalyaw 351 54 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.7071067811865466 0.7071067811865477
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.6946583704589977 0.7193398003386506
+ExpAvgUser1Totalyaw 351 55 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.7193398003386506 0.6946583704589976
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.6819983600624985 0.7313537016191705
+ExpAvgUser1Totalyaw 351 56 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.7313537016191705 0.681998360062499
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.6691306063588589 0.7431448254773935
+ExpAvgUser1Totalyaw 351 57 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.7431448254773935 0.6691306063588589
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.6560590289905075 0.7547095802227718
+ExpAvgUser1Totalyaw 351 58 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.7547095802227718 0.6560590289905074
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.6427876096865404 0.7660444431189771
+ExpAvgUser1Totalyaw 351 59 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.7660444431189771 0.6427876096865396
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.629320391049838 0.7771459614569703
+ExpAvgUser1Totalyaw 351 60 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.7771459614569703 0.629320391049838
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.6156614753256583 0.7880107536067219
+ExpAvgUser1Totalyaw 351 61 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.7880107536067219 0.6156614753256588
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.6018150231520492 0.7986355100472922
+ExpAvgUser1Totalyaw 351 62 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.7986355100472922 0.601815023152049
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.5877852522924735 0.8090169943749471
+ExpAvgUser1Totalyaw 351 63 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.8090169943749471 0.587785252292474
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.5735764363510473 0.8191520442889909
+ExpAvgUser1Totalyaw 351 64 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.8191520442889909 0.5735764363510465
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.5591929034707475 0.8290375725550412
+ExpAvgUser1Totalyaw 351 65 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.8290375725550412 0.5591929034707473
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.5446390350150272 0.8386705679454239
+ExpAvgUser1Totalyaw 351 66 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.8386705679454239 0.5446390350150271
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.5299192642332045 0.8480480961564263
+ExpAvgUser1Totalyaw 351 67 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.8480480961564263 0.5299192642332043
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.5150380749100546 0.857167300702112
+ExpAvgUser1Totalyaw 351 68 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.857167300702112 0.5150380749100538
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.49999999999999983 0.8660254037844387
+ExpAvgUser1Totalyaw 351 69 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.8660254037844387 0.4999999999999997
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.4848096202463363 0.8746197071393962
+ExpAvgUser1Totalyaw 351 70 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.8746197071393962 0.48480962024633695
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.469471562785891 0.8829475928589268
+ExpAvgUser1Totalyaw 351 71 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.8829475928589268 0.46947156278589086
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.45399049973954636 0.891006524188368
+ExpAvgUser1Totalyaw 351 72 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.891006524188368 0.453990499739547
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.43837114678907796 0.8987940462991667
+ExpAvgUser1Totalyaw 351 73 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.8987940462991667 0.43837114678907785
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.4226182617406994 0.9063077870366499
+ExpAvgUser1Totalyaw 351 74 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9063077870366499 0.4226182617406993
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.40673664307580115 0.9135454576426004
+ExpAvgUser1Totalyaw 351 75 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9135454576426004 0.4067366430758002
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.39073112848927405 0.9205048534524402
+ExpAvgUser1Totalyaw 351 76 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9205048534524402 0.39073112848927394
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.3746065934159117 0.9271838545667875
+ExpAvgUser1Totalyaw 351 77 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9271838545667875 0.3746065934159124
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.35836794954530093 0.9335804264972015
+ExpAvgUser1Totalyaw 351 78 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9335804264972015 0.3583679495453008
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.34202014332566877 0.9396926207859083
+ExpAvgUser1Totalyaw 351 79 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9396926207859083 0.3420201433256695
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.3255681544571577 0.9455185755993164
+ExpAvgUser1Totalyaw 351 80 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9455185755993164 0.32556815445715676
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.30901699437494784 0.9510565162951534
+ExpAvgUser1Totalyaw 351 81 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9510565162951534 0.30901699437494773
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.29237170472273816 0.956304755963035
+ExpAvgUser1Totalyaw 351 82 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.956304755963035 0.2923717047227372
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.27563735581699994 0.9612616959383187
+ExpAvgUser1Totalyaw 351 83 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9612616959383187 0.27563735581699983
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.2588190451025209 0.9659258262890682
+ExpAvgUser1Totalyaw 351 84 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9659258262890682 0.2588190451025216
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.2419218955996689 0.9702957262759961
+ExpAvgUser1Totalyaw 351 85 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9702957262759961 0.24192189559966878
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.2249510543438655 0.9743700647852351
+ExpAvgUser1Totalyaw 351 86 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9743700647852351 0.22495105434386625
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.2079116908177609 0.9781476007338052
+ExpAvgUser1Totalyaw 351 87 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9781476007338052 0.20791169081775993
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.19080899537654397 0.9816271834476641
+ExpAvgUser1Totalyaw 351 88 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9816271834476641 0.19080899537654472
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.17364817766693058 0.984807753012208
+ExpAvgUser1Totalyaw 351 89 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.984807753012208 0.17364817766693044
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+180 -0.1564344650402304 0.9876883405951378
+ExpAvgUser1Totalyaw 351 90 Find5.1
+Math.cos(Math.toRadians(Globalvariable.AvgUser1Totalyaw+270 0.9876883405951378 0.15643446504023029
+leftcount 81rightcount 10
+未RadiansTimYaw,有: 350 6.1086523819801535 10
+MeansquareState 1113.2314179444597 
+MeansquareState 1066.2947865563601 
+MeansquareState 825.9963130664985 
+MeansquareState 558.7570295935567 
+MeansquareState 608.4876540824963 
+MeansquareState 1122.1226911793008 
+MeansquareState 2126.8528733251146 
+MeansquareState 1622.6479214456506 
+TotalMeansquare 9044.390687193438
+Rssirate 0.8769147136113039
+Rssirate 0.8821042982954951
+Rssirate 0.9086730835017905
+Rssirate 0.9382206000471941
+Rssirate 0.93272209537077
+Rssirate 0.8759316431599765
+Rssirate 0.7648428792072561
+Rssirate 0.8205906868062138
+Rssirate2 7.0
+FinalRssiStateratesize: 9
+TotalStaterate 
+0.2791196843620544
+TotalStaterate 
+0.2798610536026531
+TotalStaterate 
+0.12981044050025578
+TotalStaterate 
+0.1340315142924563
+TotalStaterate 
+0.13324601362439573
+TotalStaterate 
+0.12513309187999663
+TotalStaterate 
+0.10926326845817945
+TotalStaterate 
+0.11722724097231627
+SortTotalStaterate [0.0, 0.10926326845817945, 0.11722724097231627, 0.12513309187999663, 0.12981044050025578, 0.13324601362439573, 0.1340315142924563, 0.2791196843620544, 0.2798610536026531]
+State: 2
+AccStaterate.clear
+Accdata User1Ap0.06!p0.26c
+UserName後: User1 0.06999999999999999 0.32 false
+if_acccompute false true
+User1Final_y 0.32
+allzerocount 0
+Line:Jack_Down_Behind:FF0
++INQ,+I
+posedata: Jack_Down_Behind FF0
++INQ +I
+ExcelTime: 13686
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 13687
+Accdata User1An0.06!n0.37c
+UserName後: User1 -0.049999999999999996 -0.31 false
+if_acccompute false true
+allzerocount 0
+未RadiansTimYaw,有: 352 6.14355896702004 8
+Line:Jack_Down_Behind:FF00,-59, 7
+posedata: Jack_Down_Behind FF00,-59  7
+ExcelTime: 13753
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 13753
+Line:Tim_Down_Right:93:BF:A7,33
+posedata: Tim_Down_Right 93:BF:A7 33
+ExcelTime: 13840
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 13840
+Line:Tim_Down_Right:93:C0:E7,48
+posedata: Tim_Down_Right 93:C0:E7 48
+ExcelTime: 13901
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 10 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 13901
+Line:Jack_Down_Behind:93:C0:E6,56
+posedata: Jack_Down_Behind 93:C0:E6 56
+ExcelTime: 13961
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 11 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 13961
+Line:Jack_Down_Right:9fghÑ:9B,33
+posedata: Jack_Down_Right 9fghÑ:9B 33
+ExcelTime: 13971
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 11 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 13971
+Accdata User2A0.01!0.00c
+Accdata User1Ap0.02!n0.04c
+UserName後: User1 0.03 0.019999999999999997 false
+if_acccompute false false
+allzerocount 0
+Line:Jack_Down_Behind:93:C2:E8,33
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Accdata User1Ap0.01!n0.06c
+UserName後: User1 0.02 0.0 false
+if_acccompute false false
+allzerocount 1
+posedata: Jack_Down_Behind 93:C2:E8 33
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 11 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14169
+Accdata User1Ap0.06!n0.07c
+UserName後: User1 0.06999999999999999 -0.010000000000000009 false
+if_acccompute false false
+allzerocount 2
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Line:Jack_Down_Right:93;BE:A7,72
+Accdata User1Ap0.03!n0.07c
+UserName後: User1 0.04 -0.010000000000000009 false
+if_acccompute false false
+allzerocount 3
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Accdata User1Ap0.03!n0.07c
+UserName後: User1 0.04 -0.010000000000000009 false
+if_acccompute false false
+allzerocount 4
+posedata: Jack_Down_Right 93;BE:A7 72
+ExcelTime: 14340
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 11 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14340
+Line:Jack_Down_Right:FF00,-56, 8
+posedata: Jack_Down_Right FF00,-56  8
+ExcelTime: 14371
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 11 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14371
+Line:Jack_Down_Right:FF00,-58, 2
+Accdata User2A0.01!0.0c
+posedata: Jack_Down_Right FF00,-58  2
+ExcelTime: 14469
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 11 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14469
+Line:Jack_Down_Right:FF00,-58, 2
+posedata: Jack_Down_Right FF00,-58  2
+ExcelTime: 14480
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 11 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14480
+Line:Jack_Down_Behind:93:BE:9B,49
+posedata: Jack_Down_Behind 93:BE:9B 49
+ExcelTime: 14507
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 11 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14507
+Line:Jack_Down_Behind:FF00,-58, 7
+posedata: Jack_Down_Behind FF00,-58  7
+ExcelTime: 14565
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 11 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14565
+RecordUser1Totalyaw [352, 352, 352, 352, 352, 352, 352, 352, 352, 352, 352, 351, 351]
+User1MinMaxacc [2.0]
+Recordyaw 176.79621296652965
+IndexList 21 0.8125
+參照上一筆狀態: 2
+StateMaxCount+StateMinCount 2.0 0.0
+Globalvariable.AccStaterate 9
+inStateMaxCount
+Globalvariable.User1Work 0.0 0.32
+leftcount 0rightcount 0
+AccStaterate.clear
+Line:Jack_Down_Behind:93:C0:E6,56
+posedata: Jack_Down_Behind 93:C0:E6 56
+ExcelTime: 14705
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 12 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14705
+Line:Jack_Down_Right:FF00,-57, 2
+posedata: Jack_Down_Right FF00,-57  2
+ExcelTime: 14711
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 12 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14711
+Line:Jack_Down_Right:FF00,-57, 2
+posedata: Jack_Down_Right FF00,-57  2
+ExcelTime: 14717
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 12 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14718
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 351 6.126105674500097 9
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Line:Jack_Down_Right:93:C2:E8,61
+Accdata User1Ap0.03!n0.07c
+UserName後: User1 0.04 -0.010000000000000009 false
+if_acccompute false false
+allzerocount 5
+未RadiansTimYaw,有: 351 6.126105674500097 9
+posedata: Jack_Down_Right 93:C2:E8 61
+ExcelTime: 14913
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 12 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14913
+Line:Jack_Down_Behind:93:C2:E8,34
+posedata: Jack_Down_Behind 93:C2:E8 34
+ExcelTime: 14969
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 12 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14969
+Line:Jack_Down_Right:FF00,-58,
+
+posedata: Jack_Down_Right FF00,-58 
+
+ExcelTime: 14982
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 0 12 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 14982
+Accdata User1An0.00!n0.06c
+UserName後: User1 0.01 0.0 false
+if_acccompute false false
+allzerocount 6
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Accdata User1Ap0.03!n0.07c
+UserName後: User1 0.04 -0.010000000000000009 false
+if_acccompute false false
+allzerocount 7
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute false false
+allzerocount 8
+Line:Tim_Down_Right:93:BE:9B,52
+未RadiansTimYaw,有: 351 6.126105674500097 9
+posedata: Tim_Down_Right 93:BE:9B 52
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 12 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 15194
+Accdata User1Ap0.03!n0.07c
+UserName後: User1 0.04 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 1
+Accdata User2A0.01!0.00c
+Line:Jack_Down_Behind:FF00,-59, 2
+posedata: Jack_Down_Behind FF00,-59  2
+ExcelTime: 15270
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 12 0 11 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 15270
+Line:Jack_Down_Behind:93:BE:A7,56
+posedata: Jack_Down_Behind 93:BE:A7 56
+ExcelTime: 15372
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 12 0 12 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 15372
+Accdata User2A0.01!0.00c
+Line:Jack_Down_Behind:93:BE:9B,50
+posedata: Jack_Down_Behind 93:BE:9B 50
+ExcelTime: 15585
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 12 0 12 0 0 0 0 0 8 0 18 
+
+currenttimestarttime: 15585
+StateMaxCount+StateMinCount 0.0 0.0
+Globalvariable.AccStaterate 9
+RecordUser1Totalyaw [352, 352, 352, 352, 352, 352, 352, 352, 352, 352, 352, 351, 351, 351]
+User1MinMaxacc [0.0]
+Recordyaw 176.79621296652965
+IndexList 23 0.8333333333333334
+IndexList 21 0.8125
+IndexList 15 0.8041666666666667
+互差: 1358.4583517037095 684.9617078066647 559.5228694756498
+互差: 1132.5920689268667 966.7331669529977 799.2983755681165
+互差: 510.1708256805442 1411.095561257305 1314.993157884195
+互差: 336.6307559858977 954.0109779600912 1041.9653173718502
+互差: 567.0198672041058 672.1585433475261 803.5603765849694
+互差: 1259.843819921497 856.9226448794786 1030.5295737098006
+互差: 2641.9420692652534 1185.8299703897435 1288.4016281967051
+互差: 2044.6389326736928 869.6680931156645 787.8100598653763
+MeansquareState 872.8692468908876 
+MeansquareState 968.1904214725414 
+MeansquareState 1073.1147602941037 
+MeansquareState 772.8870716873544 
+MeansquareState 679.5272824396052 
+MeansquareState 1050.9538902411382 
+MeansquareState 1714.7734223146508 
+MeansquareState 1242.449670486923 
+TotalMeansquare 8374.765765827206
+Rssirate 0.8957738913185387
+Rssirate 0.8843919401993078
+Rssirate 0.8718633105330668
+Rssirate 0.9077123953912741
+Rssirate 0.9188601446965382
+Rssirate 0.8745094585773968
+Rssirate 0.7952452080138535
+Rssirate 0.8516436512700243
+Rssirate2 7.0
+FinalRssiStateratesize: 9
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+TotalStaterate 
+0.0
+TotalStaterate 
+0.12634170574275824
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+SortTotalStaterate [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.12634170574275824]
+State: 2
+AccStaterate.clear
+Accdata User2A0.01!0.00c
+Accdata User2A0.01!0.00c
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:93:BE:A7,70
+Accdata User2A0.01!0.00c
+posedata: Jack_Down_Right 93:BE:A7 70
+ExcelTime: 15791
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 12 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 15792
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Behind:93:C0:E6,56
+posedata: Jack_Down_Behind 93:C0:E6 56
+ExcelTime: 15986
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 13 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 15986
+Line:Jack_Down_Right:93:BE:9B,fÃ
+posedata: Jack_Down_Right 93:BE:9B fÃ
+ExcelTime: 15995
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 13 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 15996
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Accdata User2A0.01!0.00c
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Behind:93;C2:E8,33
+Accdata User2A0.02!0.00c
+posedata: Jack_Down_Behind 93;C2:E8 33
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 13 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 16207
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Line:Tim_Down_Right:93:C0:E6,66
+posedata: Tim_Down_Right 93:C0:E6 66
+ExcelTime: 16215
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 13 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 16215
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:Q: 80:C8,IN
+未RadiansTimYaw,有: 351 6.126105674500097 9
+posedata: Jack_Down_Right Q: 80:C8 IN
+ExcelTime: 16399
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 13 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 16399
+Line:Jack_Down_Behind:93:C0:E6,55
+posedata: Jack_Down_Behind 93:C0:E6 55
+ExcelTime: 16463
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 14 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 16463
+Line:Jack_Down_Behind:93:C2:E8,33
+posedata: Jack_Down_Behind 93:C2:E8 33
+ExcelTime: 16533
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 14 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 16533
+Line:Jack_Down_Right:93:C2:E8,63
+posedata: Jack_Down_Right 93:C2:E8 63
+ExcelTime: 16540
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 14 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 16540
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Accdata User2A0.03!0.00c
+Line:Jack_Down_Behind:93:C0:E6,55
+posedata: Jack_Down_Behind 93:C0:E6 55
+ExcelTime: 16662
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 16662
+StateMaxCount+StateMinCount 0.0 0.0
+Globalvariable.AccStaterate 9
+RecordUser1Totalyaw [352, 352, 352, 352, 352, 352, 352, 352, 352, 352, 352, 351, 351, 351, 351]
+User1MinMaxacc [0.0]
+Recordyaw 176.79621296652965
+IndexList 21 0.8125
+IndexList 31 0.5
+MeansquareState 637.1754836805638 
+MeansquareState 902.9484845206621 
+MeansquareState 1374.4851218770727 
+MeansquareState 987.5173929740947 
+MeansquareState 722.2163845808378 
+MeansquareState 923.0586177672203 
+MeansquareState 1224.9048876495385 
+MeansquareState 838.4840804488881 
+TotalMeansquare 7610.790453498879
+Rssirate 0.9162799859523609
+Rssirate 0.8813594343402855
+Rssirate 0.8194031053311701
+Rssirate 0.8702477227552485
+Rssirate 0.905106258148414
+Rssirate 0.8787171157310124
+Rssirate 0.8390568108354084
+Rssirate 0.8898295669061004
+Rssirate2 7.000000000000001
+FinalRssiStateratesize: 9
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+TotalStaterate 
+0.0
+TotalStaterate 
+0.12590849062004078
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+SortTotalStaterate [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.12590849062004078]
+State: 2
+AccStaterate.clear
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Line:Jack_Down_Right:FF00,-58,
+
+posedata: Jack_Down_Right FF00,-58 
+
+ExcelTime: 16738
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 16738
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Accdata User2A0.0!0.00c
+Line:Jack_Down_Right:93:BE:9B,34
+posedata: Jack_Down_Right 93:BE:9B 34
+ExcelTime: 16805
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 16805
+Line:Jack_Down_Behind:93:BE:9B,47
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 351 6.126105674500097 9
+posedata: Jack_Down_Behind 93:BE:9B 47
+ExcelTime: 16894
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 16894
+Line:Jack_Down_Right:93:C2:E8,61
+posedata: Jack_Down_Right 93:C2:E8 61
+ExcelTime: 16935
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 19 
+
+currenttimestarttime: 16935
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:93:BE:A7,70
+Accdata User1Ap0.02!n0.7c
+java.lang.NumberFormatException: For input string: "0.7c"
+posedata: Jack_Down_Right 93:BE:A7 70
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at demo.Experiment.Experiment_Recieve_Acceleration.ACC_receive(Experiment_Recieve_Acceleration.java:47)
+	at demo.Subscriber_data$2.run(Subscriber_data.java:106)
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17022
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Line:Jack_Down_Right:FF00,-57,
+
+posedata: Jack_Down_Right FF00,-57 
+
+ExcelTime: 17083
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17084
+Line:Jack_Down_Right:FF00,-57,
+
+未RadiansTimYaw,有: 351 6.126105674500097 9
+posedata: Jack_Down_Right FF00,-57 
+
+ExcelTime: 17089
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17089
+Line:Jack_Down_Behind:93:C2:E8,33
+posedata: Jack_Down_Behind 93:C2:E8 33
+ExcelTime: 17138
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17139
+Accdata User2A0.02!0.00c
+Accdata User2A0.01!0.00c
+Accdata User2A0.01!0.00c
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Accdata User1Ap0.0!!n0.07c
+java.lang.NumberFormatException: For input string: "0.0!"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at demo.Experiment.Experiment_Recieve_Acceleration.ACC_receive(Experiment_Recieve_Acceleration.java:43)
+	at demo.Subscriber_data$2.run(Subscriber_data.java:106)
+Line:Jack_Down_Behind:93:C2:E8,34
+posedata: Jack_Down_Behind 93:C2:E8 34
+ExcelTime: 17471
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17471
+Line:Jack_Down_Right:FF00,-57, 2
+posedata: Jack_Down_Right FF00,-57  2
+ExcelTime: 17489
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17489
+Line:Jack_Down_Right:93:BE:9B,34
+Accdata User2A0.01!0.00c
+posedata: Jack_Down_Right 93:BE:9B 34
+ExcelTime: 17547
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17547
+Line:Jack_Down_Behind:FF00,-58, 7
+posedata: Jack_Down_Behind FF00,-58  7
+ExcelTime: 17604
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17605
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 351 6.126105674500097 9
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Line:Jack_Down_Right:FF00,-57, 2
+Accdata User2A0.01!0.00c
+posedata: Jack_Down_Right FF00,-57  2
+ExcelTime: 17696
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17696
+StateMaxCount+StateMinCount 0.0 0.0
+Globalvariable.AccStaterate 9
+RecordUser1Totalyaw [352, 352, 352, 352, 352, 352, 352, 352, 352, 352, 352, 351, 351, 351, 351, 351]
+User1MinMaxacc [0.0]
+Recordyaw 176.79621296652965
+IndexList 31 0.5
+MeansquareState 559.5228694756498 
+MeansquareState 799.2983755681165 
+MeansquareState 1314.993157884195 
+MeansquareState 1041.9653173718502 
+MeansquareState 803.5603765849694 
+MeansquareState 1030.5295737098006 
+MeansquareState 1288.4016281967051 
+MeansquareState 787.8100598653763 
+TotalMeansquare 7626.081358656663
+Rssirate 0.9266303566456823
+Rssirate 0.8951888475906696
+Rssirate 0.8275663350494556
+Rssirate 0.8633681876224577
+Rssirate 0.8946299758954425
+Rssirate 0.8648677446195868
+Rssirate 0.8310532542726954
+Rssirate 0.8966952983040101
+Rssirate2 7.0
+FinalRssiStateratesize: 9
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+原地不動時
+TotalStaterate 
+0.0
+TotalStaterate 
+0.12788412108438138
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+TotalStaterate 
+0.0
+SortTotalStaterate [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.12788412108438138]
+State: 2
+AccStaterate.clear
+Line:Jack_Down_Right:FF00,-57, 2
+posedata: Jack_Down_Right FF00,-57  2
+ExcelTime: 17706
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 15 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17707
+Accdata User2A0.01!0.00c
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Line:Jack_Down_Behind:93:C0:E6,55
+posedata: Jack_Down_Behind 93:C0:E6 55
+ExcelTime: 17871
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 16 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17871
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+未RadiansTimYaw,有: 351 6.126105674500097 9
+Accdata User2A0.01!0.00c
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+Line:Tim_Down_Right:93:C0:E6,53
+posedata: Tim_Down_Right 93:C0:E6 53
+ExcelTime: 17958
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 16 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 17958
+Line:Jack_Down_Behind:93:BE:9B,47
+posedata: Jack_Down_Behind 93:BE:9B 47
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 16 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 18014
+Line:Jack_Down_Behind:93:BE:9B,47
+Accdata User1Ap0.02!n0.07c
+UserName後: User1 0.03 -0.010000000000000009 false
+if_acccompute true true
+allzerocount 0
+posedata: Jack_Down_Behind 93:BE:9B 47
+ExcelTime: 18050
+判斷size windows:0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 6 0 0 0 0 0 16 0 12 0 0 0 0 0 8 0 20 
+
+currenttimestarttime: 18051

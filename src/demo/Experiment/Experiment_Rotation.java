@@ -29,8 +29,6 @@ public class Experiment_Rotation {
 	private static double TimDownRight_x, TimDownRight_z;
 	private static double JackDownLeft_x,  JackDownLeft_z;    //針對Z軸部分之後，初始化會以RSSI偵測
 	private static double JackDownRight_x, JackDownRight_z;   //針對Z軸部分之後，初始化會以RSSI偵測
-	private static double PreTimDownLeft_x=9999,PreTimDownLeft_z=9999,PreTimDownRight_x=9999,PreTimDownRight_z=9999;
-	private static double PreJackDownLeft_x=9999,PreJackDownLeft_z=9999,PreJackDownRight_x=9999,PreJackDownRight_z=9999;
 	private static int TimDownLeftX_forYangles=0, TimDownLeftZ_forYangles=0;
 	private static int TimDownRightX_forYangles=0, TimDownRightZ_forYangles=0;
 	private static int JackDownLeftX_forYangles=0, JackDownLeftZ_forYangles=0;
@@ -50,25 +48,18 @@ public class Experiment_Rotation {
 	                   JackDownRight_pitch=999, JackDownRight_row, JackDownRight_yaw,
 	                   Tim_pitch,Tim_row,Tim_yaw,
 	                   Jack_pitch,Jack_row,Jack_yaw,final_yaw;
-	private static long endTime=0;
-	private static long startTime=0;
 	private static long currentTime=0;
 	private static boolean  if_exe_one =false;
 	private static String finaljson;
+	public static int DegreeTim_yaw=0;
 	
 	
     public void Pose_processing(String posedata)
             throws java.io.IOException, JSONException
     {
-		startTime= System.currentTimeMillis();   //from last node compute
-		//System.out.println("startTime :"+startTime);
 
         JSONObject posedata_json;
         posedata_json= new JSONObject(posedata);
-        //System.out.println("posedata_json: "+posedata_json.has("TimDownLeft"));
-       
-       //posedata_json.getJSONObject("TimDownLeft");
-      // System.out.println("posedata: "+posedata_json.getJSONObject("TimDownLeft").get("x"));
        
 		if(posedata_json.has("TimDownLeft")){                   /////////For self-rotation
 			TimDownLeft_pitch=(Integer) posedata_json.getJSONObject("TimDownLeft").get("x");
@@ -94,11 +85,34 @@ public class Experiment_Rotation {
 			
 		}
 		
-		Globalvariable.FinalTim_yaw=Globalvariable.TimDownRight_yaw-Globalvariable.TimYawOffset;
-		Globalvariable.FinalTim_yaw=Math.toRadians(-Globalvariable.FinalTim_yaw);
-		System.out.println("未RadiansTimYaw,有: "+(-(Globalvariable.TimDownRight_yaw-Globalvariable.TimYawOffset))
-				+" "+Globalvariable.FinalTim_yaw);
+		DegreeTim_yaw=Globalvariable.TimDownRight_yaw-Globalvariable.TimYawOffset;
+		if(DegreeTim_yaw<0){// 0~359度
+			DegreeTim_yaw=360+DegreeTim_yaw;
+		}
+		if(-(DegreeTim_yaw-360)>=0 && -(DegreeTim_yaw-360)<=360){ //=====================防止Gyo有異常	的數值 正常值:0~359
+			Globalvariable.User1Totalyaw.add(-(DegreeTim_yaw-360));
+			Globalvariable.User1Rad_yaw=Math.toRadians(-(DegreeTim_yaw-360));
+			Globalvariable.User1TotalRad_yaw.add(Math.toRadians(-(DegreeTim_yaw-360)));
+			System.out.println("未RadiansTimYaw,有: "+(-(DegreeTim_yaw-360))
+					+" "+Globalvariable.User1Rad_yaw+" "+Math.abs(-(DegreeTim_yaw-360)-360));
+		}
 
+      	FileWriter fw1;
+		   try {
+				fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute/confindence_distance"
+						+ "/"+"TimDownRight_yaw.txt",true);
+			BufferedWriter bufferedWriter = new BufferedWriter(fw1);
+			bufferedWriter.write(-(DegreeTim_yaw-360)+"\n");
+			//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
+			bufferedWriter.flush();
+			bufferedWriter.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		   
+
+		//====================================================以下在做User1Yaw平均,與User2Yaw平均並且User1Yaw-User2Yaw
 		if(TimDownLeft_pitch!=999 && TimDownRight_pitch!=999){
 			Tim_pitch=(TimDownLeft_pitch+TimDownRight_pitch)/2;
 			Tim_row=(TimDownLeft_row+TimDownRight_row)/2;
@@ -120,32 +134,10 @@ public class Experiment_Rotation {
 			}
 			//Jack_yaw沒有值的時候
 			Jack_yaw=0;
-			   try {
-					fw1 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-							+ "/450度.txt",true);
-				BufferedWriter bufferedWriter = new BufferedWriter(fw1);
-				bufferedWriter.write((Tim_yaw-Jack_yaw-121)+"\n");
-				//bufferedWriter.write(TimDownLeft_yaw+" "+TimDownRight_yaw+" "+(Tim_yaw-Jack_yaw-456)+"\n");
-				bufferedWriter.flush();
-				bufferedWriter.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 			   
 				currentTime= System.currentTimeMillis();   //from last node compute
-				
-				   try {
-						fw2 = new FileWriter("/Users/tsai/Desktop/穿戴式/穿戴式展演資料/Wise_server_compute"
-								+ "/450度_即時性.txt",true);
-					BufferedWriter bufferedWriter = new BufferedWriter(fw2);
-					bufferedWriter.write(currentTime-1465147490995L+"\n");
-					bufferedWriter.flush();
-					bufferedWriter.close();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+	    //====================================================傳到Unity
+		
 			System.exit(1);
 			
 		}
